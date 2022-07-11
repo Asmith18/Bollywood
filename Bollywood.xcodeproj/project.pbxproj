@@ -1,0 +1,531 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C24B1268283408170061958C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24B1267283408170061958C /* AppDelegate.swift */; };
+		C24B126A283408170061958C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24B1269283408170061958C /* SceneDelegate.swift */; };
+		C24B1271283408180061958C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C24B1270283408180061958C /* Assets.xcassets */; };
+		C24B1274283408180061958C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C24B1272283408180061958C /* LaunchScreen.storyboard */; };
+		C24B1282283412230061958C /* BollywoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24B1281283412230061958C /* BollywoodViewController.swift */; };
+		C26A41C828394BDE00C0B96E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26A41C728394BDE00C0B96E /* DetailViewController.swift */; };
+		C28E764E286E4F0B00252AAA /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C28E764D286E4F0B00252AAA /* Settings.storyboard */; };
+		C28E7650286E4F2300252AAA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28E764F286E4F2300252AAA /* SettingsViewController.swift */; };
+		C2AC89EE286A19B900A6465D /* Movies.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2AC89ED286A19B900A6465D /* Movies.storyboard */; };
+		C2AC89F0286A21C800A6465D /* TV.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2AC89EF286A21C800A6465D /* TV.storyboard */; };
+		C2AC89F3286A246100A6465D /* TVShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AC89F2286A246100A6465D /* TVShowViewController.swift */; };
+		C2AC89F5286A250900A6465D /* TVShowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AC89F4286A250900A6465D /* TVShowViewModel.swift */; };
+		C2AC89F7286A252900A6465D /* TVCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AC89F6286A252900A6465D /* TVCollectionViewCell.swift */; };
+		C2AC89F9286A25D100A6465D /* TV.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AC89F8286A25D100A6465D /* TV.swift */; };
+		C2AC89FC286A51C300A6465D /* MovieDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2AC89FB286A51C300A6465D /* MovieDetails.storyboard */; };
+		C2AC89FE286A51CE00A6465D /* TVDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2AC89FD286A51CE00A6465D /* TVDetails.storyboard */; };
+		C2AC8A00286A51F700A6465D /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2AC89FF286A51F700A6465D /* Account.storyboard */; };
+		C2AC8A03286B786100A6465D /* TVShowDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AC8A02286B786100A6465D /* TVShowDetailsViewController.swift */; };
+		C2AC8A08286B7FCD00A6465D /* TVShowDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AC8A07286B7FCD00A6465D /* TVShowDetailsViewModel.swift */; };
+		C2AC8A0A286B924400A6465D /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AC8A09286B924400A6465D /* DetailsViewModel.swift */; };
+		C2AC8A0C286CD53700A6465D /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AC8A0B286CD53700A6465D /* WebView.swift */; };
+		C2AC8A0E286E247200A6465D /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AC8A0D286E247200A6465D /* AccountViewController.swift */; };
+		C2AC8A11286E24D800A6465D /* MyFavoritesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AC8A10286E24D800A6465D /* MyFavoritesCollectionViewCell.swift */; };
+		C2AC8A13286E24E400A6465D /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AC8A12286E24E400A6465D /* AccountViewModel.swift */; };
+		C2AC8A15286E260A00A6465D /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AC8A14286E260A00A6465D /* Account.swift */; };
+		C2FB2E5C283413A800D6B190 /* TopCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FB2E5B283413A800D6B190 /* TopCollectionViewCell.swift */; };
+		C2FB2E68283416E200D6B190 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FB2E67283416E200D6B190 /* Movie.swift */; };
+		C2FB2E6B28341EEB00D6B190 /* BollywoodAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FB2E6A28341EEB00D6B190 /* BollywoodAPI.swift */; };
+		C2FB2E6D2834261E00D6B190 /* ResultError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FB2E6C2834261E00D6B190 /* ResultError.swift */; };
+		C2FB2E73283563C800D6B190 /* BollywoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FB2E72283563C800D6B190 /* BollywoodViewModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C24B1264283408170061958C /* Bollywood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bollywood.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C24B1267283408170061958C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C24B1269283408170061958C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		C24B1270283408180061958C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C24B1273283408180061958C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C24B1275283408180061958C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C24B1281283412230061958C /* BollywoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BollywoodViewController.swift; sourceTree = "<group>"; };
+		C26A41C728394BDE00C0B96E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		C28E764D286E4F0B00252AAA /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		C28E764F286E4F2300252AAA /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		C2AC89ED286A19B900A6465D /* Movies.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Movies.storyboard; sourceTree = "<group>"; };
+		C2AC89EF286A21C800A6465D /* TV.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TV.storyboard; sourceTree = "<group>"; };
+		C2AC89F2286A246100A6465D /* TVShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowViewController.swift; sourceTree = "<group>"; };
+		C2AC89F4286A250900A6465D /* TVShowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowViewModel.swift; sourceTree = "<group>"; };
+		C2AC89F6286A252900A6465D /* TVCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVCollectionViewCell.swift; sourceTree = "<group>"; };
+		C2AC89F8286A25D100A6465D /* TV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TV.swift; sourceTree = "<group>"; };
+		C2AC89FB286A51C300A6465D /* MovieDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MovieDetails.storyboard; sourceTree = "<group>"; };
+		C2AC89FD286A51CE00A6465D /* TVDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TVDetails.storyboard; sourceTree = "<group>"; };
+		C2AC89FF286A51F700A6465D /* Account.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
+		C2AC8A02286B786100A6465D /* TVShowDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowDetailsViewController.swift; sourceTree = "<group>"; };
+		C2AC8A07286B7FCD00A6465D /* TVShowDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowDetailsViewModel.swift; sourceTree = "<group>"; };
+		C2AC8A09286B924400A6465D /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
+		C2AC8A0B286CD53700A6465D /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		C2AC8A0D286E247200A6465D /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		C2AC8A10286E24D800A6465D /* MyFavoritesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoritesCollectionViewCell.swift; sourceTree = "<group>"; };
+		C2AC8A12286E24E400A6465D /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
+		C2AC8A14286E260A00A6465D /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		C2FB2E5B283413A800D6B190 /* TopCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCollectionViewCell.swift; sourceTree = "<group>"; };
+		C2FB2E67283416E200D6B190 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		C2FB2E6A28341EEB00D6B190 /* BollywoodAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BollywoodAPI.swift; sourceTree = "<group>"; };
+		C2FB2E6C2834261E00D6B190 /* ResultError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultError.swift; sourceTree = "<group>"; };
+		C2FB2E72283563C800D6B190 /* BollywoodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BollywoodViewModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C24B1261283408170061958C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C24B125B283408170061958C = {
+			isa = PBXGroup;
+			children = (
+				C24B1266283408170061958C /* Bollywood */,
+				C24B1265283408170061958C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C24B1265283408170061958C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C24B1264283408170061958C /* Bollywood.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C24B1266283408170061958C /* Bollywood */ = {
+			isa = PBXGroup;
+			children = (
+				C2FB2E66283416D400D6B190 /* Model */,
+				C2FB2E6928341ECA00D6B190 /* Network */,
+				C2FB2E652834140A00D6B190 /* BollyWood */,
+				C24B127B283408320061958C /* Resources */,
+			);
+			path = Bollywood;
+			sourceTree = "<group>";
+		};
+		C24B127B283408320061958C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C2AC89ED286A19B900A6465D /* Movies.storyboard */,
+				C2AC89FB286A51C300A6465D /* MovieDetails.storyboard */,
+				C2AC89EF286A21C800A6465D /* TV.storyboard */,
+				C2AC89FD286A51CE00A6465D /* TVDetails.storyboard */,
+				C2AC89FF286A51F700A6465D /* Account.storyboard */,
+				C28E764D286E4F0B00252AAA /* Settings.storyboard */,
+				C24B1267283408170061958C /* AppDelegate.swift */,
+				C24B1269283408170061958C /* SceneDelegate.swift */,
+				C24B1270283408180061958C /* Assets.xcassets */,
+				C24B1272283408180061958C /* LaunchScreen.storyboard */,
+				C24B1275283408180061958C /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C26A41C628394BBE00C0B96E /* Movies */ = {
+			isa = PBXGroup;
+			children = (
+				C24B1281283412230061958C /* BollywoodViewController.swift */,
+				C2FB2E72283563C800D6B190 /* BollywoodViewModel.swift */,
+				C2FB2E5B283413A800D6B190 /* TopCollectionViewCell.swift */,
+				C26A41C928394BF000C0B96E /* Details */,
+			);
+			path = Movies;
+			sourceTree = "<group>";
+		};
+		C26A41C928394BF000C0B96E /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				C26A41C728394BDE00C0B96E /* DetailViewController.swift */,
+				C2AC8A09286B924400A6465D /* DetailsViewModel.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
+		C28E7651286E4F2600252AAA /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				C28E764F286E4F2300252AAA /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		C2AC89FA286A293700A6465D /* TV */ = {
+			isa = PBXGroup;
+			children = (
+				C2AC89F2286A246100A6465D /* TVShowViewController.swift */,
+				C2AC89F4286A250900A6465D /* TVShowViewModel.swift */,
+				C2AC89F6286A252900A6465D /* TVCollectionViewCell.swift */,
+				C2AC8A01286B783600A6465D /* Details */,
+			);
+			path = TV;
+			sourceTree = "<group>";
+		};
+		C2AC8A01286B783600A6465D /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				C2AC8A02286B786100A6465D /* TVShowDetailsViewController.swift */,
+				C2AC8A07286B7FCD00A6465D /* TVShowDetailsViewModel.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
+		C2AC8A0F286E247600A6465D /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				C2AC8A0D286E247200A6465D /* AccountViewController.swift */,
+				C2AC8A12286E24E400A6465D /* AccountViewModel.swift */,
+				C2AC8A10286E24D800A6465D /* MyFavoritesCollectionViewCell.swift */,
+				C28E7651286E4F2600252AAA /* Settings */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		C2FB2E652834140A00D6B190 /* BollyWood */ = {
+			isa = PBXGroup;
+			children = (
+				C2AC89FA286A293700A6465D /* TV */,
+				C26A41C628394BBE00C0B96E /* Movies */,
+				C2AC8A0F286E247600A6465D /* Account */,
+			);
+			path = BollyWood;
+			sourceTree = "<group>";
+		};
+		C2FB2E66283416D400D6B190 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C2FB2E67283416E200D6B190 /* Movie.swift */,
+				C2AC89F8286A25D100A6465D /* TV.swift */,
+				C2AC8A0B286CD53700A6465D /* WebView.swift */,
+				C2AC8A14286E260A00A6465D /* Account.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C2FB2E6928341ECA00D6B190 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				C2FB2E6A28341EEB00D6B190 /* BollywoodAPI.swift */,
+				C2FB2E6C2834261E00D6B190 /* ResultError.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C24B1263283408170061958C /* Bollywood */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C24B1278283408180061958C /* Build configuration list for PBXNativeTarget "Bollywood" */;
+			buildPhases = (
+				C24B1260283408170061958C /* Sources */,
+				C24B1261283408170061958C /* Frameworks */,
+				C24B1262283408170061958C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Bollywood;
+			productName = Bollywood;
+			productReference = C24B1264283408170061958C /* Bollywood.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C24B125C283408170061958C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					C24B1263283408170061958C = {
+						CreatedOnToolsVersion = 13.4;
+					};
+				};
+			};
+			buildConfigurationList = C24B125F283408170061958C /* Build configuration list for PBXProject "Bollywood" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C24B125B283408170061958C;
+			productRefGroup = C24B1265283408170061958C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C24B1263283408170061958C /* Bollywood */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C24B1262283408170061958C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C24B1274283408180061958C /* LaunchScreen.storyboard in Resources */,
+				C2AC89EE286A19B900A6465D /* Movies.storyboard in Resources */,
+				C2AC89FC286A51C300A6465D /* MovieDetails.storyboard in Resources */,
+				C28E764E286E4F0B00252AAA /* Settings.storyboard in Resources */,
+				C2AC89F0286A21C800A6465D /* TV.storyboard in Resources */,
+				C24B1271283408180061958C /* Assets.xcassets in Resources */,
+				C2AC89FE286A51CE00A6465D /* TVDetails.storyboard in Resources */,
+				C2AC8A00286A51F700A6465D /* Account.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C24B1260283408170061958C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C26A41C828394BDE00C0B96E /* DetailViewController.swift in Sources */,
+				C2AC89F9286A25D100A6465D /* TV.swift in Sources */,
+				C2FB2E68283416E200D6B190 /* Movie.swift in Sources */,
+				C2AC8A0A286B924400A6465D /* DetailsViewModel.swift in Sources */,
+				C2AC89F3286A246100A6465D /* TVShowViewController.swift in Sources */,
+				C2FB2E6D2834261E00D6B190 /* ResultError.swift in Sources */,
+				C2AC8A13286E24E400A6465D /* AccountViewModel.swift in Sources */,
+				C2FB2E5C283413A800D6B190 /* TopCollectionViewCell.swift in Sources */,
+				C2FB2E73283563C800D6B190 /* BollywoodViewModel.swift in Sources */,
+				C2AC8A11286E24D800A6465D /* MyFavoritesCollectionViewCell.swift in Sources */,
+				C2AC8A0E286E247200A6465D /* AccountViewController.swift in Sources */,
+				C2FB2E6B28341EEB00D6B190 /* BollywoodAPI.swift in Sources */,
+				C2AC8A03286B786100A6465D /* TVShowDetailsViewController.swift in Sources */,
+				C28E7650286E4F2300252AAA /* SettingsViewController.swift in Sources */,
+				C24B1268283408170061958C /* AppDelegate.swift in Sources */,
+				C2AC8A0C286CD53700A6465D /* WebView.swift in Sources */,
+				C2AC8A08286B7FCD00A6465D /* TVShowDetailsViewModel.swift in Sources */,
+				C24B1282283412230061958C /* BollywoodViewController.swift in Sources */,
+				C24B126A283408170061958C /* SceneDelegate.swift in Sources */,
+				C2AC89F7286A252900A6465D /* TVCollectionViewCell.swift in Sources */,
+				C2AC89F5286A250900A6465D /* TVShowViewModel.swift in Sources */,
+				C2AC8A15286E260A00A6465D /* Account.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C24B1272283408180061958C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C24B1273283408180061958C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C24B1276283408180061958C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C24B1277283408180061958C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C24B1279283408180061958C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9DXP3CGV77;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Bollywood/Resources/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = Movies;
+				INFOPLIST_KEY_UIMainStoryboardFile = Movies;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adamsmith.Bollywood;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C24B127A283408180061958C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9DXP3CGV77;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Bollywood/Resources/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = Movies;
+				INFOPLIST_KEY_UIMainStoryboardFile = Movies;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adamsmith.Bollywood;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C24B125F283408170061958C /* Build configuration list for PBXProject "Bollywood" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C24B1276283408180061958C /* Debug */,
+				C24B1277283408180061958C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C24B1278283408180061958C /* Build configuration list for PBXNativeTarget "Bollywood" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C24B1279283408180061958C /* Debug */,
+				C24B127A283408180061958C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C24B125C283408170061958C /* Project object */;
+}
