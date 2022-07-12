@@ -39,6 +39,7 @@ class BollywoodViewController: UIViewController {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         self.searchbarView.isHidden = true
+        viewModel.fetchPopular()
     }
     
     //MARK: - Actions
