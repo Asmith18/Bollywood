@@ -168,13 +168,42 @@ class BollywoodAPI {
                 completion(.failure(.thrownError(error)))
             }
             
-            guard let searchData = data else {
+            guard let searchMovieData = data else {
                 completion(.failure(.noData))
                 return
             }
             do {
-                let search = try JSONDecoder().decode(Movie.self, from: searchData)
-                completion(.success(search))
+                let searchMovie = try JSONDecoder().decode(Movie.self, from: searchMovieData)
+                completion(.success(searchMovie))
+            } catch {
+                completion(.failure(.unableToDecode))
+            }
+        }.resume()
+    }
+    
+    static func searchTVShow(with searchTerm: String, completion: @escaping (Result<TV, ResultError>) -> Void) {
+
+        guard let baseURL = URL(string: baseURLString) else { return }
+        
+        let apiQuery = URLQueryItem(name: "api_key", value: "be35af15dc34f6c18ecb1b03e2fd3559")
+        let searchQuery = URLQueryItem(name: "query", value: searchTerm)
+        var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
+        urlComponents?.path = "/3/search/tv/"
+        urlComponents?.queryItems = [apiQuery, searchQuery]
+        let finalURL = urlComponents?.url
+        
+        URLSession.shared.dataTask(with: finalURL!) { data, _, error in
+            if let error = error {
+                completion(.failure(.thrownError(error)))
+            }
+            
+            guard let searchTVData = data else {
+                completion(.failure(.noData))
+                return
+            }
+            do {
+                let searchTVShow = try JSONDecoder().decode(TV.self, from: searchTVData)
+                completion(.success(searchTVShow))
             } catch {
                 completion(.failure(.unableToDecode))
             }

@@ -10,9 +10,10 @@ import UIKit
 class TVShowViewController: UIViewController {
     
     var viewModel: TVShowsViewModel!
-    @IBOutlet var searchBarView: UISearchBar!
     
+    //MARK: - Outlets
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet var searchBarView: UISearchBar!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,7 @@ class TVShowViewController: UIViewController {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         self.searchBarView.isHidden = true
+        viewModel.fetchPopular()
     }
     
     //MARK: - Actions
@@ -76,6 +78,12 @@ extension TVShowViewController: UICollectionViewDataSource, UICollectionViewDele
 }
 
 extension TVShowViewController: TVShowsViewModelDelegate {
+    func searchTermHasData() {
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+    }
+    
     func tvShowHasData() {
         DispatchQueue.main.async {
             self.collectionView.reloadData()
@@ -91,5 +99,10 @@ extension TVShowViewController: UICollectionViewDelegateFlowLayout {
 
 extension TVShowViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        guard let searchTerm = searchBarView.text,
+              !searchTerm.isEmpty else { return }
+        
+        viewModel.searchTVShow(searchTerm: searchTerm)
     }
 }
