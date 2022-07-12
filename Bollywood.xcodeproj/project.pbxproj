@@ -12,6 +12,8 @@
 		C24B1271283408180061958C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C24B1270283408180061958C /* Assets.xcassets */; };
 		C24B1274283408180061958C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C24B1272283408180061958C /* LaunchScreen.storyboard */; };
 		C24B1282283412230061958C /* BollywoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24B1281283412230061958C /* BollywoodViewController.swift */; };
+		C261629A287DF5C600FCC597 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2616299287DF5C600FCC597 /* SignIn.storyboard */; };
+		C261629C287DFA7E00FCC597 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C261629B287DFA7E00FCC597 /* SignInViewController.swift */; };
 		C26A41C828394BDE00C0B96E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26A41C728394BDE00C0B96E /* DetailViewController.swift */; };
 		C28E764E286E4F0B00252AAA /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C28E764D286E4F0B00252AAA /* Settings.storyboard */; };
 		C28E7650286E4F2300252AAA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28E764F286E4F2300252AAA /* SettingsViewController.swift */; };
@@ -47,6 +49,8 @@
 		C24B1273283408180061958C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C24B1275283408180061958C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C24B1281283412230061958C /* BollywoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BollywoodViewController.swift; sourceTree = "<group>"; };
+		C2616299287DF5C600FCC597 /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
+		C261629B287DFA7E00FCC597 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		C26A41C728394BDE00C0B96E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C28E764D286E4F0B00252AAA /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		C28E764F286E4F2300252AAA /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +125,7 @@
 				C2AC89FD286A51CE00A6465D /* TVDetails.storyboard */,
 				C2AC89FF286A51F700A6465D /* Account.storyboard */,
 				C28E764D286E4F0B00252AAA /* Settings.storyboard */,
+				C2616299287DF5C600FCC597 /* SignIn.storyboard */,
 				C24B1267283408170061958C /* AppDelegate.swift */,
 				C24B1269283408170061958C /* SceneDelegate.swift */,
 				C24B1270283408180061958C /* Assets.xcassets */,
@@ -128,6 +133,14 @@
 				C24B1275283408180061958C /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		C261629D287DFA8300FCC597 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				C261629B287DFA7E00FCC597 /* SignInViewController.swift */,
+			);
+			path = SignIn;
 			sourceTree = "<group>";
 		};
 		C26A41C628394BBE00C0B96E /* Movies */ = {
@@ -195,6 +208,7 @@
 				C2AC89FA286A293700A6465D /* TV */,
 				C26A41C628394BBE00C0B96E /* Movies */,
 				C2AC8A0F286E247600A6465D /* Account */,
+				C261629D287DFA8300FCC597 /* SignIn */,
 			);
 			path = BollyWood;
 			sourceTree = "<group>";
@@ -281,6 +295,7 @@
 				C2AC89EE286A19B900A6465D /* Movies.storyboard in Resources */,
 				C2AC89FC286A51C300A6465D /* MovieDetails.storyboard in Resources */,
 				C28E764E286E4F0B00252AAA /* Settings.storyboard in Resources */,
+				C261629A287DF5C600FCC597 /* SignIn.storyboard in Resources */,
 				C2AC89F0286A21C800A6465D /* TV.storyboard in Resources */,
 				C24B1271283408180061958C /* Assets.xcassets in Resources */,
 				C2AC89FE286A51CE00A6465D /* TVDetails.storyboard in Resources */,
@@ -316,6 +331,7 @@
 				C24B126A283408170061958C /* SceneDelegate.swift in Sources */,
 				C2AC89F7286A252900A6465D /* TVCollectionViewCell.swift in Sources */,
 				C2AC89F5286A250900A6465D /* TVShowViewModel.swift in Sources */,
+				C261629C287DFA7E00FCC597 /* SignInViewController.swift in Sources */,
 				C2AC8A15286E260A00A6465D /* Account.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -459,7 +475,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Bollywood/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = Movies;
+				INFOPLIST_KEY_UILaunchStoryboardName = SignIn;
 				INFOPLIST_KEY_UIMainStoryboardFile = Movies;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -487,7 +503,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Bollywood/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = Movies;
+				INFOPLIST_KEY_UILaunchStoryboardName = SignIn;
 				INFOPLIST_KEY_UIMainStoryboardFile = Movies;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

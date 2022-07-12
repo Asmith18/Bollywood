@@ -39,7 +39,6 @@ class AccountViewController: UIViewController {
     }
     
     func updateViews() {
-        myFavoritesCollectionView.layer.cornerRadius = 25
         profileImageView.image = UIImage(named: "profile")
         profileNameTextlabel.text = "Adam"
     }
@@ -54,7 +53,6 @@ extension AccountViewController: UICollectionViewDataSource, UICollectionViewDel
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = myFavoritesCollectionView.dequeueReusableCell(withReuseIdentifier: "myFav", for: indexPath) as! MyFavoritesCollectionViewCell
         
-        cell.posterImageView.layer.cornerRadius = 20
         cell.posterImageView.image = UIImage(named: "boys")
         cell.posterNameTextLabel.text = "The Boys"
         return cell
