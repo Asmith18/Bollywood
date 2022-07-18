@@ -63,8 +63,8 @@ class SignUpViewController: UIViewController {
                 UserDefaults.standard.set(true, forKey: "signedInWithFirebase")
                 UserDefaults.standard.set(user.uid, forKey: "uid")
                 UserDefaults.standard.set(user.email, forKey: "email")
-                let storyboard = UIStoryboard(name: "Account", bundle: nil)
-                guard let viewController = storyboard.instantiateViewController(withIdentifier: "account") as? AccountViewController else { return }
+                let storyboard = UIStoryboard(name: "Movies", bundle: nil)
+                guard let viewController = storyboard.instantiateViewController(withIdentifier: "movies") as? BollywoodViewController else { return }
                 self.navigationController?.pushViewController(viewController, animated: true)
             }
         }

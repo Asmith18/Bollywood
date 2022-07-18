@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class AccountViewController: UIViewController {
     
@@ -31,6 +32,21 @@ class AccountViewController: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = false
     }
     
+    func logout() {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print("Error signing out %@", signOutError)
+        }
+    }
+    
+    func returnToMovies() {
+        let storyboard = UIStoryboard(name: "Movies", bundle: nil)
+       guard let viewController = storyboard.instantiateViewController(withIdentifier: "movies") as? BollywoodViewController else { return }
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
     //MARK: - Actions
     @IBAction func settingsButtonTapped(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Settings", bundle: nil)
@@ -38,13 +54,23 @@ class AccountViewController: UIViewController {
         self.navigationController?.pushViewController(viewController, animated: false)
     }
     
+    @IBAction func signOutButtonPressed(_ sender: Any) {
+        
+        let signoutAlert = UIAlertController(title: "Are you sure you want to sing out?", message: "This wioll Sign you out", preferredStyle: .alert)
+        signoutAlert.addAction(UIAlertAction(title: "Confirm", style: .destructive, handler: { (action: UIAlertAction) in
+            self.logout()
+            self.returnToMovies()
+        }))
+        
+        signoutAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction) in
+            return }))
+        
+        present(signoutAlert , animated: true, completion: nil)
+    }
+    
     func updateViews() {
         profileImageView.image = UIImage(named: "profile")
-        if let user = UserDefaults.standard.string(forKey: "email") {
-            profileNameTextlabel.text = "\(user)"
-        } else {
-            profileNameTextlabel.text = "User"
-        }
+        profileNameTextlabel.text = "Adam"
     }
 }
 

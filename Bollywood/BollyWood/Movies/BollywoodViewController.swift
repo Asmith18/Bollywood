@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class BollywoodViewController: UIViewController {
     
@@ -57,16 +58,16 @@ class BollywoodViewController: UIViewController {
     }
     
     func SignInAlert() {
-        let alertController = UIAlertController(title: "Not Signed In.", message: "Sign In or Continue as a Guest.", preferredStyle: .alert)
-        let accountAction = UIAlertAction(title: "Sign In", style: .default) { accountAction in
-            let storyboard = UIStoryboard(name: "SignIn", bundle: nil)
-            guard let viewController = storyboard.instantiateViewController(withIdentifier: "signin") as? SignInViewController else { return }
-            self.navigationController?.pushViewController(viewController, animated: true)
-        }
-        let guestAction = UIAlertAction(title: "Continue as Guest", style: .default, handler: nil)
-        alertController.addAction(accountAction)
-        alertController.addAction(guestAction)
-        self.present(alertController, animated: true, completion: nil)
+            let alertController = UIAlertController(title: "Not Signed In.", message: "Sign In or Continue as a Guest.", preferredStyle: .alert)
+            let accountAction = UIAlertAction(title: "Sign In", style: .default) { accountAction in
+                let storyboard = UIStoryboard(name: "SignIn", bundle: nil)
+                guard let viewController = storyboard.instantiateViewController(withIdentifier: "signin") as? SignInViewController else { return }
+                self.navigationController?.pushViewController(viewController, animated: true)
+            }
+            let guestAction = UIAlertAction(title: "Continue as Guest", style: .default, handler: nil)
+            alertController.addAction(accountAction)
+            alertController.addAction(guestAction)
+            self.present(alertController, animated: true, completion: nil)
     }
 }
 
