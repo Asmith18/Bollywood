@@ -58,17 +58,36 @@
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="baseBackgroundColor" red="0.67258435490000001" green="0.1243264452" blue="0.19373077150000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="signInButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Yaw-1T-twv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TIb-tP-WQa">
+                                <rect key="frame" x="20" y="741" width="374" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="374" id="Rvg-0M-jMz"/>
+                                    <constraint firstAttribute="height" constant="31" id="t5Y-BE-YZ1"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Sign Up">
+                                    <color key="baseForegroundColor" red="0.67258435490000001" green="0.1243264452" blue="0.19373077150000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="signUpButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="0Mh-hu-0wO"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="IdV-5y-FDb" firstAttribute="top" secondItem="csn-ch-eNp" secondAttribute="bottom" constant="8" symbolic="YES" id="0Zc-eS-O5z"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="TIb-tP-WQa" secondAttribute="trailing" constant="20" id="115-2n-6s0"/>
                             <constraint firstItem="Snh-f7-TkO" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="1ad-Xb-QJs"/>
                             <constraint firstItem="IdV-5y-FDb" firstAttribute="leading" secondItem="514-tt-WVU" secondAttribute="leading" id="2LG-kc-ZLY"/>
                             <constraint firstItem="IdV-5y-FDb" firstAttribute="trailing" secondItem="514-tt-WVU" secondAttribute="trailing" id="BLG-0m-8MN"/>
                             <constraint firstItem="Snh-f7-TkO" firstAttribute="top" secondItem="514-tt-WVU" secondAttribute="bottom" constant="100" id="Fr0-Zz-jDG"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="oco-6X-e4o" secondAttribute="trailing" constant="317" id="IxQ-M8-VWC"/>
+                            <constraint firstItem="TIb-tP-WQa" firstAttribute="top" secondItem="Snh-f7-TkO" secondAttribute="bottom" constant="26" id="LSV-gY-KFy"/>
                             <constraint firstItem="IdV-5y-FDb" firstAttribute="trailing" secondItem="5EZ-qb-Rvc" secondAttribute="trailingMargin" id="MI3-sX-pPf"/>
                             <constraint firstItem="csn-ch-eNp" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="17" id="cqE-UK-9mg"/>
                             <constraint firstItem="IdV-5y-FDb" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leadingMargin" id="det-Rc-ee7"/>
@@ -77,9 +96,14 @@
                             <constraint firstItem="514-tt-WVU" firstAttribute="top" secondItem="oco-6X-e4o" secondAttribute="bottom" constant="8" symbolic="YES" id="o1e-7z-Ej3"/>
                             <constraint firstItem="csn-ch-eNp" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="275" id="or8-uj-rea"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Snh-f7-TkO" secondAttribute="trailing" constant="20" id="w87-Dr-AjA"/>
+                            <constraint firstItem="TIb-tP-WQa" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="zbC-Y8-NRo"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Sign In" id="wle-gu-MsJ"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="IdV-5y-FDb" id="rjF-5S-jlW"/>
+                        <outlet property="passwordTextField" destination="514-tt-WVU" id="6ub-Sk-QDW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

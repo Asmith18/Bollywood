@@ -20,6 +20,8 @@
 		C25A16CE2885D7CF002F8487 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = C25A16CD2885D7CF002F8487 /* FirebaseFirestore */; };
 		C25A16D02885D7CF002F8487 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C25A16CF2885D7CF002F8487 /* FirebaseFirestoreSwift */; };
 		C25A16D22885D7CF002F8487 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = C25A16D12885D7CF002F8487 /* FirebaseStorage */; };
+		C25A16D52885E0F6002F8487 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C25A16D42885E0F6002F8487 /* SignUp.storyboard */; };
+		C25A16D82885E1DD002F8487 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25A16D72885E1DD002F8487 /* SignUpViewController.swift */; };
 		C261629A287DF5C600FCC597 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2616299287DF5C600FCC597 /* SignIn.storyboard */; };
 		C26A41C828394BDE00C0B96E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26A41C728394BDE00C0B96E /* DetailViewController.swift */; };
 		C28E764E286E4F0B00252AAA /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C28E764D286E4F0B00252AAA /* Settings.storyboard */; };
@@ -58,6 +60,8 @@
 		C24B1281283412230061958C /* BollywoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BollywoodViewController.swift; sourceTree = "<group>"; };
 		C25A16C22885D0EE002F8487 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		C25A16C42885D690002F8487 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C25A16D42885E0F6002F8487 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
+		C25A16D72885E1DD002F8487 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		C2616299287DF5C600FCC597 /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
 		C26A41C728394BDE00C0B96E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C28E764D286E4F0B00252AAA /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
@@ -142,6 +146,7 @@
 				C2AC89FF286A51F700A6465D /* Account.storyboard */,
 				C28E764D286E4F0B00252AAA /* Settings.storyboard */,
 				C2616299287DF5C600FCC597 /* SignIn.storyboard */,
+				C25A16D42885E0F6002F8487 /* SignUp.storyboard */,
 				C24B1267283408170061958C /* AppDelegate.swift */,
 				C24B1269283408170061958C /* SceneDelegate.swift */,
 				C24B1270283408180061958C /* Assets.xcassets */,
@@ -156,6 +161,14 @@
 			children = (
 			);
 			path = Firebase;
+			sourceTree = "<group>";
+		};
+		C25A16D62885E1C7002F8487 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				C25A16D72885E1DD002F8487 /* SignUpViewController.swift */,
+			);
+			path = SignUp;
 			sourceTree = "<group>";
 		};
 		C261629D287DFA8300FCC597 /* SignIn */ = {
@@ -232,6 +245,7 @@
 				C26A41C628394BBE00C0B96E /* Movies */,
 				C2AC8A0F286E247600A6465D /* Account */,
 				C261629D287DFA8300FCC597 /* SignIn */,
+				C25A16D62885E1C7002F8487 /* SignUp */,
 			);
 			path = BollyWood;
 			sourceTree = "<group>";
@@ -328,6 +342,7 @@
 				C24B1274283408180061958C /* LaunchScreen.storyboard in Resources */,
 				C2AC89EE286A19B900A6465D /* Movies.storyboard in Resources */,
 				C2AC89FC286A51C300A6465D /* MovieDetails.storyboard in Resources */,
+				C25A16D52885E0F6002F8487 /* SignUp.storyboard in Resources */,
 				C28E764E286E4F0B00252AAA /* Settings.storyboard in Resources */,
 				C261629A287DF5C600FCC597 /* SignIn.storyboard in Resources */,
 				C2AC89F0286A21C800A6465D /* TV.storyboard in Resources */,
@@ -363,6 +378,7 @@
 				C2AC8A0C286CD53700A6465D /* WebView.swift in Sources */,
 				C2AC8A08286B7FCD00A6465D /* TVShowDetailsViewModel.swift in Sources */,
 				C24B1282283412230061958C /* BollywoodViewController.swift in Sources */,
+				C25A16D82885E1DD002F8487 /* SignUpViewController.swift in Sources */,
 				C24B126A283408170061958C /* SceneDelegate.swift in Sources */,
 				C2AC89F7286A252900A6465D /* TVCollectionViewCell.swift in Sources */,
 				C2AC89F5286A250900A6465D /* TVShowViewModel.swift in Sources */,
