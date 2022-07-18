@@ -59,20 +59,6 @@
                                     <color key="baseBackgroundColor" red="0.67258435490000001" green="0.1243264452" blue="0.19373077150000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K03-mx-Wti">
-                                <rect key="frame" x="20" y="817" width="374" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="374" id="0Bm-eB-OUx"/>
-                                    <constraint firstAttribute="height" constant="45" id="hj5-Nf-wnY"/>
-                                </constraints>
-                                <color key="tintColor" red="0.67258435490000001" green="0.1243264452" blue="0.19373077150000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Continue as Guest"/>
-                                <connections>
-                                    <action selector="continueAsGuest:" destination="Ai8-ct-qte" eventType="touchUpInside" id="LNV-Jc-M7y"/>
-                                    <action selector="continueAsGuest:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="uKl-rO-AbY"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -80,13 +66,10 @@
                             <constraint firstItem="IdV-5y-FDb" firstAttribute="top" secondItem="csn-ch-eNp" secondAttribute="bottom" constant="8" symbolic="YES" id="0Zc-eS-O5z"/>
                             <constraint firstItem="Snh-f7-TkO" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="1ad-Xb-QJs"/>
                             <constraint firstItem="IdV-5y-FDb" firstAttribute="leading" secondItem="514-tt-WVU" secondAttribute="leading" id="2LG-kc-ZLY"/>
-                            <constraint firstItem="K03-mx-Wti" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="2ic-NK-4H9"/>
                             <constraint firstItem="IdV-5y-FDb" firstAttribute="trailing" secondItem="514-tt-WVU" secondAttribute="trailing" id="BLG-0m-8MN"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="K03-mx-Wti" secondAttribute="trailing" constant="20" id="Bat-ub-Zn4"/>
                             <constraint firstItem="Snh-f7-TkO" firstAttribute="top" secondItem="514-tt-WVU" secondAttribute="bottom" constant="100" id="Fr0-Zz-jDG"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="oco-6X-e4o" secondAttribute="trailing" constant="317" id="IxQ-M8-VWC"/>
                             <constraint firstItem="IdV-5y-FDb" firstAttribute="trailing" secondItem="5EZ-qb-Rvc" secondAttribute="trailingMargin" id="MI3-sX-pPf"/>
-                            <constraint firstItem="K03-mx-Wti" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="WyM-R0-TPL"/>
                             <constraint firstItem="csn-ch-eNp" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="17" id="cqE-UK-9mg"/>
                             <constraint firstItem="IdV-5y-FDb" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leadingMargin" id="det-Rc-ee7"/>
                             <constraint firstItem="oco-6X-e4o" firstAttribute="top" secondItem="IdV-5y-FDb" secondAttribute="bottom" constant="8" symbolic="YES" id="fIj-o8-v3u"/>
@@ -99,7 +82,6 @@
                     <navigationItem key="navigationItem" title="Sign In" id="wle-gu-MsJ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="Ai8-ct-qte" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1960.8695652173915" y="63.616071428571423"/>
         </scene>

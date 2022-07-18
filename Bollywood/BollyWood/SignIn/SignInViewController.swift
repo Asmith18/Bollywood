@@ -2,23 +2,28 @@
 //  SignInViewController.swift
 //  Bollywood
 //
-//  Created by adam smith on 7/12/22.
+//  Created by adam smith on 7/18/22.
 //
 
 import UIKit
 
 class SignInViewController: UIViewController {
-    
-    //MARK: - Outlets
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
     }
     
-    //MARK: - Actions
-    @IBAction func continueAsGuest(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Movies", bundle: nil)
-        guard let viewController = storyboard.instantiateViewController(withIdentifier: "movies") as? BollywoodViewController else { return }
-        self.navigationController?.pushViewController(viewController, animated: false)
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
     }
+    */
+
 }
