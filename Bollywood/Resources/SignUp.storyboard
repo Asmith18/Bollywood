@@ -65,8 +65,7 @@
                                     <color key="baseBackgroundColor" red="0.67258435490000001" green="0.1243264452" blue="0.19373077150000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="signInButtonTapped:" destination="ven-ga-Prr" eventType="touchUpInside" id="Xxy-vp-Mfx"/>
-                                    <action selector="signUpButtonPressed:" destination="ven-ga-Prr" eventType="touchUpInside" id="KF1-pR-PLB"/>
+                                    <action selector="signUpButtonPressed:" destination="ven-ga-Prr" eventType="touchUpInside" id="EEq-l2-mn4"/>
                                 </connections>
                             </button>
                         </subviews>

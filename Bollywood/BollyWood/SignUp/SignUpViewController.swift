@@ -65,7 +65,7 @@ class SignUpViewController: UIViewController {
                 UserDefaults.standard.set(user.email, forKey: "email")
                 let storyboard = UIStoryboard(name: "Account", bundle: nil)
                 guard let viewController = storyboard.instantiateViewController(withIdentifier: "account") as? AccountViewController else { return }
-                self.present(viewController, animated: true)
+                self.navigationController?.pushViewController(viewController, animated: true)
             }
         }
     }

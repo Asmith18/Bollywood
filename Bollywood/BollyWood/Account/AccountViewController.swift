@@ -40,7 +40,11 @@ class AccountViewController: UIViewController {
     
     func updateViews() {
         profileImageView.image = UIImage(named: "profile")
-        profileNameTextlabel.text = "Adam"
+        if let user = UserDefaults.standard.string(forKey: "email") {
+            profileNameTextlabel.text = "\(user)"
+        } else {
+            profileNameTextlabel.text = "User"
+        }
     }
 }
 

@@ -18,6 +18,12 @@ class SignInViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
     //MARK: - Actions
     @IBAction func signInButtonTapped(_ sender: Any) {
         if let email = emailTextField.text,
@@ -36,9 +42,9 @@ class SignInViewController: UIViewController {
                     print("signed in as", userDetails.user.email!)
                     UserDefaults.standard.set(userDetails.user.uid, forKey: "uid")
                     UserDefaults.standard.set(userDetails.user.email, forKey: "email")
-                    let storyboard = UIStoryboard(name: "Account", bundle: nil)
-                    guard let viewController = storyboard.instantiateViewController(withIdentifier: "account") as? AccountViewController else { return }
-                    self.present(viewController, animated: true)
+                    let storyboard = UIStoryboard(name: "Movies", bundle: nil)
+                    guard let viewController = storyboard.instantiateViewController(withIdentifier: "movies") as? BollywoodViewController else { return }
+                    self.navigationController?.pushViewController(viewController, animated: true)
                 }
             }
         }
