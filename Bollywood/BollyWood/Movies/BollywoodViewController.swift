@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class BollywoodViewController: UIViewController {
     
@@ -23,12 +24,13 @@ class BollywoodViewController: UIViewController {
         viewModel = BollywoodViewModel(delegate: self)
         viewModel.fetchPopular()
         searchBar()
+        SignInAlert()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        self.tabBarController?.tabBar.isHidden = false
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     func searchBar() {
@@ -55,6 +57,22 @@ class BollywoodViewController: UIViewController {
         }
     }
     
+    func SignInAlert() {
+        if UserDefaults.standard.string(forKey: "email") != nil {
+            viewModel.fetchPopular()
+        } else {
+            let alertController = UIAlertController(title: "Not Signed In.", message: "Sign In or Continue as a Guest.", preferredStyle: .alert)
+            let accountAction = UIAlertAction(title: "Sign In", style: .default) { accountAction in
+                let storyboard = UIStoryboard(name: "SignIn", bundle: nil)
+                guard let viewController = storyboard.instantiateViewController(withIdentifier: "signin") as? SignInViewController else { return }
+                self.navigationController?.pushViewController(viewController, animated: true)
+            }
+            let guestAction = UIAlertAction(title: "Continue as Guest", style: .default, handler: nil)
+            alertController.addAction(accountAction)
+            alertController.addAction(guestAction)
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
 }
 
 extension BollywoodViewController: UICollectionViewDataSource, UICollectionViewDelegate, UINavigationControllerDelegate {
