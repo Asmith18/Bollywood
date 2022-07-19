@@ -39,6 +39,9 @@ class AccountViewController: UIViewController {
         } catch let signOutError as NSError {
             print("Error signing out %@", signOutError)
         }
+        UserDefaults.standard.removeObject(forKey: "uid")
+        UserDefaults.standard.removeObject(forKey: "email")
+        UserDefaults.standard.removeObject(forKey: "signedInWithFirebase")
     }
     
     func returnToMovies() {
@@ -56,21 +59,22 @@ class AccountViewController: UIViewController {
     
     @IBAction func signOutButtonPressed(_ sender: Any) {
         
-        let signoutAlert = UIAlertController(title: "Are you sure you want to sing out?", message: "This wioll Sign you out", preferredStyle: .alert)
-        signoutAlert.addAction(UIAlertAction(title: "Confirm", style: .destructive, handler: { (action: UIAlertAction) in
+        let signoutAlert = UIAlertController(title: "Are you sure you want to Sign Out?", message: "This will Sign you Out", preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "Confirm", style: .destructive) { (action: UIAlertAction) in
             self.logout()
             self.returnToMovies()
-        }))
+        }
         
-        signoutAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction) in
-            return }))
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        signoutAlert.addAction(confirmAction)
+        signoutAlert.addAction(cancelAction)
         
-        present(signoutAlert , animated: true, completion: nil)
+        present(signoutAlert, animated: true, completion: nil)
     }
     
     func updateViews() {
         profileImageView.image = UIImage(named: "profile")
-        profileNameTextlabel.text = "Adam"
+        profileNameTextlabel.text = UserDefaults.standard.string(forKey: "email")
     }
 }
 

@@ -58,6 +58,9 @@ class BollywoodViewController: UIViewController {
     }
     
     func SignInAlert() {
+        if UserDefaults.standard.string(forKey: "email") != nil {
+            viewModel.fetchPopular()
+        } else {
             let alertController = UIAlertController(title: "Not Signed In.", message: "Sign In or Continue as a Guest.", preferredStyle: .alert)
             let accountAction = UIAlertAction(title: "Sign In", style: .default) { accountAction in
                 let storyboard = UIStoryboard(name: "SignIn", bundle: nil)
@@ -68,6 +71,7 @@ class BollywoodViewController: UIViewController {
             alertController.addAction(accountAction)
             alertController.addAction(guestAction)
             self.present(alertController, animated: true, completion: nil)
+        }
     }
 }
 
