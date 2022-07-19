@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class AccountViewController: UIViewController {
     
@@ -31,6 +32,24 @@ class AccountViewController: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = false
     }
     
+    func logout() {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print("Error signing out %@", signOutError)
+        }
+        UserDefaults.standard.removeObject(forKey: "uid")
+        UserDefaults.standard.removeObject(forKey: "email")
+        UserDefaults.standard.removeObject(forKey: "signedInWithFirebase")
+    }
+    
+    func returnToMovies() {
+        let storyboard = UIStoryboard(name: "Movies", bundle: nil)
+       guard let viewController = storyboard.instantiateViewController(withIdentifier: "movies") as? BollywoodViewController else { return }
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
     //MARK: - Actions
     @IBAction func settingsButtonTapped(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Settings", bundle: nil)
@@ -38,10 +57,24 @@ class AccountViewController: UIViewController {
         self.navigationController?.pushViewController(viewController, animated: false)
     }
     
+    @IBAction func signOutButtonPressed(_ sender: Any) {
+        
+        let signoutAlert = UIAlertController(title: "Are you sure you want to Sign Out?", message: "This will Sign you Out", preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "Confirm", style: .destructive) { (action: UIAlertAction) in
+            self.logout()
+            self.returnToMovies()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        signoutAlert.addAction(confirmAction)
+        signoutAlert.addAction(cancelAction)
+        
+        present(signoutAlert, animated: true, completion: nil)
+    }
+    
     func updateViews() {
-        myFavoritesCollectionView.layer.cornerRadius = 25
         profileImageView.image = UIImage(named: "profile")
-        profileNameTextlabel.text = "Adam"
+        profileNameTextlabel.text = UserDefaults.standard.string(forKey: "email")
     }
 }
 
@@ -54,7 +87,6 @@ extension AccountViewController: UICollectionViewDataSource, UICollectionViewDel
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = myFavoritesCollectionView.dequeueReusableCell(withReuseIdentifier: "myFav", for: indexPath) as! MyFavoritesCollectionViewCell
         
-        cell.posterImageView.layer.cornerRadius = 20
         cell.posterImageView.image = UIImage(named: "boys")
         cell.posterNameTextLabel.text = "The Boys"
         return cell
