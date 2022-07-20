@@ -84,14 +84,24 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M7z-bY-o8X">
+                                <rect key="frame" x="168" y="280" width="80" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Sign Out"/>
+                                <connections>
+                                    <action selector="signOutButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="47i-Fm-KfF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="G9e-jP-4bf" secondAttribute="trailing" constant="260" id="3KP-2O-kfc"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="75m-mN-7M7" secondAttribute="trailing" constant="20" id="4Fr-Uq-6uc"/>
+                            <constraint firstItem="M7z-bY-o8X" firstAttribute="top" secondItem="75m-mN-7M7" secondAttribute="bottom" constant="35" id="AFq-kf-zyr"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="IQh-DD-9By" secondAttribute="trailing" constant="20" id="ALs-WS-dKQ"/>
                             <constraint firstItem="LwG-P8-3eX" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="CxE-3N-goc"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="M7z-bY-o8X" secondAttribute="trailing" constant="166" id="DzH-J4-Msq"/>
                             <constraint firstItem="LwG-P8-3eX" firstAttribute="top" secondItem="IQh-DD-9By" secondAttribute="bottom" constant="8" symbolic="YES" id="EcA-jK-Al6"/>
                             <constraint firstItem="G9e-jP-4bf" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="25" id="FjE-4L-Qav"/>
                             <constraint firstItem="75m-mN-7M7" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="Gdf-Ev-NE4"/>
@@ -100,6 +110,7 @@
                             <constraint firstAttribute="bottom" secondItem="LwG-P8-3eX" secondAttribute="bottom" id="OCp-yK-9lj"/>
                             <constraint firstItem="75m-mN-7M7" firstAttribute="top" secondItem="G9e-jP-4bf" secondAttribute="bottom" constant="8" symbolic="YES" id="UyI-ni-p0W"/>
                             <constraint firstItem="IQh-DD-9By" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="VDu-1H-vU4"/>
+                            <constraint firstItem="M7z-bY-o8X" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="168" id="XjP-EG-rU9"/>
                             <constraint firstItem="G9e-jP-4bf" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="cjJ-zI-iII"/>
                             <constraint firstAttribute="bottom" secondItem="LwG-P8-3eX" secondAttribute="bottom" id="ckZ-BG-w5k"/>
                         </constraints>
