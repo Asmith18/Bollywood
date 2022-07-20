@@ -15,22 +15,125 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BollyWood Inc." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j1e-XD-pjA">
+                                <rect key="frame" x="20" y="817" width="374" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="6WX-no-EWj"/>
+                                    <constraint firstAttribute="width" constant="374" id="qCB-Tt-kUL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P4W-pA-dZN">
+                                <rect key="frame" x="20" y="506" width="374" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="E0K-GT-ozt"/>
+                                    <constraint firstAttribute="width" constant="374" id="uNe-ru-tr9"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Sign Out">
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" red="0.67258435490000001" green="0.1243264452" blue="0.19373077150000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="signOutButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="rHl-Zl-pzt"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="Baj-vb-IPs">
+                                <rect key="frame" x="20" y="193" width="394" height="237"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wv4-sf-AK1">
+                                        <rect key="frame" x="0.0" y="0.0" width="100.5" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="MHf-1H-9gc"/>
+                                            <constraint firstAttribute="width" constant="100.5" id="gvE-cP-qyh"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Account">
+                                            <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="20"/>
+                                            <color key="baseForegroundColor" red="0.67258435490000001" green="0.1243264452" blue="0.19373077150000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="accountButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Vsy-ky-Z36"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gIF-mi-qss">
+                                        <rect key="frame" x="0.0" y="64" width="141" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="V7W-cw-eUn"/>
+                                            <constraint firstAttribute="width" constant="141" id="eEO-6I-Khy"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Notifications">
+                                            <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="20"/>
+                                            <color key="baseForegroundColor" red="0.67258435490000001" green="0.1243264452" blue="0.19373077150000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="notificationsButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="NVQ-YM-ypQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j2i-VW-G2J">
+                                        <rect key="frame" x="0.0" y="128" width="97.5" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="97.5" id="dzs-yu-yFC"/>
+                                            <constraint firstAttribute="height" constant="45" id="f51-Lc-Hk9"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Contact">
+                                            <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="20"/>
+                                            <color key="baseForegroundColor" red="0.67258435490000001" green="0.1243264452" blue="0.19373077150000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="contactButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="vu5-ZW-C29"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h0B-KQ-4Uu">
+                                        <rect key="frame" x="0.0" y="192" width="106.5" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="106.5" id="3lj-ae-thA"/>
+                                            <constraint firstAttribute="height" constant="45" id="yCe-XM-Dbj"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="About us">
+                                            <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="20"/>
+                                            <color key="baseForegroundColor" red="0.67258435490000001" green="0.1243264452" blue="0.19373077150000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="aboutUsButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="CKK-5f-fZX"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Baj-vb-IPs" secondAttribute="trailing" id="97b-XK-J3G"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="j1e-XD-pjA" secondAttribute="trailing" constant="20" id="Gmf-0B-niv"/>
+                            <constraint firstItem="Baj-vb-IPs" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="53" id="ODh-E2-0r0"/>
+                            <constraint firstItem="P4W-pA-dZN" firstAttribute="top" secondItem="Baj-vb-IPs" secondAttribute="bottom" constant="76" id="aRQ-e0-nmM"/>
+                            <constraint firstItem="j1e-XD-pjA" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="jnt-G9-XCT"/>
+                            <constraint firstItem="j1e-XD-pjA" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="k8d-MI-wHd"/>
+                            <constraint firstItem="P4W-pA-dZN" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="qiQ-gG-u1L"/>
+                            <constraint firstItem="Baj-vb-IPs" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="sP4-jK-t2A"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="P4W-pA-dZN" secondAttribute="trailing" constant="20" id="wUY-ev-o9A"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="OXU-MX-2B6"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1665" y="74"/>
+            <point key="canvasLocation" x="1663.7681159420292" y="73.660714285714278"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aG1-Lf-UkT">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LtA-fe-xOb" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eOe-CI-zbg">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="eOe-CI-zbg">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

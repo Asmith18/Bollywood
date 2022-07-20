@@ -9,16 +9,12 @@ import Foundation
 import UIKit
 import WebKit
 
-class BollywoodAPI {
+struct BollywoodAPI {
     
-    var viewModel: TVShowDetailsViewModel!
-    //    declare base url
+
     private static let baseURLString = "https://api.themoviedb.org"
     private static let imageURLString = "https://image.tmdb.org"
-    private static let webViewURLString = "https://api.themoviedb.org"
-    
-    //    declare anything else you need with url
-    //    create fetch function for data
+
     static func fetchPopularMovie(completion: @escaping (Result<Movie, ResultError>) -> Void) {
         
         guard let baseURL = URL(string: baseURLString) else { return }
@@ -75,7 +71,7 @@ class BollywoodAPI {
     
     static func fetchTvVideo(for tvID: Int, completion: @escaping (Result<WebView, ResultError>) -> Void) {
         
-        guard let baseURL = URL(string: webViewURLString) else { return }
+        guard let baseURL = URL(string: baseURLString) else { return }
         
         let apiQuery = URLQueryItem(name: "api_key", value: "be35af15dc34f6c18ecb1b03e2fd3559")
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
@@ -102,7 +98,7 @@ class BollywoodAPI {
     
     static func fetchMovieVideo(for movieID: Int, completion: @escaping (Result<WebView, ResultError>) -> Void) {
         
-        guard let baseURL = URL(string: webViewURLString) else { return }
+        guard let baseURL = URL(string: baseURLString) else { return }
         
         let apiQuery = URLQueryItem(name: "api_key", value: "be35af15dc34f6c18ecb1b03e2fd3559")
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
