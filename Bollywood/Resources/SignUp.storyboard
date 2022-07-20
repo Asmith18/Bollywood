@@ -45,7 +45,7 @@
                                     <constraint firstAttribute="height" constant="45" id="NhD-lM-JKX"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <connections>
                                     <action selector="passwordTextField:" destination="o3v-la-Lzo" eventType="editingDidEnd" id="IDL-0S-78T"/>
                                 </connections>
@@ -68,17 +68,34 @@
                                     <action selector="signUpButtonPressed:" destination="ven-ga-Prr" eventType="touchUpInside" id="EEq-l2-mn4"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qUS-8c-3K8">
+                                <rect key="frame" x="105" y="491" width="33" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="33" id="Aua-1g-Eh5"/>
+                                    <constraint firstAttribute="height" constant="31" id="Ewm-2u-Jbu"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="eye" catalog="system">
+                                    <color key="baseForegroundColor" red="0.67258435490000001" green="0.1243264452" blue="0.19373077150000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="showPasswordButtonTapped:" destination="ven-ga-Prr" eventType="touchUpInside" id="21D-m1-Rm1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iaH-p7-0as"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="qUS-8c-3K8" firstAttribute="top" secondItem="IK9-m0-TNp" secondAttribute="bottom" constant="2.5" id="3kh-rp-QC5"/>
                             <constraint firstItem="WQV-hL-XAa" firstAttribute="leading" secondItem="iaH-p7-0as" secondAttribute="leading" constant="17" id="5MU-Fb-EsQ"/>
                             <constraint firstItem="IK9-m0-TNp" firstAttribute="leading" secondItem="qKm-xP-qqA" secondAttribute="leading" id="8HV-bG-03w"/>
+                            <constraint firstItem="iaH-p7-0as" firstAttribute="trailing" secondItem="qUS-8c-3K8" secondAttribute="trailing" constant="276" id="AU7-lF-7Tc"/>
                             <constraint firstItem="IK9-m0-TNp" firstAttribute="trailing" secondItem="eT1-nn-qNl" secondAttribute="trailingMargin" id="Bwp-Gh-Hpm"/>
                             <constraint firstItem="iaH-p7-0as" firstAttribute="trailing" secondItem="u0S-De-Nfq" secondAttribute="trailing" constant="20" id="C4y-Jj-rn7"/>
                             <constraint firstItem="u0S-De-Nfq" firstAttribute="leading" secondItem="iaH-p7-0as" secondAttribute="leading" constant="20" id="HxM-W6-mLY"/>
                             <constraint firstItem="iaH-p7-0as" firstAttribute="trailing" secondItem="Wv6-hu-Lu5" secondAttribute="trailing" constant="317" id="IhT-ig-7vJ"/>
                             <constraint firstItem="u0S-De-Nfq" firstAttribute="top" secondItem="qKm-xP-qqA" secondAttribute="bottom" constant="100" id="QXu-7l-pRY"/>
+                            <constraint firstItem="qKm-xP-qqA" firstAttribute="top" secondItem="qUS-8c-3K8" secondAttribute="bottom" constant="3" id="b6Z-W9-SKc"/>
                             <constraint firstItem="IK9-m0-TNp" firstAttribute="top" secondItem="WQV-hL-XAa" secondAttribute="bottom" constant="8" symbolic="YES" id="bA3-Vf-MqI"/>
                             <constraint firstItem="qKm-xP-qqA" firstAttribute="top" secondItem="Wv6-hu-Lu5" secondAttribute="bottom" constant="8" symbolic="YES" id="dI4-WB-7Qk"/>
                             <constraint firstItem="IK9-m0-TNp" firstAttribute="trailing" secondItem="qKm-xP-qqA" secondAttribute="trailing" id="fSY-Wh-usD"/>
@@ -92,6 +109,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="IK9-m0-TNp" id="DOV-MA-gtk"/>
                         <outlet property="passwordTextField" destination="qKm-xP-qqA" id="onq-SB-vf9"/>
+                        <outlet property="showPasswordButton" destination="qUS-8c-3K8" id="KvW-FF-3vO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uCq-H4-VPQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -118,4 +136,7 @@
             <point key="canvasLocation" x="1960.8695652173915" y="63.616071428571423"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="eye" catalog="system" width="128" height="81"/>
+    </resources>
 </document>

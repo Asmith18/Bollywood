@@ -13,6 +13,7 @@ class SignUpViewController: UIViewController {
     //MARK: - Outlets
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var showPasswordButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +68,16 @@ class SignUpViewController: UIViewController {
                 guard let viewController = storyboard.instantiateViewController(withIdentifier: "movies") as? BollywoodViewController else { return }
                 self.navigationController?.pushViewController(viewController, animated: true)
             }
+        }
+    }
+    
+    @IBAction func showPasswordButtonTapped(_ sender: Any) {
+        if passwordTextField.isSecureTextEntry == true {
+            passwordTextField.isSecureTextEntry = false
+            showPasswordButton.setImage(UIImage(systemName: "eye"), for: .normal)
+        } else {
+            passwordTextField.isSecureTextEntry = true
+            showPasswordButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
         }
     }
     

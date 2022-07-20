@@ -22,10 +22,10 @@
 		C25A16D22885D7CF002F8487 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = C25A16D12885D7CF002F8487 /* FirebaseStorage */; };
 		C25A16D52885E0F6002F8487 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C25A16D42885E0F6002F8487 /* SignUp.storyboard */; };
 		C25A16D82885E1DD002F8487 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25A16D72885E1DD002F8487 /* SignUpViewController.swift */; };
+		C25A16DA288737EE002F8487 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25A16D9288737EE002F8487 /* SettingsTableViewController.swift */; };
 		C261629A287DF5C600FCC597 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2616299287DF5C600FCC597 /* SignIn.storyboard */; };
 		C26A41C828394BDE00C0B96E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26A41C728394BDE00C0B96E /* DetailViewController.swift */; };
 		C28E764E286E4F0B00252AAA /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C28E764D286E4F0B00252AAA /* Settings.storyboard */; };
-		C28E7650286E4F2300252AAA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28E764F286E4F2300252AAA /* SettingsViewController.swift */; };
 		C2AC89EE286A19B900A6465D /* Movies.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2AC89ED286A19B900A6465D /* Movies.storyboard */; };
 		C2AC89F0286A21C800A6465D /* TV.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2AC89EF286A21C800A6465D /* TV.storyboard */; };
 		C2AC89F3286A246100A6465D /* TVShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AC89F2286A246100A6465D /* TVShowViewController.swift */; };
@@ -62,10 +62,10 @@
 		C25A16C42885D690002F8487 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C25A16D42885E0F6002F8487 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		C25A16D72885E1DD002F8487 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		C25A16D9288737EE002F8487 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		C2616299287DF5C600FCC597 /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
 		C26A41C728394BDE00C0B96E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C28E764D286E4F0B00252AAA /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
-		C28E764F286E4F2300252AAA /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		C2AC89ED286A19B900A6465D /* Movies.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Movies.storyboard; sourceTree = "<group>"; };
 		C2AC89EF286A21C800A6465D /* TV.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TV.storyboard; sourceTree = "<group>"; };
 		C2AC89F2286A246100A6465D /* TVShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowViewController.swift; sourceTree = "<group>"; };
@@ -202,7 +202,7 @@
 		C28E7651286E4F2600252AAA /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				C28E764F286E4F2300252AAA /* SettingsViewController.swift */,
+				C25A16D9288737EE002F8487 /* SettingsTableViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -373,7 +373,6 @@
 				C2AC8A0E286E247200A6465D /* AccountViewController.swift in Sources */,
 				C2FB2E6B28341EEB00D6B190 /* BollywoodAPI.swift in Sources */,
 				C2AC8A03286B786100A6465D /* TVShowDetailsViewController.swift in Sources */,
-				C28E7650286E4F2300252AAA /* SettingsViewController.swift in Sources */,
 				C24B1268283408170061958C /* AppDelegate.swift in Sources */,
 				C2AC8A0C286CD53700A6465D /* WebView.swift in Sources */,
 				C2AC8A08286B7FCD00A6465D /* TVShowDetailsViewModel.swift in Sources */,
@@ -381,6 +380,7 @@
 				C25A16D82885E1DD002F8487 /* SignUpViewController.swift in Sources */,
 				C24B126A283408170061958C /* SceneDelegate.swift in Sources */,
 				C2AC89F7286A252900A6465D /* TVCollectionViewCell.swift in Sources */,
+				C25A16DA288737EE002F8487 /* SettingsTableViewController.swift in Sources */,
 				C2AC89F5286A250900A6465D /* TVShowViewModel.swift in Sources */,
 				C25A16C32885D0EE002F8487 /* SignInViewController.swift in Sources */,
 				C2AC8A15286E260A00A6465D /* Account.swift in Sources */,

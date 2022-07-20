@@ -52,9 +52,9 @@ class AccountViewController: UIViewController {
     
     //MARK: - Actions
     @IBAction func settingsButtonTapped(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Settings", bundle: nil)
-        guard let viewController = storyboard.instantiateViewController(withIdentifier: "settings") as? SettingsViewController else { return }
-        self.navigationController?.pushViewController(viewController, animated: false)
+//        let storyboard = UIStoryboard(name: "Settings", bundle: nil)
+//        guard let viewController = storyboard.instantiateViewController(withIdentifier: "settings") as? SettingsViewController else { return }
+//        self.navigationController?.pushViewController(viewController, animated: false)
     }
     
     @IBAction func signOutButtonPressed(_ sender: Any) {
