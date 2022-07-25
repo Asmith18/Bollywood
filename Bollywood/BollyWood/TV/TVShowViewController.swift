@@ -37,23 +37,43 @@ class TVShowViewController: UIViewController {
         searchBarView.isHidden = true
     }
     
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        self.searchBarView.isHidden = true
+    func fetchAndReload() {
         viewModel.fetchPopular()
+        self.collectionView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = nil
+        self.searchBarView.isHidden = true
+        fetchAndReload()
     }
     
     //MARK: - Actions
     @IBAction func accountButtonPressed(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Account", bundle: nil)
-        guard let viewController = storyboard.instantiateViewController(withIdentifier: "account") as? AccountViewController else { return }
-        self.navigationController?.pushViewController(viewController, animated: true)
+        if UserDefaults.standard.string(forKey: "email") != nil {
+            let storyboard = UIStoryboard(name: "Account", bundle: nil)
+            guard let viewController = storyboard.instantiateViewController(withIdentifier: "account") as? AccountViewController else { return }
+            self.navigationController?.pushViewController(viewController, animated: false)
+        } else {
+            let alertController = UIAlertController(title: "Not Signed in", message: "Please sign in to acccess this page.", preferredStyle: .alert)
+            let confirmAction = UIAlertAction(title: "Sign in", style: .destructive) { (action: UIAlertAction) in
+                let storyboard = UIStoryboard(name: "SignIn", bundle: nil)
+                guard let viewController = storyboard.instantiateViewController(withIdentifier: "signin") as? SignInViewController else { return }
+                self.navigationController?.pushViewController(viewController, animated: false)
+            }
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alertController.addAction(confirmAction)
+            alertController.addAction(cancelAction)
+            
+            present(alertController, animated: true, completion: nil)
+        }
     }
+    
     @IBAction func searchButtonPressed(_ sender: Any) {
         if searchBarView.isHidden == true {
             searchBarView.isHidden = false
         }
     }
-    
 }
 
 extension TVShowViewController: UICollectionViewDataSource, UICollectionViewDelegate, UINavigationControllerDelegate {
@@ -79,12 +99,6 @@ extension TVShowViewController: UICollectionViewDataSource, UICollectionViewDele
 
 extension TVShowViewController: TVShowsViewModelDelegate {
     func searchTermHasData() {
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
-        }
-    }
-    
-    func tvShowHasData() {
         DispatchQueue.main.async {
             self.collectionView.reloadData()
         }

@@ -8,7 +8,6 @@
 import Foundation
 
 protocol BollywoodViewModelDelegate: BollywoodViewController {
-    func popularHasData()
     func searchTermHasData()
 }
 
@@ -27,7 +26,6 @@ class BollywoodViewModel {
             switch result {
             case .success(let movieData):
                 self.results = movieData.results
-                self.delegate?.popularHasData()
             case .failure(let error):
                 print(error)
             }

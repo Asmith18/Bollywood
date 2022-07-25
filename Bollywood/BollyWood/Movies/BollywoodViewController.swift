@@ -40,8 +40,10 @@ class BollywoodViewController: UIViewController {
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = nil
         self.searchbarView.isHidden = true
         viewModel.fetchPopular()
+        self.topCollectionView.reloadData()
     }
     
     //MARK: - Actions
@@ -85,6 +87,7 @@ class BollywoodViewController: UIViewController {
             alertController.addAction(accountAction)
             alertController.addAction(guestAction)
             self.present(alertController, animated: true, completion: nil)
+            viewModel.fetchPopular()
         }
     }
 }
@@ -111,13 +114,8 @@ extension BollywoodViewController: UICollectionViewDataSource, UICollectionViewD
 }
 
 extension BollywoodViewController: BollywoodViewModelDelegate {
-    func searchTermHasData() {
-        DispatchQueue.main.async {
-            self.topCollectionView?.reloadData()
-        }
-    }
     
-    func popularHasData() {
+    func searchTermHasData() {
         DispatchQueue.main.async {
             self.topCollectionView?.reloadData()
         }

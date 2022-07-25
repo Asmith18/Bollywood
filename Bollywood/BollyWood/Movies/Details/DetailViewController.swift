@@ -7,10 +7,12 @@
 
 import UIKit
 import WebKit
+import FirebaseAuth
 
 class DetailViewController: UIViewController {
     
     var viewModel: DetailsViewModel!
+    var isFavorite: Bool?
 
     @IBOutlet weak var movieImageView: UIImageView!
     @IBOutlet weak var movieNameTextLabel: UILabel!
@@ -18,6 +20,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var movieRatingTextLabel: UILabel!
     @IBOutlet weak var movieDescriptionTextField: UITextView!
     @IBOutlet weak var movieTrailerWebView: WKWebView!
+    @IBOutlet weak var favoriteButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +65,9 @@ class DetailViewController: UIViewController {
                 print(error)
             }
         }
+    }
+    
+    @IBAction func favoriteButtonPressed(_ sender: Any) {
     }
 }
 

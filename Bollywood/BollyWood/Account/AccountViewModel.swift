@@ -13,4 +13,11 @@ protocol AccountViewModelDelegate: AccountViewController {
 
 class AccountViewModel {
     
+    var account: Account?
+    var myFavorites: [String] = []
+    weak var delegate: AccountViewModelDelegate?
+    
+    init(delegate: AccountViewModelDelegate) {
+        self.delegate = delegate
+    }
 }

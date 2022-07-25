@@ -12,13 +12,11 @@ class Account {
     
     let profileImage: UIImage
     let profileName: String
-    let favPoster: UIImage
-    let favTitle: String
+    let favoriteObjects: Bool
     
-    init(profileImage: UIImage = UIImage(), profileName: String, favPoster: UIImage = UIImage(), favTitle: String) {
-        self.favPoster = favPoster
-        self.favTitle = favTitle
+    init(profileImage: UIImage = UIImage(), profileName: String, favoriteObjects: Bool = false) {
         self.profileName = profileName
         self.profileImage = profileImage
+        self.favoriteObjects = favoriteObjects
     }
 }

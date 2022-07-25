@@ -83,9 +83,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Movie" id="N3h-Sz-Q1f">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="star" catalog="system" style="plain" id="H4j-cL-Lcf"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="star" catalog="system" style="plain" id="H4j-cL-Lcf">
+                            <connections>
+                                <action selector="favoriteButtonPressed:" destination="Y6W-OH-hqX" id="KNG-cu-oGS"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="favoriteButton" destination="H4j-cL-Lcf" id="DHI-6W-QTh"/>
                         <outlet property="movieDateTextLabel" destination="yDi-Sw-5xt" id="P6G-wA-juO"/>
                         <outlet property="movieDescriptionTextField" destination="EWh-Vv-G5z" id="fbt-1v-qg4"/>
                         <outlet property="movieImageView" destination="zRZ-Jt-O8I" id="f1n-Xc-Am5"/>
