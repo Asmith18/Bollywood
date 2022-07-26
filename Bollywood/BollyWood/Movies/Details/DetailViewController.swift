@@ -12,7 +12,7 @@ import FirebaseAuth
 class DetailViewController: UIViewController {
     
     var viewModel: DetailsViewModel!
-    var isFavorite: Bool?
+    var isFavMovie = UserDefaults.standard.bool(forKey: "isFavMovie")
 
     @IBOutlet weak var movieImageView: UIImageView!
     @IBOutlet weak var movieNameTextLabel: UILabel!
@@ -68,6 +68,14 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func favoriteButtonPressed(_ sender: Any) {
+        if isFavMovie {
+            favoriteButton.image = UIImage(systemName: "star")
+        } else {
+            favoriteButton.image = UIImage(systemName: "star.fill")
+        }
+        isFavMovie = !isFavMovie
+        UserDefaults.standard.set(isFavMovie, forKey: "isFavMovie")
+        UserDefaults.standard.synchronize()
     }
 }
 

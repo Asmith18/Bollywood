@@ -84,9 +84,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="TV" id="Nn4-iZ-W94">
-                        <barButtonItem key="rightBarButtonItem" image="star" catalog="system" style="plain" id="IP8-qk-JhT"/>
+                        <barButtonItem key="rightBarButtonItem" image="star" catalog="system" style="plain" id="IP8-qk-JhT">
+                            <connections>
+                                <action selector="favoriteButtonTapped:" destination="BmG-r5-5VQ" id="kEc-zw-AdA"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="favoriteButton" destination="IP8-qk-JhT" id="CEM-cT-uPb"/>
                         <outlet property="showDateTextLabel" destination="YmJ-8r-KFa" id="WSf-Sn-1Hx"/>
                         <outlet property="showDescriptionTextView" destination="mXr-tI-uUu" id="g7C-Dp-lcj"/>
                         <outlet property="showImageView" destination="M3R-ed-Z8W" id="XtB-Ta-hzu"/>

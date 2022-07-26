@@ -12,6 +12,5 @@ struct WebView: Decodable {
 }
 
 struct WebViewResults: Decodable {
-    let key: String
-    let type: String
+    let key, type: String
 }

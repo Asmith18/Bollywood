@@ -27,10 +27,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P4W-pA-dZN">
-                                <rect key="frame" x="20" y="506" width="374" height="45"/>
+                                <rect key="frame" x="20" y="523" width="374" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="E0K-GT-ozt"/>
-                                    <constraint firstAttribute="width" constant="374" id="uNe-ru-tr9"/>
+                                    <constraint firstAttribute="width" constant="374" id="QbC-UH-nl8"/>
+                                    <constraint firstAttribute="height" constant="45" id="ncx-6V-41C"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Sign Out">
@@ -42,7 +42,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="Baj-vb-IPs">
-                                <rect key="frame" x="20" y="193" width="394" height="237"/>
+                                <rect key="frame" x="20" y="193" width="374" height="237"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wv4-sf-AK1">
                                         <rect key="frame" x="0.0" y="0.0" width="100.5" height="45"/>
@@ -106,19 +106,46 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="203" translatesAutoresizingMaskIntoConstraints="NO" id="BcE-yj-gQP">
+                                <rect key="frame" x="20" y="460" width="376" height="38"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CVb-Hm-s4d">
+                                        <rect key="frame" x="0.0" y="0.0" width="124" height="38"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="124" id="0O7-xg-Kea"/>
+                                            <constraint firstAttribute="height" constant="38" id="deB-K4-8bf"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Dark Mode">
+                                            <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="20"/>
+                                            <color key="baseForegroundColor" red="0.67258435490000001" green="0.1243264452" blue="0.19373077150000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="aboutUsButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="eii-9S-GbQ"/>
+                                        </connections>
+                                    </button>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vK4-mD-Rtd">
+                                        <rect key="frame" x="327" y="0.0" width="51" height="38"/>
+                                    </switch>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Baj-vb-IPs" secondAttribute="trailing" id="97b-XK-J3G"/>
+                            <constraint firstItem="BcE-yj-gQP" firstAttribute="top" secondItem="Baj-vb-IPs" secondAttribute="bottom" constant="30" id="79F-7q-d0l"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Baj-vb-IPs" secondAttribute="trailing" constant="20" id="97b-XK-J3G"/>
+                            <constraint firstItem="P4W-pA-dZN" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="AFx-Z4-If3"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="j1e-XD-pjA" secondAttribute="trailing" constant="20" id="Gmf-0B-niv"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="P4W-pA-dZN" secondAttribute="trailing" constant="20" id="MxK-tQ-sjX"/>
                             <constraint firstItem="Baj-vb-IPs" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="53" id="ODh-E2-0r0"/>
-                            <constraint firstItem="P4W-pA-dZN" firstAttribute="top" secondItem="Baj-vb-IPs" secondAttribute="bottom" constant="76" id="aRQ-e0-nmM"/>
                             <constraint firstItem="j1e-XD-pjA" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="jnt-G9-XCT"/>
+                            <constraint firstItem="P4W-pA-dZN" firstAttribute="top" secondItem="BcE-yj-gQP" secondAttribute="bottom" constant="25" id="jqw-sr-yiK"/>
                             <constraint firstItem="j1e-XD-pjA" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="k8d-MI-wHd"/>
-                            <constraint firstItem="P4W-pA-dZN" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="qiQ-gG-u1L"/>
+                            <constraint firstItem="P4W-pA-dZN" firstAttribute="top" secondItem="BcE-yj-gQP" secondAttribute="bottom" constant="25" id="oGx-oN-fZN"/>
                             <constraint firstItem="Baj-vb-IPs" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="sP4-jK-t2A"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="P4W-pA-dZN" secondAttribute="trailing" constant="20" id="wUY-ev-o9A"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="BcE-yj-gQP" secondAttribute="trailing" constant="18" id="vPN-Bj-3HE"/>
+                            <constraint firstItem="BcE-yj-gQP" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="xzO-cd-JQ8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="OXU-MX-2B6"/>

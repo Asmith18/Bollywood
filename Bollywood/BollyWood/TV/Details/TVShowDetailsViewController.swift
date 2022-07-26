@@ -11,6 +11,7 @@ import WebKit
 class TVShowDetailsViewController: UIViewController {
      
     var viewModel: TVShowDetailsViewModel!
+    var isFavShow = UserDefaults.standard.bool(forKey: "isFavShow")
     
     //MARK: - Outlets
     @IBOutlet weak var showImageView: UIImageView!
@@ -19,6 +20,7 @@ class TVShowDetailsViewController: UIViewController {
     @IBOutlet weak var showRatingTextLabel: UILabel!
     @IBOutlet weak var showDescriptionTextView: UITextView!
     @IBOutlet weak var tvShowWebView: WKWebView!
+    @IBOutlet weak var favoriteButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +65,17 @@ class TVShowDetailsViewController: UIViewController {
                 print(error)
             }
         }
+    }
+    
+    @IBAction func favoriteButtonTapped(_ sender: Any) {
+        if isFavShow {
+            favoriteButton.image = UIImage(systemName: "star")
+        } else {
+            favoriteButton.image = UIImage(systemName: "star.fill")
+        }
+        isFavShow = !isFavShow
+        UserDefaults.standard.set(isFavShow, forKey: "isFavShow")
+        UserDefaults.standard.synchronize()
     }
 }
 

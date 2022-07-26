@@ -7,11 +7,11 @@
 
 import UIKit
 
-class MyFavoritesCollectionViewCell: UICollectionViewCell {
+class MoviesCollectionViewCell: UICollectionViewCell {
     
     //MARK: - Outlets
-    @IBOutlet weak var posterImageView: UIImageView!
-    @IBOutlet weak var posterNameTextLabel: UILabel!
+    @IBOutlet weak var movieImageView: UIImageView!
+    @IBOutlet weak var movieTextLabel: UILabel!
     
     func setup() {
     
@@ -23,7 +23,7 @@ class MyFavoritesCollectionViewCell: UICollectionViewCell {
             switch result {
             case .success(let image):
                 DispatchQueue.main.async {
-                    self.posterImageView.image = image
+                    self.movieImageView.image = image
                 }
             case .failure(let error):
                 print(error)
@@ -37,7 +37,7 @@ class MyFavoritesCollectionViewCell: UICollectionViewCell {
             switch result {
             case .success(let image):
                 DispatchQueue.main.async {
-                    self.posterImageView.image = image
+                    self.movieImageView.image = image
                 }
             case .failure(let error):
                 print(error)
