@@ -9,11 +9,13 @@ import Foundation
 
 protocol BollywoodViewModelDelegate: BollywoodViewController {
     func searchTermHasData()
+    func movieListHasData()
 }
 
 class BollywoodViewModel {
     
     var results: [Movies] = []
+    var movieList: MovieList?
 
     weak var delegate: BollywoodViewModelDelegate?
     

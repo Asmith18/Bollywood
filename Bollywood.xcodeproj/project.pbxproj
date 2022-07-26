@@ -44,6 +44,7 @@
 		C2AC8A13286E24E400A6465D /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AC8A12286E24E400A6465D /* AccountViewModel.swift */; };
 		C2AC8A15286E260A00A6465D /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AC8A14286E260A00A6465D /* Account.swift */; };
 		C2B02AD928906ED6008278A1 /* TVShowsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B02AD828906ED6008278A1 /* TVShowsCollectionViewCell.swift */; };
+		C2B02ADB289085BC008278A1 /* MovieList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B02ADA289085BC008278A1 /* MovieList.swift */; };
 		C2FB2E5C283413A800D6B190 /* TopCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FB2E5B283413A800D6B190 /* TopCollectionViewCell.swift */; };
 		C2FB2E68283416E200D6B190 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FB2E67283416E200D6B190 /* Movie.swift */; };
 		C2FB2E6B28341EEB00D6B190 /* BollywoodAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FB2E6A28341EEB00D6B190 /* BollywoodAPI.swift */; };
@@ -85,6 +86,7 @@
 		C2AC8A12286E24E400A6465D /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		C2AC8A14286E260A00A6465D /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		C2B02AD828906ED6008278A1 /* TVShowsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowsCollectionViewCell.swift; sourceTree = "<group>"; };
+		C2B02ADA289085BC008278A1 /* MovieList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieList.swift; sourceTree = "<group>"; };
 		C2FB2E5B283413A800D6B190 /* TopCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCollectionViewCell.swift; sourceTree = "<group>"; };
 		C2FB2E67283416E200D6B190 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		C2FB2E6A28341EEB00D6B190 /* BollywoodAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BollywoodAPI.swift; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				C2FB2E67283416E200D6B190 /* Movie.swift */,
+				C2B02ADA289085BC008278A1 /* MovieList.swift */,
 				C2AC89F8286A25D100A6465D /* TV.swift */,
 				C2AC8A0B286CD53700A6465D /* WebView.swift */,
 				C2AC8A14286E260A00A6465D /* Account.swift */,
@@ -373,6 +376,7 @@
 				C2FB2E5C283413A800D6B190 /* TopCollectionViewCell.swift in Sources */,
 				C2FB2E73283563C800D6B190 /* BollywoodViewModel.swift in Sources */,
 				C2AC8A11286E24D800A6465D /* MoviesCollectionViewCell.swift in Sources */,
+				C2B02ADB289085BC008278A1 /* MovieList.swift in Sources */,
 				C2AC8A0E286E247200A6465D /* AccountViewController.swift in Sources */,
 				C2FB2E6B28341EEB00D6B190 /* BollywoodAPI.swift in Sources */,
 				C2AC8A03286B786100A6465D /* TVShowDetailsViewController.swift in Sources */,
