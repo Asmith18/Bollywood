@@ -68,14 +68,28 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func favoriteButtonPressed(_ sender: Any) {
-        if isFavMovie {
-            favoriteButton.image = UIImage(systemName: "star")
+        
+        if UserDefaults.standard.string(forKey: "email") != nil {
+            if isFavMovie {
+                favoriteButton.image = UIImage(systemName: "star")
+            } else {
+                favoriteButton.image = UIImage(systemName: "star.fill")
+            }
+            isFavMovie = !isFavMovie
+            UserDefaults.standard.set(isFavMovie, forKey: "isFavMovie")
+            UserDefaults.standard.synchronize()
         } else {
-            favoriteButton.image = UIImage(systemName: "star.fill")
+            let alertController = UIAlertController(title: "Not Signed In.", message: "Sign In to use this feature.", preferredStyle: .alert)
+            let accountAction = UIAlertAction(title: "Sign In", style: .default) { accountAction in
+                let storyboard = UIStoryboard(name: "SignIn", bundle: nil)
+                guard let viewController = storyboard.instantiateViewController(withIdentifier: "signin") as? SignInViewController else { return }
+                self.navigationController?.pushViewController(viewController, animated: true)
+            }
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alertController.addAction(accountAction)
+            alertController.addAction(cancelAction)
+            self.present(alertController, animated: true, completion: nil)
         }
-        isFavMovie = !isFavMovie
-        UserDefaults.standard.set(isFavMovie, forKey: "isFavMovie")
-        UserDefaults.standard.synchronize()
     }
 }
 
