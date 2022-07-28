@@ -26,7 +26,7 @@
                             </label>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UdH-nX-HgG">
                                 <rect key="frame" x="20" y="591" width="374" height="216"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="216" id="TWl-uE-BUx"/>
                                     <constraint firstAttribute="width" constant="374" id="xTu-M5-cad"/>

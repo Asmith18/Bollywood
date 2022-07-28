@@ -35,14 +35,18 @@ class TVShowDetailsViewController: UIViewController {
     }
     
     func getVideo() {
-        guard let vidCode = viewModel.results.filter({ $0.type == "Trailer"}).first?.key else { return }
-        let vidCodeBaseURLString = "https://www.youtube.com"
-        guard let baseURL = URL(string: vidCodeBaseURLString) else { return }
-        
-        var urlcomponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
-        urlcomponents?.path = "/embed/\(vidCode)"
-        let finalURL = urlcomponents?.url
-        tvShowWebView.load(URLRequest(url: finalURL!))
+        if viewModel.tvShow?.id != nil {
+            guard let vidCode = viewModel.results.filter({ $0.type == "Trailer"}).first?.key else { return }
+            let vidCodeBaseURLString = "https://www.youtube.com"
+            guard let baseURL = URL(string: vidCodeBaseURLString) else { return }
+            
+            var urlcomponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
+            urlcomponents?.path = "/embed/\(vidCode)"
+            let finalURL = urlcomponents?.url
+            tvShowWebView.load(URLRequest(url: finalURL!))
+        } else {
+            print("no data")
+        }
     }
     
     func updateViews() {
@@ -68,14 +72,28 @@ class TVShowDetailsViewController: UIViewController {
     }
     
     @IBAction func favoriteButtonTapped(_ sender: Any) {
-        if isFavShow {
-            favoriteButton.image = UIImage(systemName: "star")
+        
+        if UserDefaults.standard.string(forKey: "email") != nil {
+            if isFavShow {
+                favoriteButton.image = UIImage(systemName: "star")
+            } else {
+                favoriteButton.image = UIImage(systemName: "star.fill")
+            }
+            isFavShow = !isFavShow
+            UserDefaults.standard.set(isFavShow, forKey: "isFavShow")
+            UserDefaults.standard.synchronize()
         } else {
-            favoriteButton.image = UIImage(systemName: "star.fill")
+            let alertController = UIAlertController(title: "Not Signed In.", message: "Sign In to use this feature.", preferredStyle: .alert)
+            let accountAction = UIAlertAction(title: "Sign In", style: .default) { accountAction in
+                let storyboard = UIStoryboard(name: "SignIn", bundle: nil)
+                guard let viewController = storyboard.instantiateViewController(withIdentifier: "signin") as? SignInViewController else { return }
+                self.navigationController?.pushViewController(viewController, animated: true)
+            }
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alertController.addAction(accountAction)
+            alertController.addAction(cancelAction)
+            self.present(alertController, animated: true, completion: nil)
         }
-        isFavShow = !isFavShow
-        UserDefaults.standard.set(isFavShow, forKey: "isFavShow")
-        UserDefaults.standard.synchronize()
     }
 }
 
