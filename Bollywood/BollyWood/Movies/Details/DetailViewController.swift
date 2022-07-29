@@ -19,13 +19,16 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var movieDateTextLabel: UILabel!
     @IBOutlet weak var movieRatingTextLabel: UILabel!
     @IBOutlet weak var movieDescriptionTextField: UITextView!
-    @IBOutlet weak var movieTrailerWebView: WKWebView!
     @IBOutlet weak var favoriteButton: UIBarButtonItem!
+    @IBOutlet weak var movieProviderCollectionView: UICollectionView!
+    @IBOutlet weak var movieTrailerCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionViews()
         updateViews()
         viewModel.fetchVidCode()
+        viewModel.getMoviePoviders()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,15 +37,13 @@ class DetailViewController: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = false
     }
     
-    func getVideo() {
-        guard let vidCode = viewModel.results.filter({ $0.type == "Trailer"}).first?.key else { return }
-        let vidCodeBaseURLString = "https://www.youtube.com"
-        guard let baseURL = URL(string: vidCodeBaseURLString) else { return }
-        
-        var urlcomponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
-        urlcomponents?.path = "/embed/\(vidCode)"
-        let finalURL = urlcomponents?.url
-        movieTrailerWebView.load(URLRequest(url: finalURL!))
+    func collectionViews() {
+        movieProviderCollectionView?.dataSource = self
+        movieProviderCollectionView?.delegate = self
+        movieProviderCollectionView?.collectionViewLayout = UICollectionViewFlowLayout()
+        movieTrailerCollectionView?.dataSource = self
+        movieTrailerCollectionView?.delegate = self
+        movieTrailerCollectionView?.collectionViewLayout = UICollectionViewFlowLayout()
     }
     
     func updateViews() {
@@ -94,12 +95,44 @@ class DetailViewController: UIViewController {
 }
 
 extension DetailViewController: DetailsViewModelDelegate {
+    func movieProviderHasData() {
+        DispatchQueue.main.async {
+            self.movieProviderCollectionView.reloadData()
+        }
+    }
+    
     func vidCodeHasData() {
         DispatchQueue.main.async {
-            self.getVideo()
+            self.movieTrailerCollectionView.reloadData()
         }
     }
     
     func movieHasData() {
+    }
+}
+
+extension DetailViewController: UICollectionViewDataSource, UICollectionViewDelegate, UINavigationControllerDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        if collectionView == self.movieProviderCollectionView {
+            let cell = movieProviderCollectionView.dequeueReusableCell(withReuseIdentifier: "provider", for: indexPath) as! MovieProvidersCollectionViewCell
+            
+            return cell
+        } else {
+            let cell = movieTrailerCollectionView.dequeueReusableCell(withReuseIdentifier: "trailer", for: indexPath) as! MovieWebKitCollectionViewCell
+        
+            return cell
+        }
+    }
+}
+
+extension DetailViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 75, height: 100)
     }
 }

@@ -16,12 +16,12 @@ struct Results: Decodable {
 }
 
 struct ProviderResults: Decodable {
-    let link: String
+    let link: String?
     let rent: [Rent]
 }
 
 struct Rent: Decodable {
-    let logo_path: String
-    let provider_name: String
+    let logo_path: String?
+    let provider_name: String?
 }
 

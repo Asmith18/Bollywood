@@ -205,7 +205,7 @@ struct BollywoodAPI {
         }.resume()
     }
     
-    static func fetchMovieProviders(with movieId: Int, completion: @escaping (Result<MovieProviders, ResultError>) -> Void) {
+    static func fetchMovieProviders(with movieId: Int, completion: @escaping (Result<ProviderResults, ResultError>) -> Void) {
         
         guard let baseURL = URL(string: baseURLString) else { return }
         
@@ -213,9 +213,9 @@ struct BollywoodAPI {
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
         urlComponents?.path = "/3/movie/\(movieId)/watch/providers"
         urlComponents?.queryItems = [apiQuery]
-        let finalURL = urlComponents?.url
+        guard let finalURL = urlComponents?.url else { return }
         
-        URLSession.shared.dataTask(with: finalURL!) { data, _, error in
+        URLSession.shared.dataTask(with: finalURL) { data, _, error in
             if let error = error {
                 completion(.failure(.thrownError(error)))
             }
@@ -224,7 +224,7 @@ struct BollywoodAPI {
                 return
             }
             do {
-                let movieProviders = try JSONDecoder().decode(MovieProviders.self, from: providerData)
+                let movieProviders = try JSONDecoder().decode(ProviderResults.self, from: providerData)
                 completion(.success(movieProviders))
             } catch {
                 completion(.failure(.unableToDecode))

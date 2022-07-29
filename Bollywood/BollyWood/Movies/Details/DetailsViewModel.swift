@@ -10,6 +10,7 @@ import Foundation
 protocol DetailsViewModelDelegate: DetailViewController {
     func movieHasData()
     func vidCodeHasData()
+    func movieProviderHasData()
 }
 
 class DetailsViewModel {
@@ -17,6 +18,8 @@ class DetailsViewModel {
     var movie: Movies?
     var webView: WebView?
     var results: [WebViewResults] = []
+    var rent: [Rent] = []
+    var rentResults: Rent?
     var favoriteArray = [String]()
     var webViewResults: WebViewResults?
     weak var delegate: DetailsViewModelDelegate?
@@ -33,6 +36,19 @@ class DetailsViewModel {
                 self.results = webView.results
                 self.delegate?.vidCodeHasData()
             case.failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func getMoviePoviders() {
+        guard let movieProvider = movie?.id else { return }
+        BollywoodAPI.fetchMovieProviders(with: movieProvider) { result in
+            switch result {
+            case .success(let provider):
+                self.rent = provider.rent
+                self.delegate?.movieProviderHasData()
+            case .failure(let error):
                 print(error)
             }
         }
