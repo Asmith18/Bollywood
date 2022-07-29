@@ -46,6 +46,8 @@
 		C2B02AD928906ED6008278A1 /* TVShowsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B02AD828906ED6008278A1 /* TVShowsCollectionViewCell.swift */; };
 		C2B02ADF2894597B008278A1 /* MovieProviders.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B02ADE2894597B008278A1 /* MovieProviders.swift */; };
 		C2B02AE128945B96008278A1 /* TVProviders.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B02AE028945B96008278A1 /* TVProviders.swift */; };
+		C2B02AE3289466E2008278A1 /* MovieProvidersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B02AE2289466E2008278A1 /* MovieProvidersCollectionViewCell.swift */; };
+		C2B02AE5289466F5008278A1 /* MovieWebKitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B02AE4289466F5008278A1 /* MovieWebKitCollectionViewCell.swift */; };
 		C2FB2E5C283413A800D6B190 /* TopCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FB2E5B283413A800D6B190 /* TopCollectionViewCell.swift */; };
 		C2FB2E68283416E200D6B190 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FB2E67283416E200D6B190 /* Movie.swift */; };
 		C2FB2E6B28341EEB00D6B190 /* BollywoodAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FB2E6A28341EEB00D6B190 /* BollywoodAPI.swift */; };
@@ -89,6 +91,8 @@
 		C2B02AD828906ED6008278A1 /* TVShowsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowsCollectionViewCell.swift; sourceTree = "<group>"; };
 		C2B02ADE2894597B008278A1 /* MovieProviders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieProviders.swift; sourceTree = "<group>"; };
 		C2B02AE028945B96008278A1 /* TVProviders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVProviders.swift; sourceTree = "<group>"; };
+		C2B02AE2289466E2008278A1 /* MovieProvidersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieProvidersCollectionViewCell.swift; sourceTree = "<group>"; };
+		C2B02AE4289466F5008278A1 /* MovieWebKitCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieWebKitCollectionViewCell.swift; sourceTree = "<group>"; };
 		C2FB2E5B283413A800D6B190 /* TopCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCollectionViewCell.swift; sourceTree = "<group>"; };
 		C2FB2E67283416E200D6B190 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		C2FB2E6A28341EEB00D6B190 /* BollywoodAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BollywoodAPI.swift; sourceTree = "<group>"; };
@@ -201,6 +205,8 @@
 			children = (
 				C26A41C728394BDE00C0B96E /* DetailViewController.swift */,
 				C2AC8A09286B924400A6465D /* DetailsViewModel.swift */,
+				C2B02AE2289466E2008278A1 /* MovieProvidersCollectionViewCell.swift */,
+				C2B02AE4289466F5008278A1 /* MovieWebKitCollectionViewCell.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -369,6 +375,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2B02AE5289466F5008278A1 /* MovieWebKitCollectionViewCell.swift in Sources */,
 				C26A41C828394BDE00C0B96E /* DetailViewController.swift in Sources */,
 				C2AC89F9286A25D100A6465D /* TV.swift in Sources */,
 				C2B02ADF2894597B008278A1 /* MovieProviders.swift in Sources */,
@@ -384,6 +391,7 @@
 				C2FB2E6B28341EEB00D6B190 /* BollywoodAPI.swift in Sources */,
 				C2AC8A03286B786100A6465D /* TVShowDetailsViewController.swift in Sources */,
 				C28E7650286E4F2300252AAA /* SettingsViewController.swift in Sources */,
+				C2B02AE3289466E2008278A1 /* MovieProvidersCollectionViewCell.swift in Sources */,
 				C24B1268283408170061958C /* AppDelegate.swift in Sources */,
 				C2B02AD928906ED6008278A1 /* TVShowsCollectionViewCell.swift in Sources */,
 				C2AC8A0C286CD53700A6465D /* WebView.swift in Sources */,
