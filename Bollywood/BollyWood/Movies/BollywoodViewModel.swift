@@ -15,7 +15,6 @@ protocol BollywoodViewModelDelegate: BollywoodViewController {
 class BollywoodViewModel {
     
     var results: [Movies] = []
-    var movieList: MovieList?
 
     weak var delegate: BollywoodViewModelDelegate?
     
