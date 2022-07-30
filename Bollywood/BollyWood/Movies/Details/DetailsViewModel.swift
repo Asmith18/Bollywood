@@ -18,8 +18,7 @@ class DetailsViewModel {
     var movie: Movies?
     var webView: WebView?
     var results: [WebViewResults] = []
-    var rent: [Rent] = []
-    var rentResults: Rent?
+    var rent: [RentResults] = []
     var favoriteArray = [String]()
     var webViewResults: WebViewResults?
     weak var delegate: DetailsViewModelDelegate?

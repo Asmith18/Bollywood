@@ -90,7 +90,7 @@ extension TVShowViewController: UICollectionViewDataSource, UICollectionViewDele
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "TVDetails", bundle: nil)
-        guard let viewController = storyboard.instantiateViewController(withIdentifier: "tvDetails") as? TVShowDetailsViewController else { return }
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: "show") as? TVShowDetailsViewController else { return }
         viewController.viewModel = TVShowDetailsViewModel(delegate: viewController)
         viewController.viewModel.tvShow = viewModel.results[indexPath.row]
         self.navigationController?.pushViewController(viewController, animated: false)

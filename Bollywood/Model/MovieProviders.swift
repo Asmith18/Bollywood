@@ -8,19 +8,25 @@
 import Foundation
 
 struct MovieProviders: Decodable {
-    let results: Results
-}
-
-struct Results: Decodable {
-    let providerResults: ProviderResults
+    let results: ProviderResults
 }
 
 struct ProviderResults: Decodable {
-    let link: String?
-    let rent: [Rent]
+    let US: USResults
 }
 
-struct Rent: Decodable {
+struct USResults: Decodable {
+    let link: String?
+    let rent: [RentResults]
+    let buy: [BuyResults]
+}
+
+struct RentResults: Decodable {
+    let logo_path: String?
+    let provider_name: String?
+}
+
+struct BuyResults: Decodable {
     let logo_path: String?
     let provider_name: String?
 }

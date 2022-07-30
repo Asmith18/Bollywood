@@ -19,11 +19,13 @@ class TVShowDetailsViewController: UIViewController {
     @IBOutlet weak var showDateTextLabel: UILabel!
     @IBOutlet weak var showRatingTextLabel: UILabel!
     @IBOutlet weak var showDescriptionTextView: UITextView!
-    @IBOutlet weak var tvShowWebView: WKWebView!
     @IBOutlet weak var favoriteButton: UIBarButtonItem!
+    @IBOutlet weak var providerCollectionView: UICollectionView!
+    @IBOutlet weak var trailerCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupCollectionView()
         updateViews()
         viewModel.fetchVidCode()
     }
@@ -34,27 +36,41 @@ class TVShowDetailsViewController: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = false
     }
     
-    func getVideo() {
-        if viewModel.tvShow?.id != nil {
-            guard let vidCode = viewModel.results.filter({ $0.type == "Trailer"}).first?.key else { return }
-            let vidCodeBaseURLString = "https://www.youtube.com"
-            guard let baseURL = URL(string: vidCodeBaseURLString) else { return }
-            
-            var urlcomponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
-            urlcomponents?.path = "/embed/\(vidCode)"
-            let finalURL = urlcomponents?.url
-            tvShowWebView.load(URLRequest(url: finalURL!))
-        } else {
-            print("no data")
-        }
+//    func getVideo() {
+//        if viewModel.tvShow?.id != nil {
+//            guard let vidCode = viewModel.results.filter({ $0.type == "Trailer"}).first?.key else { return }
+//            let vidCodeBaseURLString = "https://www.youtube.com"
+//            guard let baseURL = URL(string: vidCodeBaseURLString) else { return }
+//
+//            var urlcomponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
+//            urlcomponents?.path = "/embed/\(vidCode)"
+//            let finalURL = urlcomponents?.url
+//            tvShowWebView.load(URLRequest(url: finalURL!))
+//        } else {
+//            print("no data")
+//        }
+//    }
+    
+    func setupCollectionView() {
+        providerCollectionView.dataSource = self
+        providerCollectionView.delegate = self
+        providerCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
+        trailerCollectionView.dataSource = self
+        trailerCollectionView.delegate = self
+        trailerCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
     }
     
     func updateViews() {
         fetchImage(for: viewModel)
+        showDateTextLabel.text = viewModel.tvShow?.first_air_date
         showNameTextlabel.text = viewModel.tvShow?.name
         showRatingTextLabel.text = "\(viewModel.tvShow?.vote_average ?? 0) / 10"
         showDescriptionTextView.layer.cornerRadius = 25
-        showDescriptionTextView.text = viewModel.tvShow?.overview
+        if viewModel.tvShow?.overview != "" {
+            showDescriptionTextView.text = viewModel.tvShow?.overview
+        } else {
+            showDescriptionTextView.text = "No Description Found..."
+        }
     }
     
     func fetchImage(for viewModel: TVShowDetailsViewModel) {
@@ -75,9 +91,9 @@ class TVShowDetailsViewController: UIViewController {
         
         if UserDefaults.standard.string(forKey: "email") != nil {
             if isFavShow {
-                favoriteButton.image = UIImage(systemName: "star")
+                favoriteButton.image = UIImage(systemName: "heart")
             } else {
-                favoriteButton.image = UIImage(systemName: "star.fill")
+                favoriteButton.image = UIImage(systemName: "heart.fill")
             }
             isFavShow = !isFavShow
             UserDefaults.standard.set(isFavShow, forKey: "isFavShow")
@@ -100,11 +116,36 @@ class TVShowDetailsViewController: UIViewController {
 extension TVShowDetailsViewController: TVShowDetailsViewModelDelegate {
     func vidCodeHasData() {
         DispatchQueue.main.async {
-            self.getVideo()
+            self.trailerCollectionView.reloadData()
         }
     }
     
     func showHasData() {
         updateViews()
+    }
+}
+
+extension TVShowDetailsViewController: UICollectionViewDataSource, UICollectionViewDelegate, UINavigationControllerDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if collectionView == providerCollectionView.self {
+            let cell = providerCollectionView.dequeueReusableCell(withReuseIdentifier: "provider", for: indexPath) as! TVShowPorviderCollectionViewCell
+            
+            return cell
+        } else {
+            let cell = trailerCollectionView.dequeueReusableCell(withReuseIdentifier: "trailer", for: indexPath) as! TVShowWebKitCollectionViewCell
+            
+            return cell
+        }
+    }
+}
+
+extension TVShowDetailsViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: 75, height: 100)
     }
 }

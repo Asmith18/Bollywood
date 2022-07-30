@@ -205,7 +205,7 @@ struct BollywoodAPI {
         }.resume()
     }
     
-    static func fetchMovieProviders(with movieId: Int, completion: @escaping (Result<ProviderResults, ResultError>) -> Void) {
+    static func fetchMovieProviders(with movieId: Int, completion: @escaping (Result<USResults, ResultError>) -> Void) {
         
         guard let baseURL = URL(string: baseURLString) else { return }
         
@@ -224,7 +224,7 @@ struct BollywoodAPI {
                 return
             }
             do {
-                let movieProviders = try JSONDecoder().decode(ProviderResults.self, from: providerData)
+                let movieProviders = try JSONDecoder().decode(USResults.self, from: providerData)
                 completion(.success(movieProviders))
             } catch {
                 completion(.failure(.unableToDecode))

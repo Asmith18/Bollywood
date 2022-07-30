@@ -29,6 +29,7 @@ class DetailViewController: UIViewController {
         updateViews()
         viewModel.fetchVidCode()
         viewModel.getMoviePoviders()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,6 +39,8 @@ class DetailViewController: UIViewController {
     }
     
     func collectionViews() {
+        let layout = UICollectionViewFlowLayout()
+            layout.scrollDirection = .horizontal
         movieProviderCollectionView?.dataSource = self
         movieProviderCollectionView?.delegate = self
         movieProviderCollectionView?.collectionViewLayout = UICollectionViewFlowLayout()
@@ -47,11 +50,16 @@ class DetailViewController: UIViewController {
     }
     
     func updateViews() {
+        movieDateTextLabel.text = viewModel.movie?.release_date
         movieRatingTextLabel.text = "\(viewModel.movie?.vote_average ?? 0) / 10"
-        movieDescriptionTextField.layer.cornerRadius = 25
         fetchImage(for: viewModel)
         movieNameTextLabel.text = viewModel.movie?.title
-        movieDescriptionTextField.text = viewModel.movie?.overview
+        movieDescriptionTextField.layer.cornerRadius = 25
+        if viewModel.movie?.overview != "" {
+            movieDescriptionTextField.text = viewModel.movie?.overview
+        } else {
+            movieDescriptionTextField.text = "No Description Found..."
+        }
     }
     
     func fetchImage(for viewModel: DetailsViewModel) {
@@ -72,9 +80,9 @@ class DetailViewController: UIViewController {
         
         if UserDefaults.standard.string(forKey: "email") != nil {
             if isFavMovie {
-                favoriteButton.image = UIImage(systemName: "star")
+                favoriteButton.image = UIImage(systemName: "heart")
             } else {
-                favoriteButton.image = UIImage(systemName: "star.fill")
+                favoriteButton.image = UIImage(systemName: "heart.fill")
             }
             isFavMovie = !isFavMovie
             UserDefaults.standard.set(isFavMovie, forKey: "isFavMovie")
@@ -133,6 +141,7 @@ extension DetailViewController: UICollectionViewDataSource, UICollectionViewDele
 
 extension DetailViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
         return CGSize(width: 75, height: 100)
     }
 }
