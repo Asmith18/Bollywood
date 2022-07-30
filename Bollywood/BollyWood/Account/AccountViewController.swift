@@ -41,8 +41,8 @@ class AccountViewController: UIViewController {
     }
     
     func updateViews() {
-        moviesCollectionView.layer.cornerRadius = 45
-        showsCollectionView.layer.cornerRadius = 45
+        moviesCollectionView.layer.cornerRadius = 25
+        showsCollectionView.layer.cornerRadius = 25
     }
     
     //MARK: - Actions
