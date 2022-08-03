@@ -10,6 +10,7 @@ import Foundation
 protocol TVShowDetailsViewModelDelegate: TVShowDetailsViewController {
     func showHasData()
     func vidCodeHasData()
+    func tvShowproviderHasData()
 }
 
 class TVShowDetailsViewModel {
@@ -18,6 +19,7 @@ class TVShowDetailsViewModel {
     var tvShow: TVShows?
     var webView: WebView?
     var results: [WebViewResults] = []
+    var free: [FreeResults] = []
     var webViewResults: WebViewResults?
     weak var delegate: TVShowDetailsViewModelDelegate?
     
@@ -33,6 +35,19 @@ class TVShowDetailsViewModel {
                 self.results = webView.results
                 self.delegate?.vidCodeHasData()
             case.failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func getTVProviders() {
+        guard let tvProvider = tvShow?.id else { return }
+        BollywoodAPI.fetchTVProviders(with: tvProvider) { result in
+            switch result {
+            case .success(let provider):
+                self.free = provider.free
+                self.delegate?.tvShowproviderHasData()
+            case .failure(let error):
                 print(error)
             }
         }

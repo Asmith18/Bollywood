@@ -114,6 +114,12 @@ class TVShowDetailsViewController: UIViewController {
 }
 
 extension TVShowDetailsViewController: TVShowDetailsViewModelDelegate {
+    func tvShowproviderHasData() {
+        DispatchQueue.main.async {
+            self.providerCollectionView.reloadData()
+        }
+    }
+    
     func vidCodeHasData() {
         DispatchQueue.main.async {
             self.trailerCollectionView.reloadData()

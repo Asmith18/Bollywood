@@ -12,10 +12,10 @@ struct MovieProviders: Decodable {
 }
 
 struct ProviderResults: Decodable {
-    let US: USResults
+    let US: USMovieResults
 }
 
-struct USResults: Decodable {
+struct USMovieResults: Decodable {
     let link: String?
     let rent: [RentResults]
     let buy: [BuyResults]

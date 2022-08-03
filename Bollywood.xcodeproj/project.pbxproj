@@ -51,6 +51,7 @@
 		C2B02AE72895CD20008278A1 /* MovieDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B02AE62895CD20008278A1 /* MovieDetails.swift */; };
 		C2B02AE92895D009008278A1 /* TVShowPorviderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B02AE82895D009008278A1 /* TVShowPorviderCollectionViewCell.swift */; };
 		C2B02AEB2895D01B008278A1 /* TVShowWebKitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B02AEA2895D01B008278A1 /* TVShowWebKitCollectionViewCell.swift */; };
+		C2B02AED289ACF1E008278A1 /* Seasons.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B02AEC289ACF1E008278A1 /* Seasons.swift */; };
 		C2FB2E5C283413A800D6B190 /* TopCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FB2E5B283413A800D6B190 /* TopCollectionViewCell.swift */; };
 		C2FB2E68283416E200D6B190 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FB2E67283416E200D6B190 /* Movie.swift */; };
 		C2FB2E6B28341EEB00D6B190 /* BollywoodAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FB2E6A28341EEB00D6B190 /* BollywoodAPI.swift */; };
@@ -99,6 +100,7 @@
 		C2B02AE62895CD20008278A1 /* MovieDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetails.swift; sourceTree = "<group>"; };
 		C2B02AE82895D009008278A1 /* TVShowPorviderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowPorviderCollectionViewCell.swift; sourceTree = "<group>"; };
 		C2B02AEA2895D01B008278A1 /* TVShowWebKitCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowWebKitCollectionViewCell.swift; sourceTree = "<group>"; };
+		C2B02AEC289ACF1E008278A1 /* Seasons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seasons.swift; sourceTree = "<group>"; };
 		C2FB2E5B283413A800D6B190 /* TopCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCollectionViewCell.swift; sourceTree = "<group>"; };
 		C2FB2E67283416E200D6B190 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		C2FB2E6A28341EEB00D6B190 /* BollywoodAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BollywoodAPI.swift; sourceTree = "<group>"; };
@@ -143,8 +145,8 @@
 		C24B1266283408170061958C /* Bollywood */ = {
 			isa = PBXGroup;
 			children = (
-				C25A16D32885D852002F8487 /* Firebase */,
 				C2FB2E66283416D400D6B190 /* Model */,
+				C25A16D32885D852002F8487 /* Firebase */,
 				C2FB2E6928341ECA00D6B190 /* Network */,
 				C2FB2E652834140A00D6B190 /* BollyWood */,
 				C24B127B283408320061958C /* Resources */,
@@ -281,6 +283,7 @@
 				C2AC8A14286E260A00A6465D /* Account.swift */,
 				C2B02ADE2894597B008278A1 /* MovieProviders.swift */,
 				C2B02AE028945B96008278A1 /* TVProviders.swift */,
+				C2B02AEC289ACF1E008278A1 /* Seasons.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 				C2AC8A08286B7FCD00A6465D /* TVShowDetailsViewModel.swift in Sources */,
 				C2B02AE128945B96008278A1 /* TVProviders.swift in Sources */,
 				C24B1282283412230061958C /* BollywoodViewController.swift in Sources */,
+				C2B02AED289ACF1E008278A1 /* Seasons.swift in Sources */,
 				C2B02AE92895D009008278A1 /* TVShowPorviderCollectionViewCell.swift in Sources */,
 				C2B02AE72895CD20008278A1 /* MovieDetails.swift in Sources */,
 				C25A16D82885E1DD002F8487 /* SignUpViewController.swift in Sources */,

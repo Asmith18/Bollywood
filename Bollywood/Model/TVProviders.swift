@@ -12,11 +12,12 @@ struct TVProviders: Decodable {
 }
 
 struct TVResults: Decodable {
-    let unitedStates: UnitedStates
+    let US: USTVResults
 }
 
-struct UnitedStates: Decodable {
-    let free: FreeResults
+struct USTVResults: Decodable {
+    let link: String?
+    let free: [FreeResults]
 }
 
 struct FreeResults: Decodable {

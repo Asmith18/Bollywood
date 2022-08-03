@@ -205,7 +205,7 @@ struct BollywoodAPI {
         }.resume()
     }
     
-    static func fetchMovieProviders(with movieId: Int, completion: @escaping (Result<USResults, ResultError>) -> Void) {
+    static func fetchMovieProviders(with movieId: Int, completion: @escaping (Result<USMovieResults, ResultError>) -> Void) {
         
         guard let baseURL = URL(string: baseURLString) else { return }
         
@@ -224,7 +224,7 @@ struct BollywoodAPI {
                 return
             }
             do {
-                let movieProviders = try JSONDecoder().decode(USResults.self, from: providerData)
+                let movieProviders = try JSONDecoder().decode(USMovieResults.self, from: providerData)
                 completion(.success(movieProviders))
             } catch {
                 completion(.failure(.unableToDecode))
@@ -232,7 +232,7 @@ struct BollywoodAPI {
         } .resume()
     }
     
-    static func fetchTVProviders(with tvId: Int, completion: @escaping (Result<TVProviders, ResultError>) -> Void) {
+    static func fetchTVProviders(with tvId: Int, completion: @escaping (Result<USTVResults, ResultError>) -> Void) {
         
         guard let baseURL = URL(string: baseURLString) else { return }
         
@@ -252,7 +252,7 @@ struct BollywoodAPI {
                 return
             }
             do {
-                let tvProviders = try JSONDecoder().decode(TVProviders.self, from: providerData)
+                let tvProviders = try JSONDecoder().decode(USTVResults.self, from: providerData)
                 completion(.success(tvProviders))
             } catch {
                 completion(.failure(.unableToDecode))

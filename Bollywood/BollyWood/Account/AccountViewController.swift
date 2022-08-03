@@ -77,10 +77,16 @@ extension AccountViewController: UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "MovieDetails", bundle: nil)
-        guard let viewController = storyboard.instantiateViewController(withIdentifier: "movieDetails") as? DetailViewController else { return }
-        viewController.viewModel = DetailsViewModel(delegate: viewController)
-        self.navigationController?.pushViewController(viewController, animated: false)
+        if collectionView == moviesCollectionView.self {
+            let storyboard = UIStoryboard(name: "MovieDetails", bundle: nil)
+            guard let viewController = storyboard.instantiateViewController(withIdentifier: "movieDetails") as? DetailViewController else { return }
+            viewController.viewModel = DetailsViewModel(delegate: viewController)
+            self.navigationController?.pushViewController(viewController, animated: false)
+        } else {
+            let storyboard = UIStoryboard(name: "TVDetails", bundle: nil)
+            guard let viewController = storyboard.instantiateViewController(withIdentifier: "show") as? TVShowDetailsViewController else { return }
+            self.navigationController?.pushViewController(viewController, animated: false)
+        }
     }
 }
 
