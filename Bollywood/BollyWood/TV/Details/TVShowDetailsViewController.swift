@@ -22,6 +22,8 @@ class TVShowDetailsViewController: UIViewController {
     @IBOutlet weak var favoriteButton: UIBarButtonItem!
     @IBOutlet weak var providerCollectionView: UICollectionView!
     @IBOutlet weak var trailerCollectionView: UICollectionView!
+    @IBOutlet weak var actorCollectionView: UICollectionView!
+    @IBOutlet weak var crewCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,10 +56,12 @@ class TVShowDetailsViewController: UIViewController {
     func setupCollectionView() {
         providerCollectionView.dataSource = self
         providerCollectionView.delegate = self
-        providerCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
         trailerCollectionView.dataSource = self
         trailerCollectionView.delegate = self
-        trailerCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
+        actorCollectionView.dataSource = self
+        actorCollectionView.delegate = self
+        crewCollectionView.dataSource = self
+        crewCollectionView.delegate = self
     }
     
     func updateViews() {
@@ -133,7 +137,7 @@ extension TVShowDetailsViewController: TVShowDetailsViewModelDelegate {
 
 extension TVShowDetailsViewController: UICollectionViewDataSource, UICollectionViewDelegate, UINavigationControllerDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -141,17 +145,18 @@ extension TVShowDetailsViewController: UICollectionViewDataSource, UICollectionV
             let cell = providerCollectionView.dequeueReusableCell(withReuseIdentifier: "provider", for: indexPath) as! TVShowPorviderCollectionViewCell
             
             return cell
-        } else {
+        } else if collectionView == trailerCollectionView.self {
             let cell = trailerCollectionView.dequeueReusableCell(withReuseIdentifier: "trailer", for: indexPath) as! TVShowWebKitCollectionViewCell
             
             return cell
+        } else if collectionView == actorCollectionView.self {
+            let cell = actorCollectionView.dequeueReusableCell(withReuseIdentifier: "actor", for: indexPath) as! ActorCollectionViewCell
+            
+            return cell
+        } else {
+            let cell = crewCollectionView.dequeueReusableCell(withReuseIdentifier: "crew", for: indexPath) as! CrewCollectionViewCell
+            
+            return cell
         }
-    }
-}
-
-extension TVShowDetailsViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        return CGSize(width: 75, height: 100)
     }
 }

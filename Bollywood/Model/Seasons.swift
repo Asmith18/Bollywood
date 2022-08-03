@@ -24,13 +24,23 @@ struct Episodes: Decodable {
     let overview: String?
     let season_number: Int?
     let guest_stars: [Actors]
+    let crew: [EpisodeCrew]
 }
 
 struct Actors: Decodable {
     enum codingKeys: String, CodingKey {
-        case profile_path = "profileImage"
+        case profile_path = "profilePath"
     }
     let character: String?
+    let name: String?
+    let profile_path: String?
+}
+
+struct EpisodeCrew: Decodable {
+    enum codingKeys: String, CodingKey {
+        case profile_path = "profilePath"
+    }
+    let job: String?
     let name: String?
     let profile_path: String?
 }
