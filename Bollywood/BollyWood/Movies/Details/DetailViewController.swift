@@ -22,6 +22,9 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var favoriteButton: UIBarButtonItem!
     @IBOutlet weak var movieProviderCollectionView: UICollectionView!
     @IBOutlet weak var movieTrailerCollectionView: UICollectionView!
+    @IBOutlet weak var actorCollectionView: UICollectionView!
+    @IBOutlet weak var crewCollectionView: UICollectionView!
+    @IBOutlet weak var genreCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,14 +42,16 @@ class DetailViewController: UIViewController {
     }
     
     func collectionViews() {
-        let layout = UICollectionViewFlowLayout()
-            layout.scrollDirection = .horizontal
         movieProviderCollectionView?.dataSource = self
         movieProviderCollectionView?.delegate = self
-        movieProviderCollectionView?.collectionViewLayout = UICollectionViewFlowLayout()
         movieTrailerCollectionView?.dataSource = self
         movieTrailerCollectionView?.delegate = self
-        movieTrailerCollectionView?.collectionViewLayout = UICollectionViewFlowLayout()
+        actorCollectionView?.dataSource = self
+        actorCollectionView?.delegate = self
+        crewCollectionView?.dataSource = self
+        crewCollectionView?.delegate = self
+        genreCollectionView?.dataSource = self
+        genreCollectionView?.delegate = self
     }
     
     func updateViews() {
@@ -122,7 +127,7 @@ extension DetailViewController: DetailsViewModelDelegate {
 extension DetailViewController: UICollectionViewDataSource, UICollectionViewDelegate, UINavigationControllerDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -131,17 +136,22 @@ extension DetailViewController: UICollectionViewDataSource, UICollectionViewDele
             let cell = movieProviderCollectionView.dequeueReusableCell(withReuseIdentifier: "provider", for: indexPath) as! MovieProvidersCollectionViewCell
             
             return cell
-        } else {
+        } else if collectionView == movieTrailerCollectionView.self {
             let cell = movieTrailerCollectionView.dequeueReusableCell(withReuseIdentifier: "trailer", for: indexPath) as! MovieWebKitCollectionViewCell
         
             return cell
+        } else if collectionView == actorCollectionView.self {
+            let cell = actorCollectionView.dequeueReusableCell(withReuseIdentifier: "actor", for: indexPath) as! MovieActorCollectionViewCell
+            
+            return cell
+        } else if collectionView == crewCollectionView.self {
+            let cell = crewCollectionView.dequeueReusableCell(withReuseIdentifier: "crew", for: indexPath) as! MovieCrewCollectionViewCell
+            
+            return cell
+        } else {
+            let cell = genreCollectionView.dequeueReusableCell(withReuseIdentifier: "genre", for: indexPath) as! MovieGenreCollectionViewCell
+            
+            return cell
         }
-    }
-}
-
-extension DetailViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        return CGSize(width: 75, height: 100)
     }
 }

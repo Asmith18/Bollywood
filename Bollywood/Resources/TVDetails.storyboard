@@ -317,40 +317,55 @@
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Vws-w3-k00">
                                                 <rect key="frame" x="8" y="1346" width="398" height="69"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" red="0.13807833350000001" green="0.13807833350000001" blue="0.13807833350000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="398" id="1lI-GD-V9U"/>
                                                     <constraint firstAttribute="height" constant="69" id="JkJ-Yv-qZJ"/>
                                                 </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4sU-r2-pRx">
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4sU-r2-pRx">
                                                     <size key="itemSize" width="135" height="67"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Vzj-uA-GsH">
-                                                        <rect key="frame" x="0.0" y="0.0" width="135" height="67"/>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="genre" id="Vzj-uA-GsH" customClass="GenreCollectionViewCell" customModule="Bollywood" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="1" width="135" height="67"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="7MR-89-Iga">
                                                             <rect key="frame" x="0.0" y="0.0" width="135" height="67"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Rt-fR-CtZ">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="135" height="67"/>
+                                                                    <color key="backgroundColor" systemColor="systemRedColor"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="135" id="A0P-1y-HBF"/>
+                                                                        <constraint firstAttribute="height" constant="67" id="fi6-rc-pBL"/>
+                                                                    </constraints>
+                                                                </view>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="genre" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WX4-wO-fNY">
                                                                     <rect key="frame" x="5" y="23" width="125" height="21"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
+                                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstItem="WX4-wO-fNY" firstAttribute="leading" secondItem="7MR-89-Iga" secondAttribute="leading" constant="5" id="07V-FV-X6d"/>
+                                                                <constraint firstAttribute="bottom" secondItem="2Rt-fR-CtZ" secondAttribute="bottom" id="0Yw-DX-eeO"/>
+                                                                <constraint firstItem="2Rt-fR-CtZ" firstAttribute="top" secondItem="7MR-89-Iga" secondAttribute="top" id="6u1-wg-pWH"/>
+                                                                <constraint firstItem="2Rt-fR-CtZ" firstAttribute="leading" secondItem="7MR-89-Iga" secondAttribute="leading" id="F61-fh-Zwq"/>
                                                                 <constraint firstAttribute="bottom" secondItem="WX4-wO-fNY" secondAttribute="bottom" constant="23" id="KWl-Wp-kSX"/>
+                                                                <constraint firstAttribute="trailing" secondItem="2Rt-fR-CtZ" secondAttribute="trailing" id="M9i-1Y-Yaj"/>
                                                                 <constraint firstAttribute="trailing" secondItem="WX4-wO-fNY" secondAttribute="trailing" constant="5" id="Mwm-5B-l93"/>
                                                                 <constraint firstItem="WX4-wO-fNY" firstAttribute="top" secondItem="7MR-89-Iga" secondAttribute="top" constant="23" id="Rwc-KZ-nL0"/>
                                                             </constraints>
                                                         </collectionViewCellContentView>
                                                         <size key="customSize" width="135" height="67"/>
+                                                        <connections>
+                                                            <outlet property="genreNameTextLabel" destination="WX4-wO-fNY" id="Sv9-nv-jvM"/>
+                                                        </connections>
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
@@ -434,6 +449,7 @@
                         <outlet property="actorCollectionView" destination="wvX-bj-HS4" id="F1J-gH-V3Z"/>
                         <outlet property="crewCollectionView" destination="guW-NL-8qq" id="ERq-Y1-fsD"/>
                         <outlet property="favoriteButton" destination="d3H-sH-WPF" id="Zz6-Py-q4L"/>
+                        <outlet property="genreCollectionView" destination="Vws-w3-k00" id="ynJ-07-r0h"/>
                         <outlet property="providerCollectionView" destination="xZU-bF-iVd" id="H6X-K6-afs"/>
                         <outlet property="showDateTextLabel" destination="L64-AN-Hbf" id="XOu-dK-rNJ"/>
                         <outlet property="showDescriptionTextView" destination="EOb-Ru-q72" id="IsP-15-XKG"/>
@@ -452,8 +468,8 @@
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="netflix" width="100" height="100"/>
         <image name="profile" width="416" height="416"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

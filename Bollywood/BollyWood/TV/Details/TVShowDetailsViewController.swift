@@ -24,6 +24,7 @@ class TVShowDetailsViewController: UIViewController {
     @IBOutlet weak var trailerCollectionView: UICollectionView!
     @IBOutlet weak var actorCollectionView: UICollectionView!
     @IBOutlet weak var crewCollectionView: UICollectionView!
+    @IBOutlet weak var genreCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +63,8 @@ class TVShowDetailsViewController: UIViewController {
         actorCollectionView.delegate = self
         crewCollectionView.dataSource = self
         crewCollectionView.delegate = self
+        genreCollectionView.dataSource = self
+        genreCollectionView.delegate = self
     }
     
     func updateViews() {
@@ -153,8 +156,12 @@ extension TVShowDetailsViewController: UICollectionViewDataSource, UICollectionV
             let cell = actorCollectionView.dequeueReusableCell(withReuseIdentifier: "actor", for: indexPath) as! ActorCollectionViewCell
             
             return cell
-        } else {
+        } else if collectionView == crewCollectionView.self {
             let cell = crewCollectionView.dequeueReusableCell(withReuseIdentifier: "crew", for: indexPath) as! CrewCollectionViewCell
+            
+            return cell
+        } else {
+            let cell = genreCollectionView.dequeueReusableCell(withReuseIdentifier: "genre", for: indexPath) as! GenreCollectionViewCell
             
             return cell
         }
