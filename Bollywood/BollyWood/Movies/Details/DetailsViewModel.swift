@@ -18,7 +18,10 @@ class DetailsViewModel {
     var movie: Movies?
     var webView: WebView?
     var results: [WebViewResults] = []
+    var providerResults: [MovieProviders] = []
     var rent: [RentResults] = []
+    var buy: [BuyResults] = []
+    var flatrate: FlatrateResults?
     var favoriteArray = [String]()
     var webViewResults: WebViewResults?
     weak var delegate: DetailsViewModelDelegate?
@@ -45,7 +48,7 @@ class DetailsViewModel {
         BollywoodAPI.fetchMovieProviders(with: movieProvider) { result in
             switch result {
             case .success(let provider):
-                self.rent = provider.rent
+                self.flatrate = provider.results.US.flatrate
                 self.delegate?.movieProviderHasData()
             case .failure(let error):
                 print(error)

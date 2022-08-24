@@ -12,12 +12,12 @@ class TVShowPorviderCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var showProviderImageView: UIImageView!
     @IBOutlet weak var showProviderTextLabel: UILabel!
     
-    func setup(with free: FreeResults) {
+    func setup(with free: Flatrate) {
         showProviderTextLabel.text = free.provider_name
         fetchImage(free: free)
     }
     
-    func fetchImage(free: FreeResults) {
+    func fetchImage(free: Flatrate) {
         guard let freeImage = free.logo_path else { return }
         BollywoodAPI.fetchImage(from: freeImage) { result in
             switch result {

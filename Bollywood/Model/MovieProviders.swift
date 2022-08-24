@@ -19,6 +19,7 @@ struct USMovieResults: Decodable {
     let link: String?
     let rent: [RentResults]
     let buy: [BuyResults]
+    let flatrate: FlatrateResults
 }
 
 struct RentResults: Decodable {
@@ -27,6 +28,11 @@ struct RentResults: Decodable {
 }
 
 struct BuyResults: Decodable {
+    let logo_path: String?
+    let provider_name: String?
+}
+
+struct FlatrateResults: Decodable {
     let logo_path: String?
     let provider_name: String?
 }

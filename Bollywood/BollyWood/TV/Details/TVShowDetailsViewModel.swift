@@ -19,7 +19,7 @@ class TVShowDetailsViewModel {
     var tvShow: TVShows?
     var webView: WebView?
     var results: [WebViewResults] = []
-    var free: [FreeResults] = []
+    var flatrate: [Flatrate] = []
     var webViewResults: WebViewResults?
     weak var delegate: TVShowDetailsViewModelDelegate?
     
@@ -45,7 +45,7 @@ class TVShowDetailsViewModel {
         BollywoodAPI.fetchTVProviders(with: tvProvider) { result in
             switch result {
             case .success(let provider):
-                self.free = provider.free
+                self.flatrate = provider.results.US.flatrate
                 self.delegate?.tvShowproviderHasData()
             case .failure(let error):
                 print(error)

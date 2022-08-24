@@ -205,7 +205,7 @@ struct BollywoodAPI {
         }.resume()
     }
     
-    static func fetchMovieProviders(with movieId: Int, completion: @escaping (Result<USMovieResults, ResultError>) -> Void) {
+    static func fetchMovieProviders(with movieId: Int, completion: @escaping (Result<MovieProviders, ResultError>) -> Void) {
         
         guard let baseURL = URL(string: baseURLString) else { return }
         
@@ -213,9 +213,9 @@ struct BollywoodAPI {
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
         urlComponents?.path = "/3/movie/\(movieId)/watch/providers"
         urlComponents?.queryItems = [apiQuery]
-        guard let finalURL = urlComponents?.url else { return }
+        let finalURL = urlComponents?.url
         
-        URLSession.shared.dataTask(with: finalURL) { data, _, error in
+        URLSession.shared.dataTask(with: finalURL!) { data, _, error in
             if let error = error {
                 completion(.failure(.thrownError(error)))
             }
@@ -224,7 +224,7 @@ struct BollywoodAPI {
                 return
             }
             do {
-                let movieProviders = try JSONDecoder().decode(USMovieResults.self, from: providerData)
+                let movieProviders = try JSONDecoder().decode(MovieProviders.self, from: providerData)
                 completion(.success(movieProviders))
             } catch {
                 completion(.failure(.unableToDecode))
@@ -232,7 +232,7 @@ struct BollywoodAPI {
         } .resume()
     }
     
-    static func fetchTVProviders(with tvId: Int, completion: @escaping (Result<USTVResults, ResultError>) -> Void) {
+    static func fetchTVProviders(with tvId: Int, completion: @escaping (Result<TVProviders, ResultError>) -> Void) {
         
         guard let baseURL = URL(string: baseURLString) else { return }
         
@@ -252,7 +252,7 @@ struct BollywoodAPI {
                 return
             }
             do {
-                let tvProviders = try JSONDecoder().decode(USTVResults.self, from: providerData)
+                let tvProviders = try JSONDecoder().decode(TVProviders.self, from: providerData)
                 completion(.success(tvProviders))
             } catch {
                 completion(.failure(.unableToDecode))

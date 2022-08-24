@@ -12,17 +12,16 @@ struct TVProviders: Decodable {
 }
 
 struct TVResults: Decodable {
-    let US: USTVResults
+    let US: USResults
 }
 
-struct USTVResults: Decodable {
-    let link: String?
-    let free: [FreeResults]
+struct USResults: Decodable {
+    let flatrate: [Flatrate]
 }
 
-struct FreeResults: Decodable {
+struct Flatrate: Decodable {
     let logo_path: String?
-    let provider_name: String
+    let provider_name: String?
 }
 
 

@@ -31,6 +31,7 @@ class TVShowDetailsViewController: UIViewController {
         setupCollectionView()
         updateViews()
         viewModel.fetchVidCode()
+        viewModel.getTVProviders()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -140,16 +141,32 @@ extension TVShowDetailsViewController: TVShowDetailsViewModelDelegate {
 
 extension TVShowDetailsViewController: UICollectionViewDataSource, UICollectionViewDelegate, UINavigationControllerDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        if collectionView == providerCollectionView.self {
+            return viewModel.flatrate.count
+        } else if collectionView == trailerCollectionView.self {
+            return viewModel.results.count
+        } else if collectionView == actorCollectionView.self {
+            return 5
+        } else if collectionView == crewCollectionView.self {
+            return 5
+        } else {
+            return 5
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == providerCollectionView.self {
             let cell = providerCollectionView.dequeueReusableCell(withReuseIdentifier: "provider", for: indexPath) as! TVShowPorviderCollectionViewCell
             
+            let result = viewModel.flatrate[indexPath.row]
+            cell.setup(with: result)
+            
             return cell
         } else if collectionView == trailerCollectionView.self {
             let cell = trailerCollectionView.dequeueReusableCell(withReuseIdentifier: "trailer", for: indexPath) as! TVShowWebKitCollectionViewCell
+            
+            let result = viewModel.results[indexPath.row]
+            cell.getVideo(results: result)
             
             return cell
         } else if collectionView == actorCollectionView.self {

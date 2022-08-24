@@ -127,13 +127,26 @@ extension DetailViewController: DetailsViewModelDelegate {
 extension DetailViewController: UICollectionViewDataSource, UICollectionViewDelegate, UINavigationControllerDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        if collectionView == self.movieProviderCollectionView {
+            return viewModel.providerResults.count
+        } else if collectionView == movieTrailerCollectionView.self {
+            return 5
+        } else if collectionView == actorCollectionView.self {
+            return 5
+        } else if collectionView == crewCollectionView.self {
+            return 5
+        } else {
+            return 5
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if collectionView == self.movieProviderCollectionView {
             let cell = movieProviderCollectionView.dequeueReusableCell(withReuseIdentifier: "provider", for: indexPath) as! MovieProvidersCollectionViewCell
+            
+            let result = viewModel.rent[indexPath.row]
+            cell.setup(with: result)
             
             return cell
         } else if collectionView == movieTrailerCollectionView.self {
