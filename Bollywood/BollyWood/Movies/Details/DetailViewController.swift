@@ -32,6 +32,7 @@ class DetailViewController: UIViewController {
         updateViews()
         viewModel.fetchVidCode()
         viewModel.getMoviePoviders()
+        viewModel.getMovieCast()
         
     }
     
@@ -122,17 +123,23 @@ extension DetailViewController: DetailsViewModelDelegate {
     
     func movieHasData() {
     }
+    
+    func movieCastHasData() {
+        DispatchQueue.main.async {
+            self.actorCollectionView.reloadData()
+        }
+    }
 }
 
 extension DetailViewController: UICollectionViewDataSource, UICollectionViewDelegate, UINavigationControllerDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.movieProviderCollectionView {
-            return viewModel.providerResults.count
+            return 5
         } else if collectionView == movieTrailerCollectionView.self {
-            return 5
+            return viewModel.results.count
         } else if collectionView == actorCollectionView.self {
-            return 5
+            return viewModel.movieCast.count
         } else if collectionView == crewCollectionView.self {
             return 5
         } else {
@@ -145,16 +152,19 @@ extension DetailViewController: UICollectionViewDataSource, UICollectionViewDele
         if collectionView == self.movieProviderCollectionView {
             let cell = movieProviderCollectionView.dequeueReusableCell(withReuseIdentifier: "provider", for: indexPath) as! MovieProvidersCollectionViewCell
             
-            let result = viewModel.rent[indexPath.row]
-            cell.setup(with: result)
-            
             return cell
         } else if collectionView == movieTrailerCollectionView.self {
             let cell = movieTrailerCollectionView.dequeueReusableCell(withReuseIdentifier: "trailer", for: indexPath) as! MovieWebKitCollectionViewCell
         
+            let result = viewModel.results[indexPath.row]
+            cell.getVideo(results: result)
+            
             return cell
         } else if collectionView == actorCollectionView.self {
             let cell = actorCollectionView.dequeueReusableCell(withReuseIdentifier: "actor", for: indexPath) as! MovieActorCollectionViewCell
+            
+            let result = viewModel.movieCast[indexPath.row]
+            cell.setup(credits: result)
             
             return cell
         } else if collectionView == crewCollectionView.self {

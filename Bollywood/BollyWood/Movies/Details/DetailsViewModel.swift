@@ -11,6 +11,7 @@ protocol DetailsViewModelDelegate: DetailViewController {
     func movieHasData()
     func vidCodeHasData()
     func movieProviderHasData()
+    func movieCastHasData()
 }
 
 class DetailsViewModel {
@@ -24,6 +25,7 @@ class DetailsViewModel {
     var flatrate: FlatrateResults?
     var favoriteArray = [String]()
     var webViewResults: WebViewResults?
+    var movieCast: [MovieCast] = []
     weak var delegate: DetailsViewModelDelegate?
     
     init(delegate: DetailsViewModelDelegate) {
@@ -51,6 +53,18 @@ class DetailsViewModel {
                 self.flatrate = provider.results.US.flatrate
                 self.delegate?.movieProviderHasData()
             case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func getMovieCast() {
+        guard let movieId = movie?.id else { return }
+        BollywoodAPI.fetchMovieCast(with: movieId) { result in
+            switch result {
+            case.success(let cast):
+                self.movieCast = cast.cast
+            case.failure(let error):
                 print(error)
             }
         }

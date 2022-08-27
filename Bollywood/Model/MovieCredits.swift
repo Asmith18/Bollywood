@@ -13,18 +13,12 @@ struct MovieCredits: Decodable {
 }
 
 struct MovieCast: Decodable {
-    enum codingKeys: String, CodingKey{
-        case profile_path = "profilePath"
-    }
     let name: String?
     let character: String?
     let profile_path: String?
 }
 
 struct MovieCrew: Decodable {
-    enum codingKeys: String, CodingKey{
-        case profile_path = "profilePath"
-    }
     let name: String?
     let profile_path: String?
     let job: String?

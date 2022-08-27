@@ -32,6 +32,7 @@ class TVShowDetailsViewController: UIViewController {
         updateViews()
         viewModel.fetchVidCode()
         viewModel.getTVProviders()
+        viewModel.getTVCast()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -137,6 +138,12 @@ extension TVShowDetailsViewController: TVShowDetailsViewModelDelegate {
     func showHasData() {
         updateViews()
     }
+    
+    func tvCastHasData() {
+        DispatchQueue.main.async {
+            self.actorCollectionView.reloadData()
+        }
+    }
 }
 
 extension TVShowDetailsViewController: UICollectionViewDataSource, UICollectionViewDelegate, UINavigationControllerDelegate {
@@ -146,7 +153,7 @@ extension TVShowDetailsViewController: UICollectionViewDataSource, UICollectionV
         } else if collectionView == trailerCollectionView.self {
             return viewModel.results.count
         } else if collectionView == actorCollectionView.self {
-            return 5
+            return viewModel.tvCast.count
         } else if collectionView == crewCollectionView.self {
             return 5
         } else {
@@ -170,15 +177,18 @@ extension TVShowDetailsViewController: UICollectionViewDataSource, UICollectionV
             
             return cell
         } else if collectionView == actorCollectionView.self {
-            let cell = actorCollectionView.dequeueReusableCell(withReuseIdentifier: "actor", for: indexPath) as! ActorCollectionViewCell
+            let cell = actorCollectionView.dequeueReusableCell(withReuseIdentifier: "Actor", for: indexPath) as! ActorCollectionViewCell
+            
+            let result = viewModel.tvCast[indexPath.row]
+            cell.setup(with: result)
             
             return cell
         } else if collectionView == crewCollectionView.self {
-            let cell = crewCollectionView.dequeueReusableCell(withReuseIdentifier: "crew", for: indexPath) as! CrewCollectionViewCell
+            let cell = crewCollectionView.dequeueReusableCell(withReuseIdentifier: "Crew", for: indexPath) as! CrewCollectionViewCell
             
             return cell
         } else {
-            let cell = genreCollectionView.dequeueReusableCell(withReuseIdentifier: "genre", for: indexPath) as! GenreCollectionViewCell
+            let cell = genreCollectionView.dequeueReusableCell(withReuseIdentifier: "Genre", for: indexPath) as! GenreCollectionViewCell
             
             return cell
         }

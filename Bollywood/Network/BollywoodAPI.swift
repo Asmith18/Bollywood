@@ -259,4 +259,61 @@ struct BollywoodAPI {
             }
         } .resume()
     }
+    
+    static func fetchMovieCast(with movieId: Int, completion: @escaping (Result<MovieCredits, ResultError>) -> Void) {
+        
+        guard let baseURL = URL(string: baseURLString) else { return }
+        
+        let apiQuery = URLQueryItem(name: "api_key", value: "be35af15dc34f6c18ecb1b03e2fd3559")
+        var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
+        urlComponents?.path = "/3/movie/\(movieId)/credits"
+        urlComponents?.queryItems = [apiQuery]
+        let finalURL = urlComponents?.url
+        
+        URLSession.shared.dataTask(with: finalURL!) { data, _, error in
+            if let error = error {
+                completion(.failure(.thrownError(error)))
+                return
+            }
+            guard let castData = data else {
+                completion(.failure(.noData))
+                return
+            }
+            do {
+                let movieCast = try JSONDecoder().decode(MovieCredits.self, from: castData)
+                completion(.success(movieCast))
+            } catch {
+                completion(.failure(.unableToDecode))
+            }
+        }.resume()
+    }
+    
+    static func fetchTvCast(with tvId: Int, completion: @escaping (Result<TVCredits, ResultError>) -> Void) {
+        
+        guard let baseURL = URL(string: baseURLString) else { return }
+        
+        let apiQuery = URLQueryItem(name: "api_key", value: "be35af15dc34f6c18ecb1b03e2fd3559")
+        var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
+        urlComponents?.path = "/3/tv/\(tvId)/credits"
+        urlComponents?.queryItems = [apiQuery]
+        let finalURL = urlComponents?.url
+        
+        URLSession.shared.dataTask(with: finalURL!) { data, _, error in
+            if let error = error {
+                completion(.failure(.thrownError(error)))
+                return
+            }
+            guard let castData = data else {
+                completion(.failure(.noData))
+                return
+            }
+            do {
+                let tvCast = try JSONDecoder().decode(TVCredits.self, from: castData)
+                completion(.success(tvCast))
+            } catch {
+                completion(.failure(.unableToDecode))
+            }
+        }.resume()
+    }
 }
+
