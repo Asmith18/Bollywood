@@ -260,7 +260,7 @@ struct BollywoodAPI {
         } .resume()
     }
     
-    static func fetchMovieCast(with movieId: Int, completion: @escaping (Result<MovieCredits, ResultError>) -> Void) {
+    static func fetchMovieCredits(with movieId: Int, completion: @escaping (Result<MovieCredits, ResultError>) -> Void) {
         
         guard let baseURL = URL(string: baseURLString) else { return }
         
@@ -288,7 +288,7 @@ struct BollywoodAPI {
         }.resume()
     }
     
-    static func fetchTvCast(with tvId: Int, completion: @escaping (Result<TVCredits, ResultError>) -> Void) {
+    static func fetchTvCredits(with tvId: Int, completion: @escaping (Result<TVCredits, ResultError>) -> Void) {
         
         guard let baseURL = URL(string: baseURLString) else { return }
         
@@ -314,6 +314,62 @@ struct BollywoodAPI {
                 completion(.failure(.unableToDecode))
             }
         }.resume()
+    }
+    
+    static func fetchMovieDetails(with movieId: Int, completion: @escaping (Result<MovieDetails, ResultError>) -> Void) {
+        
+        guard let baseURL = URL(string: baseURLString) else { return }
+        
+        let apiQuery = URLQueryItem(name: "api_key", value: "be35af15dc34f6c18ecb1b03e2fd3559")
+        var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
+        urlComponents?.path = "/3/movie/\(movieId)"
+        urlComponents?.queryItems = [apiQuery]
+        let finalURL = urlComponents?.url
+        
+        URLSession.shared.dataTask(with: finalURL!) { data, _, error in
+            if let error = error {
+                completion(.failure(.thrownError(error)))
+                return
+            }
+            guard let detailsData = data else {
+                completion(.failure(.noData))
+                return
+            }
+            do {
+                let movieDetails = try JSONDecoder().decode(MovieDetails.self, from: detailsData)
+                completion(.success(movieDetails))
+            } catch {
+                completion(.failure(.unableToDecode))
+            }
+        } .resume()
+    }
+    
+    static func fetchTvDetails(with tvId: Int, completion: @escaping (Result<TVDetails, ResultError>) -> Void) {
+        
+        guard let baseURL = URL(string: baseURLString) else { return }
+        
+        let apiQuery = URLQueryItem(name: "api_key", value: "be35af15dc34f6c18ecb1b03e2fd3559")
+        var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
+        urlComponents?.path = "/3/tv/\(tvId)"
+        urlComponents?.queryItems = [apiQuery]
+        let finalURL = urlComponents?.url
+        
+        URLSession.shared.dataTask(with: finalURL!) { data, _, error in
+            if let error = error {
+                completion(.failure(.thrownError(error)))
+                return
+            }
+            guard let detailsData = data else {
+                completion(.failure(.noData))
+                return
+            }
+            do {
+                let tvDetails = try JSONDecoder().decode(TVDetails.self, from: detailsData)
+                completion(.success(tvDetails))
+            } catch {
+                completion(.failure(.unableToDecode))
+            }
+        } .resume()
     }
 }
 

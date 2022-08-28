@@ -32,7 +32,8 @@ class DetailViewController: UIViewController {
         updateViews()
         viewModel.fetchVidCode()
         viewModel.getMoviePoviders()
-        viewModel.getMovieCast()
+        viewModel.getMovieCredits()
+        viewModel.getMovieDetails()
         
     }
     
@@ -109,6 +110,19 @@ class DetailViewController: UIViewController {
 }
 
 extension DetailViewController: DetailsViewModelDelegate {
+    
+    func genresHasData() {
+        DispatchQueue.main.async {
+            self.genreCollectionView.reloadData()
+        }
+    }
+    
+    func movieCrewHasData() {
+        DispatchQueue.main.async {
+            self.crewCollectionView.reloadData()
+        }
+    }
+    
     func movieProviderHasData() {
         DispatchQueue.main.async {
             self.movieProviderCollectionView.reloadData()
@@ -141,9 +155,9 @@ extension DetailViewController: UICollectionViewDataSource, UICollectionViewDele
         } else if collectionView == actorCollectionView.self {
             return viewModel.movieCast.count
         } else if collectionView == crewCollectionView.self {
-            return 5
+            return viewModel.movieCrew.count
         } else {
-            return 5
+            return viewModel.genres.count
         }
     }
     
@@ -170,9 +184,15 @@ extension DetailViewController: UICollectionViewDataSource, UICollectionViewDele
         } else if collectionView == crewCollectionView.self {
             let cell = crewCollectionView.dequeueReusableCell(withReuseIdentifier: "crew", for: indexPath) as! MovieCrewCollectionViewCell
             
+            let result = viewModel.movieCrew[indexPath.row]
+            cell.setup(with: result)
+            
             return cell
         } else {
             let cell = genreCollectionView.dequeueReusableCell(withReuseIdentifier: "genre", for: indexPath) as! MovieGenreCollectionViewCell
+            
+            let result = viewModel.genres[indexPath.row]
+            cell.setup(with: result)
             
             return cell
         }

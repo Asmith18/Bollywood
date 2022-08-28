@@ -32,7 +32,8 @@ class TVShowDetailsViewController: UIViewController {
         updateViews()
         viewModel.fetchVidCode()
         viewModel.getTVProviders()
-        viewModel.getTVCast()
+        viewModel.getTVCredits()
+        viewModel.getTVDetails()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,21 +41,6 @@ class TVShowDetailsViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = true
         self.navigationController?.navigationBar.prefersLargeTitles = false
     }
-    
-//    func getVideo() {
-//        if viewModel.tvShow?.id != nil {
-//            guard let vidCode = viewModel.results.filter({ $0.type == "Trailer"}).first?.key else { return }
-//            let vidCodeBaseURLString = "https://www.youtube.com"
-//            guard let baseURL = URL(string: vidCodeBaseURLString) else { return }
-//
-//            var urlcomponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
-//            urlcomponents?.path = "/embed/\(vidCode)"
-//            let finalURL = urlcomponents?.url
-//            tvShowWebView.load(URLRequest(url: finalURL!))
-//        } else {
-//            print("no data")
-//        }
-//    }
     
     func setupCollectionView() {
         providerCollectionView.dataSource = self
@@ -123,6 +109,20 @@ class TVShowDetailsViewController: UIViewController {
 }
 
 extension TVShowDetailsViewController: TVShowDetailsViewModelDelegate {
+    
+    func tvGenresHasData() {
+        DispatchQueue.main.async {
+            self.genreCollectionView.reloadData()
+        }
+    }
+    
+    
+    func tvCrewHasData() {
+        DispatchQueue.main.async {
+            self.crewCollectionView.reloadData()
+        }
+    }
+    
     func tvShowproviderHasData() {
         DispatchQueue.main.async {
             self.providerCollectionView.reloadData()
@@ -155,9 +155,9 @@ extension TVShowDetailsViewController: UICollectionViewDataSource, UICollectionV
         } else if collectionView == actorCollectionView.self {
             return viewModel.tvCast.count
         } else if collectionView == crewCollectionView.self {
-            return 5
+            return viewModel.tvCrew.count
         } else {
-            return 5
+            return viewModel.genres.count
         }
     }
     
@@ -186,9 +186,15 @@ extension TVShowDetailsViewController: UICollectionViewDataSource, UICollectionV
         } else if collectionView == crewCollectionView.self {
             let cell = crewCollectionView.dequeueReusableCell(withReuseIdentifier: "Crew", for: indexPath) as! CrewCollectionViewCell
             
+            let result = viewModel.tvCrew[indexPath.row]
+            cell.setup(with: result)
+            
             return cell
         } else {
             let cell = genreCollectionView.dequeueReusableCell(withReuseIdentifier: "Genre", for: indexPath) as! GenreCollectionViewCell
+            
+            let result = viewModel.genres[indexPath.row]
+            cell.setup(with: result)
             
             return cell
         }

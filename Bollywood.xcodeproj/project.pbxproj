@@ -65,6 +65,7 @@
 		C2FB2E6D2834261E00D6B190 /* ResultError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FB2E6C2834261E00D6B190 /* ResultError.swift */; };
 		C2FB2E73283563C800D6B190 /* BollywoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FB2E72283563C800D6B190 /* BollywoodViewModel.swift */; };
 		C2FC3AFD28BA9B9000792D7C /* TVCredits.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FC3AFC28BA9B9000792D7C /* TVCredits.swift */; };
+		C2FC3B0128BC021700792D7C /* TVDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FC3B0028BC021700792D7C /* TVDetails.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,6 +123,7 @@
 		C2FB2E6C2834261E00D6B190 /* ResultError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultError.swift; sourceTree = "<group>"; };
 		C2FB2E72283563C800D6B190 /* BollywoodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BollywoodViewModel.swift; sourceTree = "<group>"; };
 		C2FC3AFC28BA9B9000792D7C /* TVCredits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVCredits.swift; sourceTree = "<group>"; };
+		C2FC3B0028BC021700792D7C /* TVDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVDetails.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,7 +164,6 @@
 			isa = PBXGroup;
 			children = (
 				C2FB2E66283416D400D6B190 /* Model */,
-				C25A16D32885D852002F8487 /* Firebase */,
 				C2FB2E6928341ECA00D6B190 /* Network */,
 				C2FB2E652834140A00D6B190 /* BollyWood */,
 				C24B127B283408320061958C /* Resources */,
@@ -188,13 +189,6 @@
 				C24B1275283408180061958C /* Info.plist */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		C25A16D32885D852002F8487 /* Firebase */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Firebase;
 			sourceTree = "<group>";
 		};
 		C25A16D62885E1C7002F8487 /* SignUp */ = {
@@ -314,16 +308,10 @@
 		C2FB2E66283416D400D6B190 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C2FB2E67283416E200D6B190 /* Movie.swift */,
-				C2B02AE62895CD20008278A1 /* MovieDetails.swift */,
-				C2AC89F8286A25D100A6465D /* TV.swift */,
+				C2FC3AFE28BC011B00792D7C /* Movie */,
+				C2FC3AFF28BC012700792D7C /* TV */,
 				C2AC8A0B286CD53700A6465D /* WebView.swift */,
 				C2AC8A14286E260A00A6465D /* Account.swift */,
-				C2B02ADE2894597B008278A1 /* MovieProviders.swift */,
-				C2B02AE028945B96008278A1 /* TVProviders.swift */,
-				C2B02AEC289ACF1E008278A1 /* Seasons.swift */,
-				C2B02AF2289AE286008278A1 /* MovieCredits.swift */,
-				C2FC3AFC28BA9B9000792D7C /* TVCredits.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -335,6 +323,29 @@
 				C2FB2E6C2834261E00D6B190 /* ResultError.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		C2FC3AFE28BC011B00792D7C /* Movie */ = {
+			isa = PBXGroup;
+			children = (
+				C2FB2E67283416E200D6B190 /* Movie.swift */,
+				C2B02AE62895CD20008278A1 /* MovieDetails.swift */,
+				C2B02ADE2894597B008278A1 /* MovieProviders.swift */,
+				C2B02AF2289AE286008278A1 /* MovieCredits.swift */,
+			);
+			path = Movie;
+			sourceTree = "<group>";
+		};
+		C2FC3AFF28BC012700792D7C /* TV */ = {
+			isa = PBXGroup;
+			children = (
+				C2AC89F8286A25D100A6465D /* TV.swift */,
+				C2B02AE028945B96008278A1 /* TVProviders.swift */,
+				C2B02AEC289ACF1E008278A1 /* Seasons.swift */,
+				C2FC3AFC28BA9B9000792D7C /* TVCredits.swift */,
+				C2FC3B0028BC021700792D7C /* TVDetails.swift */,
+			);
+			path = TV;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -439,6 +450,7 @@
 				C2B02AEB2895D01B008278A1 /* TVShowWebKitCollectionViewCell.swift in Sources */,
 				C2FB2E6D2834261E00D6B190 /* ResultError.swift in Sources */,
 				C2AC8A13286E24E400A6465D /* AccountViewModel.swift in Sources */,
+				C2FC3B0128BC021700792D7C /* TVDetails.swift in Sources */,
 				C2B02AF1289ADD14008278A1 /* CrewCollectionViewCell.swift in Sources */,
 				C2FC3AFD28BA9B9000792D7C /* TVCredits.swift in Sources */,
 				C2FB2E5C283413A800D6B190 /* TopCollectionViewCell.swift in Sources */,

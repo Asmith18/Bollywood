@@ -11,4 +11,23 @@ class MovieCrewCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var movieCrewImageView: UIImageView!
     @IBOutlet weak var movieCrewnameTextLabel: UILabel!
+    
+    func setup(with crew: MovieCrew) {
+        fetchImage(with: crew)
+        movieCrewnameTextLabel.text = crew.name
+    }
+    
+    func fetchImage(with crew: MovieCrew) {
+        guard let crewImage = crew.profile_path else { return }
+        BollywoodAPI.fetchImage(from: crewImage) { result in
+            switch result {
+            case .success(let image):
+                DispatchQueue.main.async {
+                    self.movieCrewImageView.image = image
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
 }
