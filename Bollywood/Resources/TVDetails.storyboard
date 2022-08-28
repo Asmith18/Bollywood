@@ -312,24 +312,24 @@
                                                     <constraint firstAttribute="height" constant="133" id="3ge-cf-zgU"/>
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jK2-eT-he7">
-                                                    <size key="itemSize" width="160" height="82"/>
+                                                    <size key="itemSize" width="161" height="81"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Genre" id="qXA-RJ-8K5" customClass="GenreCollectionViewCell" customModule="Bollywood" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="25.5" width="160" height="82"/>
+                                                        <rect key="frame" x="0.0" y="26" width="161" height="81"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="FZ6-MZ-0vI">
-                                                            <rect key="frame" x="0.0" y="0.0" width="160" height="82"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="161" height="81"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wRv-h6-wWy">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="160" height="82"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="161" height="81"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K1o-9I-x9I">
-                                                                            <rect key="frame" x="8" y="10" width="144" height="62"/>
+                                                                            <rect key="frame" x="8" y="10" width="145" height="61"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
@@ -353,7 +353,7 @@
                                                                 <constraint firstItem="wRv-h6-wWy" firstAttribute="leading" secondItem="FZ6-MZ-0vI" secondAttribute="leading" id="zEX-qe-pTL"/>
                                                             </constraints>
                                                         </collectionViewCellContentView>
-                                                        <size key="customSize" width="160" height="82"/>
+                                                        <size key="customSize" width="161" height="81"/>
                                                         <connections>
                                                             <outlet property="genreNameTextLabel" destination="K1o-9I-x9I" id="zX3-qu-ZeM"/>
                                                         </connections>
