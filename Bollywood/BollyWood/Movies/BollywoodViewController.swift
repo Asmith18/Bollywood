@@ -21,10 +21,11 @@ class BollywoodViewController: UIViewController {
         topCollectionView?.dataSource = self
         topCollectionView?.delegate = self
         topCollectionView?.collectionViewLayout = UICollectionViewFlowLayout()
+        self.topCollectionView.reloadData()
         viewModel = BollywoodViewModel(delegate: self)
         viewModel.fetchPopular()
-        searchBar()
         SignInAlert()
+        searchBar()
     }
 
     override func viewWillAppear(_ animated: Bool) {
