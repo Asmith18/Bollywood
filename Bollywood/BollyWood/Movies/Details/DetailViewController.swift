@@ -34,7 +34,6 @@ class DetailViewController: UIViewController {
         viewModel.getMoviePoviders()
         viewModel.getMovieCredits()
         viewModel.getMovieDetails()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,7 +69,7 @@ class DetailViewController: UIViewController {
     }
     
     func fetchImage(for viewModel: DetailsViewModel) {
-        guard let tvImage = viewModel.movie?.poster_path else { return }
+        guard let tvImage = viewModel.movie?.backdrop_path else { return }
         BollywoodAPI.fetchImage(from: tvImage) { result in
             switch result {
             case .success(let image):

@@ -45,6 +45,7 @@ class BollywoodViewController: UIViewController {
         self.searchbarView.isHidden = true
         viewModel.fetchPopular()
         self.topCollectionView.reloadData()
+        self.navigationItem.title = "Most Popular"
     }
     
     //MARK: - Actions
@@ -71,6 +72,7 @@ class BollywoodViewController: UIViewController {
     @IBAction func searchButtonPressed(_ sender: Any) {
         if searchbarView.isHidden == true {
             searchbarView.isHidden = false
+            self.navigationItem.title = "Search"
         }
     }
     

@@ -47,6 +47,7 @@ class TVShowViewController: UIViewController {
         searchBar.text = nil
         self.searchBarView.isHidden = true
         fetchAndReload()
+        self.navigationItem.title = "Most Popular"
     }
     
     //MARK: - Actions
@@ -73,6 +74,7 @@ class TVShowViewController: UIViewController {
     @IBAction func searchButtonPressed(_ sender: Any) {
         if searchBarView.isHidden == true {
             searchBarView.isHidden = false
+            self.navigationItem.title = "Search"
         }
     }
 }

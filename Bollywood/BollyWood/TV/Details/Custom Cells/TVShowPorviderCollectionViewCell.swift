@@ -13,7 +13,6 @@ class TVShowPorviderCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var showProviderTextLabel: UILabel!
     
     func setup(with free: Flatrate) {
-        showProviderTextLabel.text = free.provider_name
         fetchImage(free: free)
     }
     

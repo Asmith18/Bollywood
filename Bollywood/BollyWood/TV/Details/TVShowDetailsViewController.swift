@@ -69,7 +69,7 @@ class TVShowDetailsViewController: UIViewController {
     }
     
     func fetchImage(for viewModel: TVShowDetailsViewModel) {
-        guard let tvImage = viewModel.tvShow?.poster_path else { return }
+        guard let tvImage = viewModel.tvShow?.backdrop_path else { return }
         BollywoodAPI.fetchImage(from: tvImage) { result in
             switch result {
             case .success(let image):

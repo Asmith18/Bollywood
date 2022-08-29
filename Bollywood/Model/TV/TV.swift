@@ -13,7 +13,7 @@ struct TV: Decodable {
 }
 
 struct TVShows: Decodable {
-    let name, poster_path, overview: String?
+    let name, poster_path, backdrop_path, overview: String?
     let vote_average: Double?
     let id: Int?
     let first_air_date: String?
