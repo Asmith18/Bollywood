@@ -14,5 +14,6 @@ class MovieGenreCollectionViewCell: UICollectionViewCell {
     
     func setup(with genre: MovieGenres) {
         movieGenreTextLabel.text = genre.name
+        genreView.layer.cornerRadius = 25
     }
 }

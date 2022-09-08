@@ -12,10 +12,22 @@ class CrewCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var crewImageView: UIImageView!
     @IBOutlet weak var crewMemberName: UILabel!
     
+    override func prepareForReuse() {
+        crewImageView.image = nil
+        crewMemberName.text = nil
+    }
+    
     func setup(with crew: TVCrew) {
         crewMemberName.text = crew.name
         fetchImage(crew: crew)
+        makeRounded()
     }
+    
+    func makeRounded() {
+        crewImageView.layer.cornerRadius = crewImageView.frame.size.width / 2
+        crewImageView.clipsToBounds = true
+    }
+    
     
     func fetchImage(crew: TVCrew) {
         guard let crewImage = crew.profile_path else { return }

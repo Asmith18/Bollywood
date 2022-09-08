@@ -12,9 +12,21 @@ class TVShowPorviderCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var showProviderImageView: UIImageView!
     @IBOutlet weak var showProviderTextLabel: UILabel!
     
+    override func prepareForReuse() {
+        showProviderImageView.image = nil
+        showProviderTextLabel.text = nil
+    }
+    
     func setup(with free: Flatrate) {
         fetchImage(free: free)
+        makeRounded()
     }
+    
+    func makeRounded() {
+        showProviderImageView.layer.cornerRadius = showProviderImageView.frame.size.width / 2
+        showProviderImageView.clipsToBounds = true
+    }
+    
     
     func fetchImage(free: Flatrate) {
         guard let freeImage = free.logo_path else { return }

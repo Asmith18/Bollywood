@@ -20,7 +20,6 @@ class TVShowViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.collectionViewLayout = UICollectionViewFlowLayout()
-        self.collectionView.reloadData()
         viewModel = TVShowsViewModel(delegate: self)
         viewModel.fetchPopular()
         searchBar()
