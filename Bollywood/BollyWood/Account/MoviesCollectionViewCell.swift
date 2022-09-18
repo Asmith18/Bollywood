@@ -13,8 +13,9 @@ class MoviesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var movieImageView: UIImageView!
     @IBOutlet weak var movieTextLabel: UILabel!
     
-    func setup() {
     
+    func updateViews() {
+        
     }
     
     func fetchImage(for tv: TVShows) {

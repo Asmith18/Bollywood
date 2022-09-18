@@ -10,11 +10,9 @@ import UIKit
 class TVShowPorviderCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var showProviderImageView: UIImageView!
-    @IBOutlet weak var showProviderTextLabel: UILabel!
     
     override func prepareForReuse() {
         showProviderImageView.image = nil
-        showProviderTextLabel.text = nil
     }
     
     func setup(with free: Flatrate) {

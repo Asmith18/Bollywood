@@ -10,13 +10,17 @@ import UIKit
 
 class Account {
     
-    let profileImage: UIImage
     let profileName: String
+    let profileImage: UIImage
+    let favImage: UIImage
+    let favTitle: String
     let favoriteObjects: Bool
     
-    init(profileImage: UIImage = UIImage(), profileName: String, favoriteObjects: Bool = false) {
+    init(profileName: String, profileImage: UIImage, favImage: UIImage, favTitle: String, favoriteObjects: Bool) {
         self.profileName = profileName
         self.profileImage = profileImage
+        self.favImage = favImage
+        self.favTitle = favTitle
         self.favoriteObjects = favoriteObjects
     }
 }

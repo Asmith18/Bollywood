@@ -10,7 +10,7 @@ import FirebaseAuth
 
 class AccountViewController: UIViewController {
     
-    var viewModel: DetailsViewModel!
+    var viewModel: AccountViewModel!
 
     //MARK: - Outlets
     @IBOutlet weak var profileImageView: UIImageView!
@@ -23,6 +23,7 @@ class AccountViewController: UIViewController {
         self.navigationItem.title = "Account"
         updateViews()
         collectionViewLayout()
+        makeRounded()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,18 +32,26 @@ class AccountViewController: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = false
     }
     
+    func makeRounded() {
+        profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2
+        profileImageView.clipsToBounds = true
+    }
+    
     func collectionViewLayout() {
         moviesCollectionView?.dataSource = self
         moviesCollectionView?.delegate = self
-        moviesCollectionView?.collectionViewLayout = UICollectionViewFlowLayout()
         showsCollectionView?.dataSource = self
         showsCollectionView?.delegate = self
-        showsCollectionView?.collectionViewLayout = UICollectionViewFlowLayout()
     }
     
     func updateViews() {
         moviesCollectionView.layer.cornerRadius = 25
         showsCollectionView.layer.cornerRadius = 25
+        profileNameTextlabel.text = UserDefaults.standard.string(forKey: "email")
+    }
+    
+    func changUsername() {
+        
     }
     
     //MARK: - Actions
@@ -51,12 +60,16 @@ class AccountViewController: UIViewController {
         guard let viewController = storyboard.instantiateViewController(withIdentifier: "settings") as? SettingsViewController else { return }
         self.navigationController?.pushViewController(viewController, animated: false)
     }
+    
+    @IBAction func editProfileButtonTapped(_ sender: Any) {
+        
+    }
 }
 
 extension AccountViewController: UICollectionViewDataSource, UICollectionViewDelegate, UINavigationControllerDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -87,11 +100,5 @@ extension AccountViewController: UICollectionViewDataSource, UICollectionViewDel
             guard let viewController = storyboard.instantiateViewController(withIdentifier: "show") as? TVShowDetailsViewController else { return }
             self.navigationController?.pushViewController(viewController, animated: false)
         }
-    }
-}
-
-extension AccountViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 200, height: 300)
     }
 }

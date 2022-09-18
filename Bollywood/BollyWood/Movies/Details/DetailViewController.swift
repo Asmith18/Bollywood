@@ -89,10 +89,10 @@ class DetailViewController: UIViewController {
                 favoriteButton.image = UIImage(systemName: "heart")
             } else {
                 favoriteButton.image = UIImage(systemName: "heart.fill")
+                UserDefaults.standard.set(isFavMovie, forKey: "isFavMovie")
+                UserDefaults.standard.synchronize()
+                isFavMovie = !isFavMovie
             }
-            isFavMovie = !isFavMovie
-            UserDefaults.standard.set(isFavMovie, forKey: "isFavMovie")
-            UserDefaults.standard.synchronize()
         } else {
             let alertController = UIAlertController(title: "Not Signed In.", message: "Sign In to use this feature.", preferredStyle: .alert)
             let accountAction = UIAlertAction(title: "Sign In", style: .default) { accountAction in
@@ -135,6 +135,7 @@ extension DetailViewController: DetailsViewModelDelegate {
     }
     
     func movieHasData() {
+        updateViews()
     }
     
     func movieCastHasData() {
@@ -147,9 +148,7 @@ extension DetailViewController: DetailsViewModelDelegate {
 extension DetailViewController: UICollectionViewDataSource, UICollectionViewDelegate, UINavigationControllerDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == self.movieProviderCollectionView {
-            return 5
-        } else if collectionView == movieTrailerCollectionView.self {
+        if collectionView == movieTrailerCollectionView.self {
             return viewModel.results.count
         } else if collectionView == actorCollectionView.self {
             return viewModel.movieCast.count
@@ -162,11 +161,7 @@ extension DetailViewController: UICollectionViewDataSource, UICollectionViewDele
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if collectionView == self.movieProviderCollectionView {
-            let cell = movieProviderCollectionView.dequeueReusableCell(withReuseIdentifier: "provider", for: indexPath) as! MovieProvidersCollectionViewCell
-            
-            return cell
-        } else if collectionView == movieTrailerCollectionView.self {
+       if collectionView == movieTrailerCollectionView.self {
             let cell = movieTrailerCollectionView.dequeueReusableCell(withReuseIdentifier: "trailer", for: indexPath) as! MovieWebKitCollectionViewCell
         
             let result = viewModel.results[indexPath.row]

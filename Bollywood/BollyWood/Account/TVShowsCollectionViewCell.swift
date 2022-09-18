@@ -13,6 +13,10 @@ class TVShowsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var tvImageView: UIImageView!
     @IBOutlet weak var tvTextLabel: UILabel!
     
+    func updateViews() {
+        
+    }
+    
     func fetchImage(for tv: TVShows) {
         guard let tvImage = tv.poster_path else { return }
         BollywoodAPI.fetchImage(from: tvImage) { result in
