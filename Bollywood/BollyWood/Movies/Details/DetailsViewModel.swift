@@ -10,7 +10,6 @@ import Foundation
 protocol DetailsViewModelDelegate: DetailViewController {
     func movieHasData()
     func vidCodeHasData()
-    func movieProviderHasData()
     func movieCastHasData()
     func movieCrewHasData()
     func genresHasData()
@@ -21,7 +20,6 @@ class DetailsViewModel {
     var movie: Movies?
     var webView: WebView?
     var results: [WebViewResults] = []
-    var providerResults: [MovieProviders] = []
     var rent: [RentResults] = []
     var buy: [BuyResults] = []
     var flatrate: FlatrateResults?
@@ -44,19 +42,6 @@ class DetailsViewModel {
                 self.results = webView.results
                 self.delegate?.vidCodeHasData()
             case.failure(let error):
-                print(error)
-            }
-        }
-    }
-    
-    func getMoviePoviders() {
-        guard let movieProvider = movie?.id else { return }
-        BollywoodAPI.fetchMovieProviders(with: movieProvider) { result in
-            switch result {
-            case .success(let provider):
-                self.flatrate = provider.results.US.flatrate
-                self.delegate?.movieProviderHasData()
-            case .failure(let error):
                 print(error)
             }
         }

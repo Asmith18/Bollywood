@@ -51,7 +51,20 @@ class AccountViewController: UIViewController {
     }
     
     func changUsername() {
+        let alertController = UIAlertController(title: "Edit Profile", message: "Change Username below", preferredStyle: .alert)
+        alertController.addTextField { textField in
+            textField.placeholder = "Username"
+        }
+        let confirmAction = UIAlertAction(title: "Confirm", style: .default) { _ in
+            guard let contentTextField = alertController.textFields?.first,
+                  let content = contentTextField.text else { return }
+            self.profileNameTextlabel.text = content
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true)
     }
     
     //MARK: - Actions
@@ -62,7 +75,7 @@ class AccountViewController: UIViewController {
     }
     
     @IBAction func editProfileButtonTapped(_ sender: Any) {
-        
+        changUsername()
     }
 }
 

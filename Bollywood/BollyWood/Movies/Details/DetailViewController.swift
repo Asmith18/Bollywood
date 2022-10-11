@@ -7,7 +7,7 @@
 
 import UIKit
 import WebKit
-import FirebaseAuth
+import Firebase
 
 class DetailViewController: UIViewController {
     
@@ -31,13 +31,17 @@ class DetailViewController: UIViewController {
         collectionViews()
         updateViews()
         viewModel.fetchVidCode()
-        viewModel.getMoviePoviders()
         viewModel.getMovieCredits()
         viewModel.getMovieDetails()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        movieHasData()
+        movieCastHasData()
+        movieCrewHasData()
+        genresHasData()
+        vidCodeHasData()
         self.tabBarController?.tabBar.isHidden = true
         self.navigationController?.navigationBar.prefersLargeTitles = false
     }
@@ -119,12 +123,6 @@ extension DetailViewController: DetailsViewModelDelegate {
     func movieCrewHasData() {
         DispatchQueue.main.async {
             self.crewCollectionView.reloadData()
-        }
-    }
-    
-    func movieProviderHasData() {
-        DispatchQueue.main.async {
-            self.movieProviderCollectionView.reloadData()
         }
     }
     

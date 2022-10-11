@@ -38,6 +38,11 @@ class TVShowDetailsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tvCastHasData()
+        tvGenresHasData()
+        tvShowproviderHasData()
+        tvCrewHasData()
+        vidCodeHasData()
         self.tabBarController?.tabBar.isHidden = true
         self.navigationController?.navigationBar.prefersLargeTitles = false
     }
