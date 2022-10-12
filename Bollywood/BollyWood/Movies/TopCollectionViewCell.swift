@@ -24,11 +24,11 @@ class TopCollectionViewCell: UICollectionViewCell {
     
     func fetchImage(for movie: Movies) {
         guard let movieImage = movie.poster_path else { return }
-        BollywoodAPI.fetchImage(from: movieImage) { result in
+        BollywoodAPI.fetchImage(from: movieImage) { [weak self] result in
             switch result {
             case .success(let image):
                 DispatchQueue.main.async {
-                    self.topMovieImageView.image = image
+                    self?.topMovieImageView.image = image
                 }
             case .failure(let error):
                 print(error)

@@ -13,6 +13,7 @@ class ActorCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var actorName: UILabel!
     
     override func prepareForReuse() {
+        actorImgaeView.frame.size = CGSize(width: 100, height: 100)
         actorImgaeView.image = nil
         actorName.text = nil
     }
@@ -31,11 +32,11 @@ class ActorCollectionViewCell: UICollectionViewCell {
     
     func fetchImage(cast: TVCast) {
         guard let castImage = cast.profile_path else { return }
-        BollywoodAPI.fetchImage(from: castImage) { result in
+        BollywoodAPI.fetchImage(from: castImage) { [weak self] result in
             switch result {
             case .success(let image):
                 DispatchQueue.main.async {
-                    self.actorImgaeView.image = image
+                    self?.actorImgaeView.image = image
                 }
             case.failure(let error):
                 print(error)

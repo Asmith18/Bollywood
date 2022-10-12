@@ -23,10 +23,10 @@ class BollywoodViewModel {
     }
     
     func fetchPopular() {
-        BollywoodAPI.fetchPopularMovie { result in
+        BollywoodAPI.fetchPopularMovie { [weak self] result in
             switch result {
             case .success(let movieData):
-                self.results = movieData.results
+                self?.results = movieData.results
             case .failure(let error):
                 print(error)
             }
@@ -34,11 +34,11 @@ class BollywoodViewModel {
     }
     
     func searchMovie(searchTerm: String) {
-        BollywoodAPI.searchMovie(with: searchTerm) { result in
+        BollywoodAPI.searchMovie(with: searchTerm) { [weak self] result in
             switch result {
             case .success(let search):
-                self.results = search.results
-                self.delegate?.searchTermHasData()
+                self?.results = search.results
+                self?.delegate?.searchTermHasData()
             case.failure(let error):
                 print(error)
             }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol AccountViewModelDelegate: AccountViewController {
     func accountHasData()
@@ -15,6 +16,7 @@ class AccountViewModel {
     
     var account: Account?
     var myFavorites: [String] = []
+    var imageURL: URL?
     weak var delegate: AccountViewModelDelegate?
     
     init(delegate: AccountViewModelDelegate) {

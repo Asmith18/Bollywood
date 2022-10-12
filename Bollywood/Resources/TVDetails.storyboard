@@ -81,25 +81,26 @@
                                                     <constraint firstAttribute="width" constant="398" id="Jbt-dA-EBb"/>
                                                     <constraint firstAttribute="height" constant="108" id="XS0-M5-wBL"/>
                                                 </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xRI-m4-6OZ">
-                                                    <size key="itemSize" width="109" height="104"/>
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xRI-m4-6OZ">
+                                                    <size key="itemSize" width="101" height="101"/>
+                                                    <size key="estimatedItemSize" width="100" height="100"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="provider" id="XXN-kl-clh" customClass="TVShowPorviderCollectionViewCell" customModule="Bollywood" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="2" width="109" height="104"/>
+                                                        <rect key="frame" x="0.0" y="3.5" width="101" height="101"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="1El-jb-Bn5">
-                                                            <rect key="frame" x="0.0" y="0.0" width="109" height="104"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="101" height="101"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="netflix" translatesAutoresizingMaskIntoConstraints="NO" id="AmK-VM-inu">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="109" height="104"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="101" height="101"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="height" constant="104" id="5Rx-Ov-nix"/>
-                                                                        <constraint firstAttribute="width" constant="110" id="fVV-w3-AeW"/>
+                                                                        <constraint firstAttribute="height" constant="100" id="5Rx-Ov-nix"/>
+                                                                        <constraint firstAttribute="width" constant="100" id="fVV-w3-AeW"/>
                                                                     </constraints>
                                                                 </imageView>
                                                             </subviews>
@@ -110,7 +111,7 @@
                                                                 <constraint firstItem="AmK-VM-inu" firstAttribute="leading" secondItem="1El-jb-Bn5" secondAttribute="leading" id="Obk-Zt-gbF"/>
                                                             </constraints>
                                                         </collectionViewCellContentView>
-                                                        <size key="customSize" width="109" height="104"/>
+                                                        <size key="customSize" width="101" height="101"/>
                                                         <connections>
                                                             <outlet property="showProviderImageView" destination="AmK-VM-inu" id="OYf-mp-k9Q"/>
                                                         </connections>
@@ -184,8 +185,9 @@
                                                     <constraint firstAttribute="width" constant="398" id="5TK-xe-JHT"/>
                                                     <constraint firstAttribute="height" constant="133" id="qL6-Nc-Gbs"/>
                                                 </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Vz1-Ye-Zgz">
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Vz1-Ye-Zgz">
                                                     <size key="itemSize" width="110" height="126"/>
+                                                    <size key="estimatedItemSize" width="100" height="121"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -199,14 +201,14 @@
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="kMe-wq-DI4">
-                                                                    <rect key="frame" x="8" y="0.0" width="94" height="91"/>
+                                                                    <rect key="frame" x="8" y="0.0" width="94" height="100"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="91" id="ePa-e8-69f"/>
-                                                                        <constraint firstAttribute="height" constant="91" id="lmU-rN-AzM"/>
+                                                                        <constraint firstAttribute="width" constant="100" id="ePa-e8-69f"/>
+                                                                        <constraint firstAttribute="height" constant="100" id="lmU-rN-AzM"/>
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K38-0s-bfA">
-                                                                    <rect key="frame" x="5" y="96" width="100" height="30"/>
+                                                                    <rect key="frame" x="5" y="105" width="100" height="21"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -243,8 +245,9 @@
                                                     <constraint firstAttribute="height" constant="133" id="cou-La-Rbp"/>
                                                     <constraint firstAttribute="width" constant="398" id="piS-VG-QX6"/>
                                                 </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oeV-7b-Fwl">
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oeV-7b-Fwl">
                                                     <size key="itemSize" width="110" height="126"/>
+                                                    <size key="estimatedItemSize" width="100" height="121"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -258,14 +261,14 @@
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="eK8-nm-gL1">
-                                                                    <rect key="frame" x="8" y="0.0" width="94" height="91"/>
+                                                                    <rect key="frame" x="8" y="0.0" width="94" height="100"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="91" id="FmI-V9-5QC"/>
-                                                                        <constraint firstAttribute="height" constant="91" id="Q3Y-dZ-44a"/>
+                                                                        <constraint firstAttribute="width" constant="100" id="FmI-V9-5QC"/>
+                                                                        <constraint firstAttribute="height" constant="100" id="Q3Y-dZ-44a"/>
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JZR-8f-GMd">
-                                                                    <rect key="frame" x="5" y="96" width="100" height="30"/>
+                                                                    <rect key="frame" x="5" y="105" width="100" height="21"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>

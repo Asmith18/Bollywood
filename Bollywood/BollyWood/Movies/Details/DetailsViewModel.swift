@@ -36,11 +36,11 @@ class DetailsViewModel {
     
     func fetchVidCode() {
         guard let movieVideo = movie?.id else { return }
-        BollywoodAPI.fetchMovieVideo(for: movieVideo) { result in
+        BollywoodAPI.fetchMovieVideo(for: movieVideo) { [weak self] result in
             switch result {
             case.success(let webView):
-                self.results = webView.results
-                self.delegate?.vidCodeHasData()
+                self?.results = webView.results
+                self?.delegate?.vidCodeHasData()
             case.failure(let error):
                 print(error)
             }
@@ -49,13 +49,13 @@ class DetailsViewModel {
     
     func getMovieCredits() {
         guard let movieId = movie?.id else { return }
-        BollywoodAPI.fetchMovieCredits(with: movieId) { result in
+        BollywoodAPI.fetchMovieCredits(with: movieId) { [weak self] result in
             switch result {
             case.success(let cast):
-                self.movieCast = cast.cast
-                self.movieCrew = cast.crew
-                self.delegate?.movieCastHasData()
-                self.delegate?.movieCrewHasData()
+                self?.movieCast = cast.cast
+                self?.movieCrew = cast.crew
+                self?.delegate?.movieCastHasData()
+                self?.delegate?.movieCrewHasData()
             case.failure(let error):
                 print(error)
             }
@@ -64,11 +64,11 @@ class DetailsViewModel {
     
     func getMovieDetails() {
         guard let movieId = movie?.id else { return }
-        BollywoodAPI.fetchMovieDetails(with: movieId) { result in
+        BollywoodAPI.fetchMovieDetails(with: movieId) { [weak self] result in
             switch result {
             case .success(let details):
-                self.genres = details.genres
-                self.delegate?.genresHasData()
+                self?.genres = details.genres
+                self?.delegate?.genresHasData()
             case .failure(let error):
                 print(error)
             }

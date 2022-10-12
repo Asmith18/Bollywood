@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseAuth
 
-class AccountViewController: UIViewController {
+class AccountViewController: UIViewController, UIImagePickerControllerDelegate {
     
     var viewModel: AccountViewModel!
 
@@ -30,6 +30,7 @@ class AccountViewController: UIViewController {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
         self.navigationController?.navigationBar.prefersLargeTitles = false
+        loadImage()
     }
     
     func makeRounded() {
@@ -50,6 +51,7 @@ class AccountViewController: UIViewController {
         profileNameTextlabel.text = UserDefaults.standard.string(forKey: "email")
     }
     
+//    find a way to change email to a username in account
     func changUsername() {
         let alertController = UIAlertController(title: "Edit Profile", message: "Change Username below", preferredStyle: .alert)
         alertController.addTextField { textField in
@@ -58,15 +60,52 @@ class AccountViewController: UIViewController {
         let confirmAction = UIAlertAction(title: "Confirm", style: .default) { _ in
             guard let contentTextField = alertController.textFields?.first,
                   let content = contentTextField.text else { return }
+            UserDefaults.standard.set(content, forKey: "email")
             self.profileNameTextlabel.text = content
+        }
+        let uploadImageAction = UIAlertAction(title: "Upload Profile Photo", style: .default) { _ in
+            let picker = UIImagePickerController()
+            picker.allowsEditing = true
+            picker.delegate = self
+            picker.sourceType = .photoLibrary
+            self.present(picker, animated: true)
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         
         alertController.addAction(confirmAction)
         alertController.addAction(cancelAction)
+        alertController.addAction(uploadImageAction)
         present(alertController, animated: true)
     }
     
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage,
+              let imageURL = info[UIImagePickerController.InfoKey.imageURL] as? URL else { return }
+        viewModel?.imageURL = imageURL
+//        if let imageToSave = image.pngData() {
+//            UserDefaults.standard.set(imageToSave, forKey: "photo")
+//        }
+        saveImage()
+        self.profileImageView.image = image
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func saveImage(){
+        guard let image = self.profileImageView.image, let data = image.jpegData (compressionQuality: 0.5) else { return }
+          let encoded = try! PropertyListEncoder().encode(data)
+          UserDefaults.standard.set(encoded, forKey: "photo")
+        }
+    
+        func loadImage() {
+            guard let data = UserDefaults.standard.data(forKey: "photo") else { return }
+            let decoded = try! PropertyListDecoder().decode(Data.self, from: data)
+            let image = UIImage(data: decoded)
+            self.profileImageView.image = image
+        }
     //MARK: - Actions
     @IBAction func settingsButtonTapped(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Settings", bundle: nil)

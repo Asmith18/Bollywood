@@ -21,18 +21,18 @@ class TVShowPorviderCollectionViewCell: UICollectionViewCell {
     }
     
     func makeRounded() {
-        showProviderImageView.layer.cornerRadius = showProviderImageView.frame.size.width / 2
         showProviderImageView.clipsToBounds = true
+        showProviderImageView.layer.cornerRadius = showProviderImageView.frame.height/2
     }
     
     
     func fetchImage(free: Flatrate) {
         guard let freeImage = free.logo_path else { return }
-        BollywoodAPI.fetchImage(from: freeImage) { result in
+        BollywoodAPI.fetchImage(from: freeImage) { [weak self] result in
             switch result {
             case .success(let image):
                 DispatchQueue.main.async {
-                    self.showProviderImageView.image = image
+                    self?.showProviderImageView.image = image
                 }
             case .failure(let error):
                 print(error)

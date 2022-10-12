@@ -25,11 +25,11 @@ class TVCollectionViewCell: UICollectionViewCell {
     
     func fetchImage(for tv: TVShows) {
         guard let tvImage = tv.poster_path else { return }
-        BollywoodAPI.fetchImage(from: tvImage) { result in
+        BollywoodAPI.fetchImage(from: tvImage) { [weak self] result in
             switch result {
             case .success(let image):
                 DispatchQueue.main.async {
-                    self.tvImageView.image = image
+                    self?.tvImageView.image = image
                 }
             case .failure(let error):
                 print(error)

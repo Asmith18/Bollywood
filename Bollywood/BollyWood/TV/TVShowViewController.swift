@@ -22,13 +22,13 @@ class TVShowViewController: UIViewController {
         collectionView.collectionViewLayout = UICollectionViewFlowLayout()
         viewModel = TVShowsViewModel(delegate: self)
         viewModel.fetchPopular()
-        searchBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        searchBar()
     }
     
     func searchBar() {

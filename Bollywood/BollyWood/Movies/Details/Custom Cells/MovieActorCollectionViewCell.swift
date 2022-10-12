@@ -31,11 +31,11 @@ class MovieActorCollectionViewCell: UICollectionViewCell {
     
     func fetchImage(with credits: MovieCast) {
         guard let castImage = credits.profile_path else { return }
-        BollywoodAPI.fetchImage(from: castImage) { result in
+        BollywoodAPI.fetchImage(from: castImage) { [weak self] result in
             switch result {
             case .success(let image):
                 DispatchQueue.main.async {
-                    self.movieActorImageView.image = image
+                    self?.movieActorImageView.image = image
                 }
             case .failure(let error):
                 print(error)

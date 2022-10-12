@@ -53,7 +53,7 @@ class SignUpViewController: UIViewController {
     func signUp() {
         if let email = emailTextField.text,
            let password = passwordTextField.text {
-            FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password) { [weak self] authResult, error in
                 if let error = error {
                     print(error)
                     return
@@ -63,9 +63,10 @@ class SignUpViewController: UIViewController {
                 UserDefaults.standard.set(true, forKey: "signedInWithFirebase")
                 UserDefaults.standard.set(user.uid, forKey: "uid")
                 UserDefaults.standard.set(user.email, forKey: "email")
+                UserDefaults.standard.set(user.photoURL, forKey: "photo")
                 let storyboard = UIStoryboard(name: "Movies", bundle: nil)
                 guard let viewController = storyboard.instantiateViewController(withIdentifier: "movies") as? BollywoodViewController else { return }
-                self.navigationController?.pushViewController(viewController, animated: true)
+                self?.navigationController?.pushViewController(viewController, animated: true)
             }
         }
     }

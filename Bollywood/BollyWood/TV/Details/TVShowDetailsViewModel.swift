@@ -35,11 +35,11 @@ class TVShowDetailsViewModel {
     
     func fetchVidCode() {
         guard let tvVideo = tvShow?.id else { return }
-        BollywoodAPI.fetchTvVideo(for: tvVideo) { result in
+        BollywoodAPI.fetchTvVideo(for: tvVideo) { [weak self] result in
             switch result {
             case.success(let webView):
-                self.results = webView.results
-                self.delegate?.vidCodeHasData()
+                self?.results = webView.results
+                self?.delegate?.vidCodeHasData()
             case.failure(let error):
                 print(error)
             }
@@ -48,11 +48,11 @@ class TVShowDetailsViewModel {
     
     func getTVProviders() {
         guard let tvProvider = tvShow?.id else { return }
-        BollywoodAPI.fetchTVProviders(with: tvProvider) { result in
+        BollywoodAPI.fetchTVProviders(with: tvProvider) { [weak self] result in
             switch result {
             case .success(let provider):
-                self.flatrate = provider.results.US.flatrate
-                self.delegate?.tvShowproviderHasData()
+                self?.flatrate = provider.results.US.flatrate
+                self?.delegate?.tvShowproviderHasData()
             case .failure(let error):
                 print(error)
             }
@@ -61,13 +61,13 @@ class TVShowDetailsViewModel {
     
     func getTVCredits() {
         guard let tvId = tvShow?.id else { return }
-        BollywoodAPI.fetchTvCredits(with: tvId) { result in
+        BollywoodAPI.fetchTvCredits(with: tvId) { [weak self] result in
             switch result {
             case.success(let cast):
-                self.tvCast = cast.cast
-                self.tvCrew = cast.crew
-                self.delegate?.tvCastHasData()
-                self.delegate?.tvCrewHasData()
+                self?.tvCast = cast.cast
+                self?.tvCrew = cast.crew
+                self?.delegate?.tvCastHasData()
+                self?.delegate?.tvCrewHasData()
             case.failure(let error):
                 print(error)
             }
@@ -76,11 +76,11 @@ class TVShowDetailsViewModel {
     
     func getTVDetails() {
         guard let tvId = tvShow?.id else { return }
-        BollywoodAPI.fetchTvDetails(with: tvId) { result in
+        BollywoodAPI.fetchTvDetails(with: tvId) { [weak self] result in
             switch result {
             case .success(let details):
-                self.genres = details.genres
-                self.delegate?.tvGenresHasData()
+                self?.genres = details.genres
+                self?.delegate?.tvGenresHasData()
             case .failure(let error):
                 print(error)
             }

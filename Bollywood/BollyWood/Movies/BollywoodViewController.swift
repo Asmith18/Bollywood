@@ -25,13 +25,13 @@ class BollywoodViewController: UIViewController {
         viewModel = BollywoodViewModel(delegate: self)
         viewModel.fetchPopular()
         SignInAlert()
-        searchBar()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.tabBarController?.tabBar.isHidden = false
+        searchBar()
     }
     
     func searchBar() {

@@ -15,12 +15,14 @@ class Account {
     let favImage: UIImage
     let favTitle: String
     let favoriteObjects: Bool
+    let uuid: String
     
-    init(profileName: String, profileImage: UIImage, favImage: UIImage, favTitle: String, favoriteObjects: Bool) {
+    init(profileName: String, profileImage: UIImage, favImage: UIImage, favTitle: String, favoriteObjects: Bool, uuid: String = UUID().uuidString) {
         self.profileName = profileName
         self.profileImage = profileImage
         self.favImage = favImage
         self.favTitle = favTitle
         self.favoriteObjects = favoriteObjects
+        self.uuid = uuid
     }
 }
