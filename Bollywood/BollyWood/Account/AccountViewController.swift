@@ -83,11 +83,8 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate {
         guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage,
               let imageURL = info[UIImagePickerController.InfoKey.imageURL] as? URL else { return }
         viewModel?.imageURL = imageURL
-//        if let imageToSave = image.pngData() {
-//            UserDefaults.standard.set(imageToSave, forKey: "photo")
-//        }
-        saveImage()
         self.profileImageView.image = image
+        saveImage()
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
