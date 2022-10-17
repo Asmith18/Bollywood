@@ -21,9 +21,8 @@ class BollywoodViewController: UIViewController {
         topCollectionView?.dataSource = self
         topCollectionView?.delegate = self
         topCollectionView?.collectionViewLayout = UICollectionViewFlowLayout()
-        self.topCollectionView.reloadData()
         viewModel = BollywoodViewModel(delegate: self)
-        viewModel.fetchPopular()
+        fetchAndReload()
         SignInAlert()
     }
 
@@ -38,6 +37,11 @@ class BollywoodViewController: UIViewController {
         searchbarView.delegate = self
         navigationItem.titleView = searchbarView
         searchbarView.isHidden = true
+    }
+    
+    func fetchAndReload() {
+        viewModel.fetchPopular()
+        self.topCollectionView.reloadData()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {

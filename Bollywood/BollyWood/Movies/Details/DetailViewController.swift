@@ -30,18 +30,11 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         collectionViews()
         updateViews()
-        viewModel.fetchVidCode()
-        viewModel.getMovieCredits()
-        viewModel.getMovieDetails()
+        fetchEndpoint()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        movieHasData()
-        movieCastHasData()
-        movieCrewHasData()
-        genresHasData()
-        vidCodeHasData()
         self.tabBarController?.tabBar.isHidden = true
         self.navigationController?.navigationBar.prefersLargeTitles = false
     }
@@ -57,6 +50,17 @@ class DetailViewController: UIViewController {
         crewCollectionView?.delegate = self
         genreCollectionView?.dataSource = self
         genreCollectionView?.delegate = self
+    }
+    
+    func fetchEndpoint() {
+        viewModel.fetchVidCode()
+        viewModel.getMovieCredits()
+        viewModel.getMovieDetails()
+        movieHasData()
+        movieCastHasData()
+        movieCrewHasData()
+        genresHasData()
+        vidCodeHasData()
     }
     
     func updateViews() {

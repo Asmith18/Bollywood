@@ -30,19 +30,11 @@ class TVShowDetailsViewController: UIViewController {
         super.viewDidLoad()
         setupCollectionView()
         updateViews()
-        viewModel.fetchVidCode()
-        viewModel.getTVProviders()
-        viewModel.getTVCredits()
-        viewModel.getTVDetails()
+        fetchEndpoint()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tvCastHasData()
-        tvGenresHasData()
-        tvShowproviderHasData()
-        tvCrewHasData()
-        vidCodeHasData()
         self.tabBarController?.tabBar.isHidden = true
         self.navigationController?.navigationBar.prefersLargeTitles = false
     }
@@ -58,6 +50,18 @@ class TVShowDetailsViewController: UIViewController {
         crewCollectionView.delegate = self
         genreCollectionView.dataSource = self
         genreCollectionView.delegate = self
+    }
+    
+    func fetchEndpoint() {
+        viewModel.fetchVidCode()
+        viewModel.getTVProviders()
+        viewModel.getTVCredits()
+        viewModel.getTVDetails()
+        tvCastHasData()
+        tvGenresHasData()
+        tvShowproviderHasData()
+        tvCrewHasData()
+        vidCodeHasData()
     }
     
     func updateViews() {

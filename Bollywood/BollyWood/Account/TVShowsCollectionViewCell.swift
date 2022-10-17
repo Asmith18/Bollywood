@@ -13,27 +13,13 @@ class TVShowsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var tvImageView: UIImageView!
     @IBOutlet weak var tvTextLabel: UILabel!
     
-    func updateViews() {
+    func updateViews(account: Account) {
         
     }
     
     func fetchImage(for tv: TVShows) {
         guard let tvImage = tv.poster_path else { return }
         BollywoodAPI.fetchImage(from: tvImage) { [weak self] result in
-            switch result {
-            case .success(let image):
-                DispatchQueue.main.async {
-                    self?.tvImageView.image = image
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
-    
-    func fetchImage(for movie: Movies) {
-        guard let movieImage = movie.poster_path else { return }
-        BollywoodAPI.fetchImage(from: movieImage) { [weak self] result in
             switch result {
             case .success(let image):
                 DispatchQueue.main.async {

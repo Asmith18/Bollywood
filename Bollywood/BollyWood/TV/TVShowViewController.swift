@@ -21,7 +21,7 @@ class TVShowViewController: UIViewController {
         collectionView.delegate = self
         collectionView.collectionViewLayout = UICollectionViewFlowLayout()
         viewModel = TVShowsViewModel(delegate: self)
-        viewModel.fetchPopular()
+        fetchAndReload()
     }
     
     override func viewWillAppear(_ animated: Bool) {
