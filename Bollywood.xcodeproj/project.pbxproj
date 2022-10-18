@@ -27,6 +27,8 @@
 		C26A41C828394BDE00C0B96E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26A41C728394BDE00C0B96E /* DetailViewController.swift */; };
 		C28E764E286E4F0B00252AAA /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C28E764D286E4F0B00252AAA /* Settings.storyboard */; };
 		C28E7650286E4F2300252AAA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28E764F286E4F2300252AAA /* SettingsViewController.swift */; };
+		C2A01EA528FF358400C4DEEF /* BollywoodEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A01EA428FF358400C4DEEF /* BollywoodEndpoint.swift */; };
+		C2A01EA728FF42EB00C4DEEF /* MovieSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A01EA628FF42EA00C4DEEF /* MovieSearchService.swift */; };
 		C2AC89EE286A19B900A6465D /* Movies.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2AC89ED286A19B900A6465D /* Movies.storyboard */; };
 		C2AC89F0286A21C800A6465D /* TV.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2AC89EF286A21C800A6465D /* TV.storyboard */; };
 		C2AC89F3286A246100A6465D /* TVShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AC89F2286A246100A6465D /* TVShowViewController.swift */; };
@@ -85,6 +87,8 @@
 		C26A41C728394BDE00C0B96E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C28E764D286E4F0B00252AAA /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		C28E764F286E4F2300252AAA /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		C2A01EA428FF358400C4DEEF /* BollywoodEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BollywoodEndpoint.swift; sourceTree = "<group>"; };
+		C2A01EA628FF42EA00C4DEEF /* MovieSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchService.swift; sourceTree = "<group>"; };
 		C2AC89ED286A19B900A6465D /* Movies.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Movies.storyboard; sourceTree = "<group>"; };
 		C2AC89EF286A21C800A6465D /* TV.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TV.storyboard; sourceTree = "<group>"; };
 		C2AC89F2286A246100A6465D /* TVShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowViewController.swift; sourceTree = "<group>"; };
@@ -321,6 +325,8 @@
 			children = (
 				C2FB2E6A28341EEB00D6B190 /* BollywoodAPI.swift */,
 				C2FB2E6C2834261E00D6B190 /* ResultError.swift */,
+				C2A01EA428FF358400C4DEEF /* BollywoodEndpoint.swift */,
+				C2A01EA628FF42EA00C4DEEF /* MovieSearchService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -444,6 +450,7 @@
 				C2AC89F9286A25D100A6465D /* TV.swift in Sources */,
 				C2B02AF3289AE286008278A1 /* MovieCredits.swift in Sources */,
 				C2B02ADF2894597B008278A1 /* MovieProviders.swift in Sources */,
+				C2A01EA728FF42EB00C4DEEF /* MovieSearchService.swift in Sources */,
 				C2FB2E68283416E200D6B190 /* Movie.swift in Sources */,
 				C2AC8A0A286B924400A6465D /* DetailsViewModel.swift in Sources */,
 				C2AC89F3286A246100A6465D /* TVShowViewController.swift in Sources */,
@@ -466,6 +473,7 @@
 				C2AC8A0C286CD53700A6465D /* WebView.swift in Sources */,
 				C2AC8A08286B7FCD00A6465D /* TVShowDetailsViewModel.swift in Sources */,
 				C2B02AE128945B96008278A1 /* TVProviders.swift in Sources */,
+				C2A01EA528FF358400C4DEEF /* BollywoodEndpoint.swift in Sources */,
 				C24B1282283412230061958C /* BollywoodViewController.swift in Sources */,
 				C2B02AEF289ADD0B008278A1 /* ActorCollectionViewCell.swift in Sources */,
 				C2B02AED289ACF1E008278A1 /* Seasons.swift in Sources */,

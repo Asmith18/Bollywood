@@ -35,8 +35,8 @@ class BollywoodViewController: UIViewController {
     
     func searchBar() {
         searchbarView.delegate = self
-        navigationItem.titleView = searchbarView
         searchbarView.isHidden = true
+        navigationItem.titleView = searchbarView
     }
     
     func fetchAndReload() {
@@ -157,11 +157,7 @@ extension BollywoodViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension BollywoodViewController: UISearchBarDelegate {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
-        guard let searchTerm = searchbarView.text,
-              !searchTerm.isEmpty else { return }
-        
-        viewModel.searchMovie(searchTerm: searchTerm)
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        viewModel.searchMovie(searchTerm: searchText)
     }
 }

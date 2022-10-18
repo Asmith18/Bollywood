@@ -11,16 +11,35 @@ import WebKit
 
 struct BollywoodAPI {
     
-    private static let baseURLString = "https://api.themoviedb.org"
+    private static let baseURLString = "https://api.themoviedb.org/3/"
     private static let imageURLString = "https://image.tmdb.org"
+    private static let apiKey = "be35af15dc34f6c18ecb1b03e2fd3559"
+    private static let moviePopular = "/3/movie/popular"
+    private static let tvPopular = "/3/tv/popular"
+    
+//    func perform(_ request: URLRequest, completion: @escaping (Result<Data, ResultError>) -> Void) {
+//        URLSession.shared.dataTask(with: request) { data, response, error in
+//            if let error {
+//                completion(.failure(.thrownError(error)))
+//            }
+//            if let response = response as? HTTPURLResponse {
+//                print("Completed with a response of", response.statusCode)
+//            }
+//            guard let data else {
+//                completion(.failure(.noData))
+//                return
+//            }
+//            completion(.success(data))
+//        }.resume()
+//    }
 
     static func fetchPopularMovie(completion: @escaping (Result<Movie, ResultError>) -> Void) {
         
         guard let baseURL = URL(string: baseURLString) else { return }
         
-        let apiQuery = URLQueryItem(name: "api_key", value: "be35af15dc34f6c18ecb1b03e2fd3559")
+        let apiQuery = URLQueryItem(name: "api_key", value: apiKey)
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
-        urlComponents?.path = "/3/movie/popular"
+        urlComponents?.path = moviePopular
         urlComponents?.queryItems = [apiQuery]
         let finalURL = urlComponents?.url
         
@@ -45,9 +64,9 @@ struct BollywoodAPI {
         
         guard let baseURL = URL(string: baseURLString) else { return }
         
-        let apiQuery = URLQueryItem(name: "api_key", value: "be35af15dc34f6c18ecb1b03e2fd3559")
+        let apiQuery = URLQueryItem(name: "api_key", value: apiKey)
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
-        urlComponents?.path = "/3/tv/popular"
+        urlComponents?.path = tvPopular
         urlComponents?.queryItems = [apiQuery]
         let finalURL = urlComponents?.url
         
@@ -72,7 +91,7 @@ struct BollywoodAPI {
         
         guard let baseURL = URL(string: baseURLString) else { return }
         
-        let apiQuery = URLQueryItem(name: "api_key", value: "be35af15dc34f6c18ecb1b03e2fd3559")
+        let apiQuery = URLQueryItem(name: "api_key", value: apiKey)
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
         urlComponents?.path = "/3/tv/\(tvID)/videos"
         urlComponents?.queryItems = [apiQuery]
@@ -99,7 +118,7 @@ struct BollywoodAPI {
         
         guard let baseURL = URL(string: baseURLString) else { return }
         
-        let apiQuery = URLQueryItem(name: "api_key", value: "be35af15dc34f6c18ecb1b03e2fd3559")
+        let apiQuery = URLQueryItem(name: "api_key", value: apiKey)
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
         urlComponents?.path = "/3/movie/\(movieID)/videos"
         urlComponents?.queryItems = [apiQuery]
@@ -151,7 +170,7 @@ struct BollywoodAPI {
 
         guard let baseURL = URL(string: baseURLString) else { return }
         
-        let apiQuery = URLQueryItem(name: "api_key", value: "be35af15dc34f6c18ecb1b03e2fd3559")
+        let apiQuery = URLQueryItem(name: "api_key", value: apiKey)
         let searchQuery = URLQueryItem(name: "query", value: searchTerm)
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
         urlComponents?.path = "/3/search/movie/"
@@ -209,7 +228,7 @@ struct BollywoodAPI {
         
         guard let baseURL = URL(string: baseURLString) else { return }
         
-        let apiQuery = URLQueryItem(name: "api_key", value: "be35af15dc34f6c18ecb1b03e2fd3559")
+        let apiQuery = URLQueryItem(name: "api_key", value: apiKey)
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
         urlComponents?.path = "/3/movie/\(movieId)/watch/providers"
         urlComponents?.queryItems = [apiQuery]
@@ -236,7 +255,7 @@ struct BollywoodAPI {
         
         guard let baseURL = URL(string: baseURLString) else { return }
         
-        let apiQuery = URLQueryItem(name: "api_key", value: "be35af15dc34f6c18ecb1b03e2fd3559")
+        let apiQuery = URLQueryItem(name: "api_key", value: apiKey)
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
         urlComponents?.path = "/3/tv/\(tvId)/watch/providers"
         urlComponents?.queryItems = [apiQuery]
@@ -264,7 +283,7 @@ struct BollywoodAPI {
         
         guard let baseURL = URL(string: baseURLString) else { return }
         
-        let apiQuery = URLQueryItem(name: "api_key", value: "be35af15dc34f6c18ecb1b03e2fd3559")
+        let apiQuery = URLQueryItem(name: "api_key", value: apiKey)
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
         urlComponents?.path = "/3/movie/\(movieId)/credits"
         urlComponents?.queryItems = [apiQuery]
@@ -292,7 +311,7 @@ struct BollywoodAPI {
         
         guard let baseURL = URL(string: baseURLString) else { return }
         
-        let apiQuery = URLQueryItem(name: "api_key", value: "be35af15dc34f6c18ecb1b03e2fd3559")
+        let apiQuery = URLQueryItem(name: "api_key", value: apiKey)
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
         urlComponents?.path = "/3/tv/\(tvId)/credits"
         urlComponents?.queryItems = [apiQuery]
@@ -320,7 +339,7 @@ struct BollywoodAPI {
         
         guard let baseURL = URL(string: baseURLString) else { return }
         
-        let apiQuery = URLQueryItem(name: "api_key", value: "be35af15dc34f6c18ecb1b03e2fd3559")
+        let apiQuery = URLQueryItem(name: "api_key", value: apiKey)
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
         urlComponents?.path = "/3/movie/\(movieId)"
         urlComponents?.queryItems = [apiQuery]
@@ -348,7 +367,7 @@ struct BollywoodAPI {
         
         guard let baseURL = URL(string: baseURLString) else { return }
         
-        let apiQuery = URLQueryItem(name: "api_key", value: "be35af15dc34f6c18ecb1b03e2fd3559")
+        let apiQuery = URLQueryItem(name: "api_key", value: apiKey)
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
         urlComponents?.path = "/3/tv/\(tvId)"
         urlComponents?.queryItems = [apiQuery]

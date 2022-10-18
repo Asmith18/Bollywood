@@ -12,6 +12,7 @@ enum ResultError: LocalizedError {
     case thrownError(Error)
     case noData
     case unableToDecode
+    case badURL
     
     var errorDescription: String? {
         switch self {
@@ -23,6 +24,8 @@ enum ResultError: LocalizedError {
             return "The server responded with no data. please try agains."
         case .unableToDecode:
             return "The server responded with bad data. please try agains."
+        case .badURL:
+            return "the server responded with no url. please try again."
         }
     }
 }

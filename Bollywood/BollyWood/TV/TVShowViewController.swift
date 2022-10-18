@@ -115,11 +115,7 @@ extension TVShowViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension TVShowViewController: UISearchBarDelegate {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
-        guard let searchTerm = searchBarView.text,
-              !searchTerm.isEmpty else { return }
-        
-        viewModel.searchTVShow(searchTerm: searchTerm)
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        viewModel.searchTVShow(searchTerm: searchText)
     }
 }

@@ -15,8 +15,8 @@ protocol BollywoodViewModelDelegate: BollywoodViewController {
 class BollywoodViewModel {
     
     var results: [Movies] = []
-
     weak var delegate: BollywoodViewModelDelegate?
+    private let service = MovieSearchService()
     
     init(delegate: BollywoodViewModelDelegate) {
         self.delegate = delegate
@@ -34,6 +34,15 @@ class BollywoodViewModel {
     }
     
     func searchMovie(searchTerm: String) {
+//        service.fetchcharacterList(for: .movieQuery(searchTerm)) { result in
+//            switch result {
+//            case .failure(let error):
+//                print(error)
+//            case .success(let movie):
+//                self.results = movie.results
+//                self.delegate?.searchTermHasData()
+//            }
+//        }
         BollywoodAPI.searchMovie(with: searchTerm) { [weak self] result in
             switch result {
             case .success(let search):
