@@ -61,6 +61,8 @@
 		C2B02AF8289AE927008278A1 /* MovieActorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B02AF7289AE927008278A1 /* MovieActorCollectionViewCell.swift */; };
 		C2B02AFA289AE936008278A1 /* MovieCrewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B02AF9289AE935008278A1 /* MovieCrewCollectionViewCell.swift */; };
 		C2B02AFC289AE93F008278A1 /* MovieGenreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B02AFB289AE93F008278A1 /* MovieGenreCollectionViewCell.swift */; };
+		C2BDC20229009D28003228E4 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BDC20129009D28003228E4 /* AsyncImageView.swift */; };
+		C2BDC2042900A779003228E4 /* TvSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BDC2032900A779003228E4 /* TvSearchService.swift */; };
 		C2FB2E5C283413A800D6B190 /* TopCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FB2E5B283413A800D6B190 /* TopCollectionViewCell.swift */; };
 		C2FB2E68283416E200D6B190 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FB2E67283416E200D6B190 /* Movie.swift */; };
 		C2FB2E6B28341EEB00D6B190 /* BollywoodAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FB2E6A28341EEB00D6B190 /* BollywoodAPI.swift */; };
@@ -121,6 +123,8 @@
 		C2B02AF7289AE927008278A1 /* MovieActorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieActorCollectionViewCell.swift; sourceTree = "<group>"; };
 		C2B02AF9289AE935008278A1 /* MovieCrewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCrewCollectionViewCell.swift; sourceTree = "<group>"; };
 		C2B02AFB289AE93F008278A1 /* MovieGenreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieGenreCollectionViewCell.swift; sourceTree = "<group>"; };
+		C2BDC20129009D28003228E4 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
+		C2BDC2032900A779003228E4 /* TvSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvSearchService.swift; sourceTree = "<group>"; };
 		C2FB2E5B283413A800D6B190 /* TopCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCollectionViewCell.swift; sourceTree = "<group>"; };
 		C2FB2E67283416E200D6B190 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		C2FB2E6A28341EEB00D6B190 /* BollywoodAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BollywoodAPI.swift; sourceTree = "<group>"; };
@@ -218,6 +222,7 @@
 				C24B1281283412230061958C /* BollywoodViewController.swift */,
 				C2FB2E72283563C800D6B190 /* BollywoodViewModel.swift */,
 				C2FB2E5B283413A800D6B190 /* TopCollectionViewCell.swift */,
+				C2A01EA628FF42EA00C4DEEF /* MovieSearchService.swift */,
 				C26A41C928394BF000C0B96E /* Details */,
 			);
 			path = Movies;
@@ -244,6 +249,7 @@
 		C2AC89FA286A293700A6465D /* TV */ = {
 			isa = PBXGroup;
 			children = (
+				C2BDC2032900A779003228E4 /* TvSearchService.swift */,
 				C2AC89F2286A246100A6465D /* TVShowViewController.swift */,
 				C2AC89F4286A250900A6465D /* TVShowViewModel.swift */,
 				C2AC89F6286A252900A6465D /* TVCollectionViewCell.swift */,
@@ -324,9 +330,9 @@
 			isa = PBXGroup;
 			children = (
 				C2FB2E6A28341EEB00D6B190 /* BollywoodAPI.swift */,
-				C2FB2E6C2834261E00D6B190 /* ResultError.swift */,
 				C2A01EA428FF358400C4DEEF /* BollywoodEndpoint.swift */,
-				C2A01EA628FF42EA00C4DEEF /* MovieSearchService.swift */,
+				C2BDC20129009D28003228E4 /* AsyncImageView.swift */,
+				C2FB2E6C2834261E00D6B190 /* ResultError.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -463,10 +469,12 @@
 				C2FC3AFD28BA9B9000792D7C /* TVCredits.swift in Sources */,
 				C2FB2E5C283413A800D6B190 /* TopCollectionViewCell.swift in Sources */,
 				C2FB2E73283563C800D6B190 /* BollywoodViewModel.swift in Sources */,
+				C2BDC2042900A779003228E4 /* TvSearchService.swift in Sources */,
 				C2AC8A11286E24D800A6465D /* MoviesCollectionViewCell.swift in Sources */,
 				C2AC8A0E286E247200A6465D /* AccountViewController.swift in Sources */,
 				C2FB2E6B28341EEB00D6B190 /* BollywoodAPI.swift in Sources */,
 				C2AC8A03286B786100A6465D /* TVShowDetailsViewController.swift in Sources */,
+				C2BDC20229009D28003228E4 /* AsyncImageView.swift in Sources */,
 				C28E7650286E4F2300252AAA /* SettingsViewController.swift in Sources */,
 				C24B1268283408170061958C /* AppDelegate.swift in Sources */,
 				C2B02AD928906ED6008278A1 /* TVShowsCollectionViewCell.swift in Sources */,

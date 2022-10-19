@@ -14,76 +14,20 @@ struct BollywoodAPI {
     private static let baseURLString = "https://api.themoviedb.org/3/"
     private static let imageURLString = "https://image.tmdb.org"
     private static let apiKey = "be35af15dc34f6c18ecb1b03e2fd3559"
-    private static let moviePopular = "/3/movie/popular"
-    private static let tvPopular = "/3/tv/popular"
     
-//    func perform(_ request: URLRequest, completion: @escaping (Result<Data, ResultError>) -> Void) {
-//        URLSession.shared.dataTask(with: request) { data, response, error in
-//            if let error {
-//                completion(.failure(.thrownError(error)))
-//            }
-//            if let response = response as? HTTPURLResponse {
-//                print("Completed with a response of", response.statusCode)
-//            }
-//            guard let data else {
-//                completion(.failure(.noData))
-//                return
-//            }
-//            completion(.success(data))
-//        }.resume()
-//    }
-
-    static func fetchPopularMovie(completion: @escaping (Result<Movie, ResultError>) -> Void) {
-        
-        guard let baseURL = URL(string: baseURLString) else { return }
-        
-        let apiQuery = URLQueryItem(name: "api_key", value: apiKey)
-        var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
-        urlComponents?.path = moviePopular
-        urlComponents?.queryItems = [apiQuery]
-        let finalURL = urlComponents?.url
-        
-        URLSession.shared.dataTask(with: finalURL!) { data, _, error in
-            if let error = error {
+    func perform(_ request: URLRequest, completion: @escaping (Result<Data, ResultError>) -> Void) {
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error {
                 completion(.failure(.thrownError(error)))
             }
-            guard let movieData = data else {
+            if let response = response as? HTTPURLResponse {
+                print("Completed with a response of", response.statusCode)
+            }
+            guard let data else {
                 completion(.failure(.noData))
                 return
             }
-            do {
-                let movie = try JSONDecoder().decode(Movie.self, from: movieData)
-                completion(.success(movie))
-            } catch {
-                completion(.failure(.unableToDecode))
-            }
-        }.resume()
-    }
-    
-    static func fetchPopularTV(completion: @escaping (Result<TV, ResultError>) -> Void) {
-        
-        guard let baseURL = URL(string: baseURLString) else { return }
-        
-        let apiQuery = URLQueryItem(name: "api_key", value: apiKey)
-        var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
-        urlComponents?.path = tvPopular
-        urlComponents?.queryItems = [apiQuery]
-        let finalURL = urlComponents?.url
-        
-        URLSession.shared.dataTask(with: finalURL!) { data, _, error in
-            if let error = error {
-                completion(.failure(.thrownError(error)))
-            }
-            guard let tvData = data else {
-                completion(.failure(.noData))
-                return
-            }
-            do {
-                let tv = try JSONDecoder().decode(TV.self, from: tvData)
-                completion(.success(tv))
-            } catch {
-                completion(.failure(.unableToDecode))
-            }
+            completion(.success(data))
         }.resume()
     }
     
@@ -163,64 +107,6 @@ struct BollywoodAPI {
                 return
             }
             completion(.success(movieImage))
-        }.resume()
-    }
-    
-    static func searchMovie(with searchTerm: String, completion: @escaping (Result<Movie, ResultError>) -> Void) {
-
-        guard let baseURL = URL(string: baseURLString) else { return }
-        
-        let apiQuery = URLQueryItem(name: "api_key", value: apiKey)
-        let searchQuery = URLQueryItem(name: "query", value: searchTerm)
-        var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
-        urlComponents?.path = "/3/search/movie/"
-        urlComponents?.queryItems = [apiQuery, searchQuery]
-        let finalURL = urlComponents?.url
-        
-        URLSession.shared.dataTask(with: finalURL!) { data, _, error in
-            if let error = error {
-                completion(.failure(.thrownError(error)))
-            }
-            
-            guard let searchMovieData = data else {
-                completion(.failure(.noData))
-                return
-            }
-            do {
-                let searchMovie = try JSONDecoder().decode(Movie.self, from: searchMovieData)
-                completion(.success(searchMovie))
-            } catch {
-                completion(.failure(.unableToDecode))
-            }
-        }.resume()
-    }
-    
-    static func searchTVShow(with searchTerm: String, completion: @escaping (Result<TV, ResultError>) -> Void) {
-
-        guard let baseURL = URL(string: baseURLString) else { return }
-        
-        let apiQuery = URLQueryItem(name: "api_key", value: "be35af15dc34f6c18ecb1b03e2fd3559")
-        let searchQuery = URLQueryItem(name: "query", value: searchTerm)
-        var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
-        urlComponents?.path = "/3/search/tv/"
-        urlComponents?.queryItems = [apiQuery, searchQuery]
-        let finalURL = urlComponents?.url
-        
-        URLSession.shared.dataTask(with: finalURL!) { data, _, error in
-            if let error = error {
-                completion(.failure(.thrownError(error)))
-            }
-            
-            guard let searchTVData = data else {
-                completion(.failure(.noData))
-                return
-            }
-            do {
-                let searchTVShow = try JSONDecoder().decode(TV.self, from: searchTVData)
-                completion(.success(searchTVShow))
-            } catch {
-                completion(.failure(.unableToDecode))
-            }
         }.resume()
     }
     

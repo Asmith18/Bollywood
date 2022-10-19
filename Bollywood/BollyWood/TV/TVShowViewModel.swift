@@ -15,31 +15,49 @@ class TVShowsViewModel {
     
     var results: [TVShows] = []
     weak var delegate: TVShowsViewModelDelegate?
+    private let service = TvSearchService()
     
     init(delegate:TVShowsViewModelDelegate) {
         self.delegate = delegate
     }
     
     func fetchPopular() {
-        BollywoodAPI.fetchPopularTV { [weak self] result in
+        service.fetchcharacterList(for: .popularTv) { [weak self] result in
             switch result {
+            case .failure(let error):
+                print(error)
             case .success(let tvData):
                 self?.results = tvData.results
-            case.failure(let error):
-                print(error)
             }
         }
+//        BollywoodAPI.fetchPopularTV { [weak self] result in
+//            switch result {
+//            case .success(let tvData):
+//                self?.results = tvData.results
+//            case.failure(let error):
+//                print(error)
+//            }
+//        }
     }
     
     func searchTVShow(searchTerm: String) {
-        BollywoodAPI.searchTVShow(with: searchTerm) { [weak self] result in
+        service.fetchcharacterList(for: .tvPath(searchTerm)) { [weak self] result in
             switch result {
-            case .success(let search):
-                self?.results = search.results
-                self?.delegate?.searchTermHasData()
-            case.failure(let error):
+            case .failure(let error):
                 print(error)
+            case .success(let tv):
+                self?.results = tv.results
+                self?.delegate?.searchTermHasData()
             }
         }
+//        BollywoodAPI.searchTVShow(with: searchTerm) { [weak self] result in
+//            switch result {
+//            case .success(let search):
+//                self?.results = search.results
+//                self?.delegate?.searchTermHasData()
+//            case.failure(let error):
+//                print(error)
+//            }
+//        }
     }
 }

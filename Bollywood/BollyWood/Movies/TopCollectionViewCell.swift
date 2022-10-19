@@ -9,7 +9,12 @@ import UIKit
 
 class TopCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var topMovieImageView: UIImageView!
+    override func prepareForReuse() {
+        topMovieImageView.image = nil
+        topTitleTextLabel.text = nil
+    }
+    
+    @IBOutlet weak var topMovieImageView: AsyncImageView!
     @IBOutlet weak var topTitleTextLabel: UILabel!
     
     func setup(with movie: Movies) {
@@ -17,14 +22,11 @@ class TopCollectionViewCell: UICollectionViewCell {
         fetchImage(for: movie)
     }
     
-    override func prepareForReuse() {
-        topMovieImageView.image = nil
-        topTitleTextLabel.text = nil
-    }
     
     func fetchImage(for movie: Movies) {
-        guard let movieImage = movie.poster_path else { return }
-        BollywoodAPI.fetchImage(from: movieImage) { [weak self] result in
+        guard let image = movie.poster_path else { return }
+//        topMovieImageView.fetchImage(from: image)
+        BollywoodAPI.fetchImage(from: image) { [weak self] result in
             switch result {
             case .success(let image):
                 DispatchQueue.main.async {

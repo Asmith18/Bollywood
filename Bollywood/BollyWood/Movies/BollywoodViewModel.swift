@@ -23,33 +23,24 @@ class BollywoodViewModel {
     }
     
     func fetchPopular() {
-        BollywoodAPI.fetchPopularMovie { [weak self] result in
+        service.fetchcharacterList(for: .popularMovie) { [weak self] result in
             switch result {
-            case .success(let movieData):
-                self?.results = movieData.results
             case .failure(let error):
                 print(error)
+            case .success(let movieData):
+                self?.results = movieData.results
             }
         }
     }
     
     func searchMovie(searchTerm: String) {
-//        service.fetchcharacterList(for: .movieQuery(searchTerm)) { result in
-//            switch result {
-//            case .failure(let error):
-//                print(error)
-//            case .success(let movie):
-//                self.results = movie.results
-//                self.delegate?.searchTermHasData()
-//            }
-//        }
-        BollywoodAPI.searchMovie(with: searchTerm) { [weak self] result in
+        service.fetchcharacterList(for: .moviePath(searchTerm)) { [weak self] result in
             switch result {
-            case .success(let search):
-                self?.results = search.results
-                self?.delegate?.searchTermHasData()
-            case.failure(let error):
+            case .failure(let error):
                 print(error)
+            case .success(let movie):
+                self?.results = movie.results
+                self?.delegate?.searchTermHasData()
             }
         }
     }

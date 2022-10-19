@@ -118,24 +118,6 @@ extension BollywoodViewController: UICollectionViewDataSource, UICollectionViewD
         viewController.viewModel.movie = viewModel.results[indexPath.row]
         self.navigationController?.pushViewController(viewController, animated: false)
     }
-    
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        
-//        let lastMovieIndex = viewModel.results.count - 1
-//        guard let movieList = viewModel.movieList, let nextURL = URL(string: movieList.next) else { return }
-//
-//        if indexPath.row == lastMovieIndex {
-//            BollywoodAPI.fetchPopularMovie(with: nextURL) { result in
-//                switch result {
-//                case .success(let movie):
-//                    self.movie = movie
-//                    self.viewModel.results.append(contentsOf: movie.results)
-//                case .failure(let error):
-//                    print(error)
-//                }
-//            }
-//        }
-    }
 }
 
 extension BollywoodViewController: BollywoodViewModelDelegate {
