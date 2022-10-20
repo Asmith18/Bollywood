@@ -30,6 +30,7 @@ class TVShowDetailsViewModel {
     private let providerService = TVProviderService()
     private let creditsService = TVCreditsService()
     private let videoService = VideoService()
+    private let genreService = TVGenreService()
     weak var delegate: TVShowDetailsViewModelDelegate?
     
     init(delegate: TVShowDetailsViewModelDelegate) {
@@ -79,7 +80,7 @@ class TVShowDetailsViewModel {
     
     func getTVDetails() {
         guard let tvId = tvShow?.id else { return }
-        BollywoodAPI.fetchTvDetails(with: tvId) { [weak self] result in
+        genreService.fetchcharacterList(for: .tvGenre(tvId)) { [weak self] result in
             switch result {
             case .success(let details):
                 self?.genres = details.genres

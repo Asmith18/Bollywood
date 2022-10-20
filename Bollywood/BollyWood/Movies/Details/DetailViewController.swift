@@ -28,6 +28,7 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.delegate = self
         collectionViews()
         updateViews()
         fetchEndpoint()
@@ -56,11 +57,6 @@ class DetailViewController: UIViewController {
         viewModel.fetchVidCode()
         viewModel.getMovieCredits()
         viewModel.getMovieDetails()
-        movieHasData()
-        movieCastHasData()
-        movieCrewHasData()
-        genresHasData()
-        vidCodeHasData()
     }
     
     func updateViews() {

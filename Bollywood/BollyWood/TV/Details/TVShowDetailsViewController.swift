@@ -28,6 +28,7 @@ class TVShowDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.delegate = self
         setupCollectionView()
         updateViews()
         fetchEndpoint()
@@ -57,11 +58,6 @@ class TVShowDetailsViewController: UIViewController {
         viewModel.getTVProviders()
         viewModel.getTVCredits()
         viewModel.getTVDetails()
-        tvCastHasData()
-        tvGenresHasData()
-        tvShowproviderHasData()
-        tvCrewHasData()
-        vidCodeHasData()
     }
     
     func updateViews() {

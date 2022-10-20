@@ -30,6 +30,7 @@ class DetailsViewModel {
     var genres: [MovieGenres] = []
     private let creditsService = MovieCreditsService()
     private let videoService = VideoService()
+    private let genreService = MovieGenreService()
     weak var delegate: DetailsViewModelDelegate?
     
     init(delegate: DetailsViewModelDelegate) {
@@ -66,13 +67,13 @@ class DetailsViewModel {
     
     func getMovieDetails() {
         guard let movieId = movie?.id else { return }
-        BollywoodAPI.fetchMovieDetails(with: movieId) { [weak self] result in
-            switch result {
+        genreService.fetchcharacterList(for: .movieGenre(movieId)) { [weak self] result in
+            switch result  {
+            case .failure(let error):
+                print(error)
             case .success(let details):
                 self?.genres = details.genres
                 self?.delegate?.genresHasData()
-            case .failure(let error):
-                print(error)
             }
         }
     }

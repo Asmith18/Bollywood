@@ -18,6 +18,8 @@ enum BollywoodEndpoint {
     case movieCredits(Int)
     case tvVideos(Int)
     case movieVideos(Int)
+    case movieGenre(Int)
+    case tvGenre(Int)
     
     var path: String {
         switch self {
@@ -40,6 +42,10 @@ enum BollywoodEndpoint {
             return "videos"
         case .movieVideos:
             return "videos"
+        case .movieGenre:
+            return "movie"
+        case .tvGenre:
+            return "tv"
         }
     }
     
@@ -117,6 +123,24 @@ enum BollywoodEndpoint {
             baseURL.appendPathComponent("movie")
             baseURL.appendPathComponent("\(id)")
             baseURL.appendPathComponent(path)
+            guard var components = URLComponents(url: baseURL, resolvingAgainstBaseURL: true) else {
+                return nil
+            }
+                    components.queryItems = [apiQuery]
+            return components.url
+            
+        case .movieGenre(let id):
+            baseURL.appendPathComponent(path)
+            baseURL.appendPathComponent("\(id)")
+            guard var components = URLComponents(url: baseURL, resolvingAgainstBaseURL: true) else {
+                return nil
+            }
+                    components.queryItems = [apiQuery]
+            return components.url
+            
+        case .tvGenre(let id):
+            baseURL.appendPathComponent(path)
+            baseURL.appendPathComponent("\(id)")
             guard var components = URLComponents(url: baseURL, resolvingAgainstBaseURL: true) else {
                 return nil
             }

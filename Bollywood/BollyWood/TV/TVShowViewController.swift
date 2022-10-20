@@ -17,11 +17,11 @@ class TVShowViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = TVShowsViewModel(delegate: self)
+        fetchAndReload()
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.collectionViewLayout = UICollectionViewFlowLayout()
-        viewModel = TVShowsViewModel(delegate: self)
-        fetchAndReload()
     }
     
     override func viewWillAppear(_ animated: Bool) {
