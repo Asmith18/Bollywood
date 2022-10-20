@@ -18,7 +18,7 @@ protocol TVShowDetailsViewModelDelegate: TVShowDetailsViewController {
 
 class TVShowDetailsViewModel {
     
-//MARK: - Properties
+    //MARK: - Properties
     var tvShow: TVShows?
     var webView: WebView?
     var results: [WebViewResults] = []
@@ -27,6 +27,9 @@ class TVShowDetailsViewModel {
     var tvCrew: [TVCrew] = []
     var genres: [TVGenres] = []
     var webViewResults: WebViewResults?
+    private let providerService = TVProviderService()
+    private let creditsService = TVCreditsService()
+    private let videoService = VideoService()
     weak var delegate: TVShowDetailsViewModelDelegate?
     
     init(delegate: TVShowDetailsViewModelDelegate) {
@@ -34,13 +37,13 @@ class TVShowDetailsViewModel {
     }
     
     func fetchVidCode() {
-        guard let tvVideo = tvShow?.id else { return }
-        BollywoodAPI.fetchTvVideo(for: tvVideo) { [weak self] result in
+        guard let tvId = tvShow?.id else { return }
+        videoService.fetchcharacterList(for: .tvVideos(tvId)) { [weak self] result in
             switch result {
-            case.success(let webView):
+            case .success(let webView):
                 self?.results = webView.results
                 self?.delegate?.vidCodeHasData()
-            case.failure(let error):
+            case .failure(let error):
                 print(error)
             }
         }
@@ -48,28 +51,28 @@ class TVShowDetailsViewModel {
     
     func getTVProviders() {
         guard let tvProvider = tvShow?.id else { return }
-        BollywoodAPI.fetchTVProviders(with: tvProvider) { [weak self] result in
+        providerService.fetchcharacterList(for: .tvProvider(tvProvider)) { [weak self] result in
             switch result {
+            case .failure(let error):
+                print(error)
             case .success(let provider):
                 self?.flatrate = provider.results.US.flatrate
                 self?.delegate?.tvShowproviderHasData()
-            case .failure(let error):
-                print(error)
             }
         }
     }
     
     func getTVCredits() {
         guard let tvId = tvShow?.id else { return }
-        BollywoodAPI.fetchTvCredits(with: tvId) { [weak self] result in
+        creditsService.fetchcharacterList(for: .tvCredits(tvId)) { result in
             switch result {
-            case.success(let cast):
-                self?.tvCast = cast.cast
-                self?.tvCrew = cast.crew
-                self?.delegate?.tvCastHasData()
-                self?.delegate?.tvCrewHasData()
-            case.failure(let error):
+            case .failure(let error):
                 print(error)
+            case .success(let credits):
+                self.tvCast = credits.cast
+                self.tvCrew = credits.crew
+                self.delegate?.tvCastHasData()
+                self.delegate?.tvCrewHasData()
             }
         }
     }

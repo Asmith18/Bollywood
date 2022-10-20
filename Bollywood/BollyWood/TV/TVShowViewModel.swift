@@ -30,14 +30,6 @@ class TVShowsViewModel {
                 self?.results = tvData.results
             }
         }
-//        BollywoodAPI.fetchPopularTV { [weak self] result in
-//            switch result {
-//            case .success(let tvData):
-//                self?.results = tvData.results
-//            case.failure(let error):
-//                print(error)
-//            }
-//        }
     }
     
     func searchTVShow(searchTerm: String) {
@@ -50,14 +42,5 @@ class TVShowsViewModel {
                 self?.delegate?.searchTermHasData()
             }
         }
-//        BollywoodAPI.searchTVShow(with: searchTerm) { [weak self] result in
-//            switch result {
-//            case .success(let search):
-//                self?.results = search.results
-//                self?.delegate?.searchTermHasData()
-//            case.failure(let error):
-//                print(error)
-//            }
-//        }
     }
 }

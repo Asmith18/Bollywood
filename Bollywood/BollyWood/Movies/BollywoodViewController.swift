@@ -18,12 +18,12 @@ class BollywoodViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        topCollectionView?.dataSource = self
-        topCollectionView?.delegate = self
-        topCollectionView?.collectionViewLayout = UICollectionViewFlowLayout()
         viewModel = BollywoodViewModel(delegate: self)
         fetchAndReload()
         SignInAlert()
+        topCollectionView?.dataSource = self
+        topCollectionView?.delegate = self
+        topCollectionView?.collectionViewLayout = UICollectionViewFlowLayout()
     }
 
     override func viewWillAppear(_ animated: Bool) {
