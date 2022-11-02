@@ -29,6 +29,7 @@ class BollywoodViewModel {
                 print(error)
             case .success(let movieData):
                 self?.results = movieData.results
+                self?.delegate?.movieListHasData()
             }
         }
     }

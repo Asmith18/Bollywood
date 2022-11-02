@@ -100,6 +100,13 @@ extension TVShowViewController: UICollectionViewDataSource, UICollectionViewDele
 }
 
 extension TVShowViewController: TVShowsViewModelDelegate {
+    
+    func tvListHasData() {
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+    }
+    
     func searchTermHasData() {
         DispatchQueue.main.async {
             self.collectionView.reloadData()

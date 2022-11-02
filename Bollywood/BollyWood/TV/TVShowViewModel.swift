@@ -9,6 +9,7 @@ import Foundation
 
 protocol TVShowsViewModelDelegate: TVShowViewController {
     func searchTermHasData()
+    func tvListHasData()
 }
 
 class TVShowsViewModel {
@@ -28,6 +29,7 @@ class TVShowsViewModel {
                 print(error)
             case .success(let tvData):
                 self?.results = tvData.results
+                self?.delegate?.tvListHasData()
             }
         }
     }

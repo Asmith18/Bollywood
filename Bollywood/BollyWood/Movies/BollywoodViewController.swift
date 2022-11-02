@@ -122,6 +122,9 @@ extension BollywoodViewController: UICollectionViewDataSource, UICollectionViewD
 
 extension BollywoodViewController: BollywoodViewModelDelegate {
     func movieListHasData() {
+        DispatchQueue.main.async {
+            self.topCollectionView?.reloadData()
+        }
     }
     
     

@@ -20,7 +20,6 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var movieRatingTextLabel: UILabel!
     @IBOutlet weak var movieDescriptionTextField: UITextView!
     @IBOutlet weak var favoriteButton: UIBarButtonItem!
-    @IBOutlet weak var movieProviderCollectionView: UICollectionView!
     @IBOutlet weak var movieTrailerCollectionView: UICollectionView!
     @IBOutlet weak var actorCollectionView: UICollectionView!
     @IBOutlet weak var crewCollectionView: UICollectionView!
@@ -28,7 +27,6 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.delegate = self
         collectionViews()
         updateViews()
         fetchEndpoint()
@@ -41,8 +39,6 @@ class DetailViewController: UIViewController {
     }
     
     func collectionViews() {
-        movieProviderCollectionView?.dataSource = self
-        movieProviderCollectionView?.delegate = self
         movieTrailerCollectionView?.dataSource = self
         movieTrailerCollectionView?.delegate = self
         actorCollectionView?.dataSource = self
