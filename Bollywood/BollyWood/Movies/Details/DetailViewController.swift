@@ -13,7 +13,7 @@ class DetailViewController: UIViewController {
     
     var viewModel: DetailsViewModel!
     var isFavMovie = UserDefaults.standard.bool(forKey: "isFavMovie")
-
+    
     @IBOutlet weak var movieImageView: UIImageView!
     @IBOutlet weak var movieNameTextLabel: UILabel!
     @IBOutlet weak var movieDateTextLabel: UILabel!
@@ -130,6 +130,7 @@ extension DetailViewController: DetailsViewModelDelegate {
     
     func movieHasData() {
         updateViews()
+        
     }
     
     func movieCastHasData() {
@@ -155,9 +156,9 @@ extension DetailViewController: UICollectionViewDataSource, UICollectionViewDele
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-       if collectionView == movieTrailerCollectionView.self {
+        if collectionView == movieTrailerCollectionView.self {
             let cell = movieTrailerCollectionView.dequeueReusableCell(withReuseIdentifier: "trailer", for: indexPath) as! MovieWebKitCollectionViewCell
-        
+            
             let result = viewModel.results[indexPath.row]
             cell.getVideo(results: result)
             

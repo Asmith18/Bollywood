@@ -47,8 +47,7 @@ class BollywoodViewController: UIViewController {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = nil
         self.searchbarView.isHidden = true
-        viewModel.fetchPopular()
-        self.topCollectionView.reloadData()
+        fetchAndReload()
         self.navigationItem.title = "Most Popular"
     }
     

@@ -14,7 +14,7 @@ class TopCollectionViewCell: UICollectionViewCell {
         topTitleTextLabel.text = nil
     }
     
-    @IBOutlet weak var topMovieImageView: AsyncImageView!
+    @IBOutlet weak var topMovieImageView: UIImageView!
     @IBOutlet weak var topTitleTextLabel: UILabel!
     
     func setup(with movie: Movies) {
