@@ -7,12 +7,10 @@
 
 import UIKit
 import WebKit
-import Firebase
 
 class DetailViewController: UIViewController {
     
     var viewModel: DetailsViewModel!
-    var isFavMovie = UserDefaults.standard.bool(forKey: "isFavMovie")
     
     @IBOutlet weak var movieImageView: UIImageView!
     @IBOutlet weak var movieNameTextLabel: UILabel!
@@ -83,28 +81,28 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func favoriteButtonPressed(_ sender: Any) {
-        
-        if UserDefaults.standard.string(forKey: "email") != nil {
-            if isFavMovie {
-                favoriteButton.image = UIImage(systemName: "heart")
-            } else {
-                favoriteButton.image = UIImage(systemName: "heart.fill")
-                UserDefaults.standard.set(isFavMovie, forKey: "isFavMovie")
-                UserDefaults.standard.synchronize()
-                isFavMovie = !isFavMovie
-            }
-        } else {
-            let alertController = UIAlertController(title: "Not Signed In.", message: "Sign In to use this feature.", preferredStyle: .alert)
-            let accountAction = UIAlertAction(title: "Sign In", style: .default) { accountAction in
-                let storyboard = UIStoryboard(name: "SignIn", bundle: nil)
-                guard let viewController = storyboard.instantiateViewController(withIdentifier: "signin") as? SignInViewController else { return }
-                self.navigationController?.pushViewController(viewController, animated: true)
-            }
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-            alertController.addAction(accountAction)
-            alertController.addAction(cancelAction)
-            self.present(alertController, animated: true, completion: nil)
-        }
+//
+//        if UserDefaults.standard.string(forKey: "email") != nil {
+//            if isFavMovie {
+//                favoriteButton.image = UIImage(systemName: "heart")
+//            } else {
+//                favoriteButton.image = UIImage(systemName: "heart.fill")
+//                UserDefaults.standard.set(isFavMovie, forKey: "isFavMovie")
+//                UserDefaults.standard.synchronize()
+//                isFavMovie = !isFavMovie
+//            }
+//        } else {
+//            let alertController = UIAlertController(title: "Not Signed In.", message: "Sign In to use this feature.", preferredStyle: .alert)
+//            let accountAction = UIAlertAction(title: "Sign In", style: .default) { accountAction in
+//                let storyboard = UIStoryboard(name: "SignIn", bundle: nil)
+//                guard let viewController = storyboard.instantiateViewController(withIdentifier: "signin") as? SignInViewController else { return }
+//                self.navigationController?.pushViewController(viewController, animated: true)
+//            }
+//            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+//            alertController.addAction(accountAction)
+//            alertController.addAction(cancelAction)
+//            self.present(alertController, animated: true, completion: nil)
+//        }
     }
 }
 

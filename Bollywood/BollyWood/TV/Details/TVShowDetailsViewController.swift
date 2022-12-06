@@ -11,7 +11,6 @@ import WebKit
 class TVShowDetailsViewController: UIViewController {
      
     var viewModel: TVShowDetailsViewModel!
-    var isFavShow = UserDefaults.standard.bool(forKey: "isFavShow")
     
     //MARK: - Outlets
     @IBOutlet weak var showImageView: UIImageView!
@@ -87,28 +86,28 @@ class TVShowDetailsViewController: UIViewController {
     }
     
     @IBAction func favoriteButtonTapped(_ sender: Any) {
-        
-        if UserDefaults.standard.string(forKey: "email") != nil {
-            if isFavShow {
-                favoriteButton.image = UIImage(systemName: "heart")
-            } else {
-                favoriteButton.image = UIImage(systemName: "heart.fill")
-            }
-            isFavShow = !isFavShow
-            UserDefaults.standard.set(isFavShow, forKey: "isFavShow")
-            UserDefaults.standard.synchronize()
-        } else {
-            let alertController = UIAlertController(title: "Not Signed In.", message: "Sign In to use this feature.", preferredStyle: .alert)
-            let accountAction = UIAlertAction(title: "Sign In", style: .default) { accountAction in
-                let storyboard = UIStoryboard(name: "SignIn", bundle: nil)
-                guard let viewController = storyboard.instantiateViewController(withIdentifier: "signin") as? SignInViewController else { return }
-                self.navigationController?.pushViewController(viewController, animated: true)
-            }
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-            alertController.addAction(accountAction)
-            alertController.addAction(cancelAction)
-            self.present(alertController, animated: true, completion: nil)
-        }
+//
+//        if UserDefaults.standard.string(forKey: "email") != nil {
+//            if isFavShow {
+//                favoriteButton.image = UIImage(systemName: "heart")
+//            } else {
+//                favoriteButton.image = UIImage(systemName: "heart.fill")
+//            }
+//            isFavShow = !isFavShow
+//            UserDefaults.standard.set(isFavShow, forKey: "isFavShow")
+//            UserDefaults.standard.synchronize()
+//        } else {
+//            let alertController = UIAlertController(title: "Not Signed In.", message: "Sign In to use this feature.", preferredStyle: .alert)
+//            let accountAction = UIAlertAction(title: "Sign In", style: .default) { accountAction in
+//                let storyboard = UIStoryboard(name: "SignIn", bundle: nil)
+//                guard let viewController = storyboard.instantiateViewController(withIdentifier: "signin") as? SignInViewController else { return }
+//                self.navigationController?.pushViewController(viewController, animated: true)
+//            }
+//            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+//            alertController.addAction(accountAction)
+//            alertController.addAction(cancelAction)
+//            self.present(alertController, animated: true, completion: nil)
+//        }
     }
 }
 
