@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import FirebaseAuth
 
 class SignInViewController: UIViewController {
     
@@ -27,35 +26,35 @@ class SignInViewController: UIViewController {
     
     //MARK: - Actions
     @IBAction func signInButtonTapped(_ sender: Any) {
-        if let email = emailTextField.text,
-           let password = passwordTextField.text {
-            FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password) { [weak self] result, error in
-                switch result {
-                    
-                case .none:
-                    let alertController = UIAlertController(title: "Account not found", message: "Please check your Email and Password", preferredStyle: .alert)
-                    let confirmAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                    alertController.addAction(confirmAction)
-                    self?.present(alertController, animated: true, completion: nil)
-                    
-                case .some(let userDetails):
-                    UserDefaults.standard.set(true, forKey: "signedInWithFirebase")
-                    print("signed in as", userDetails.user.email!)
-                    UserDefaults.standard.set(userDetails.user.uid, forKey: "uid")
-                    UserDefaults.standard.set(userDetails.user.email, forKey: "email")
-                    UserDefaults.standard.set(userDetails.user.photoURL, forKey: "photo")
-                    let storyboard = UIStoryboard(name: "Movies", bundle: nil)
-                    guard let viewController = storyboard.instantiateViewController(withIdentifier: "movies") as? BollywoodViewController else { return }
-                    self?.navigationController?.pushViewController(viewController, animated: true)
-                }
-            }
-        }
+//        if let email = emailTextField.text,
+//           let password = passwordTextField.text {
+//            FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password) { [weak self] result, error in
+//                switch result {
+//
+//                case .none:
+//                    let alertController = UIAlertController(title: "Account not found", message: "Please check your Email and Password", preferredStyle: .alert)
+//                    let confirmAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+//                    alertController.addAction(confirmAction)
+//                    self?.present(alertController, animated: true, completion: nil)
+//
+//                case .some(let userDetails):
+//                    UserDefaults.standard.set(true, forKey: "signedInWithFirebase")
+//                    print("signed in as", userDetails.user.email!)
+//                    UserDefaults.standard.set(userDetails.user.uid, forKey: "uid")
+//                    UserDefaults.standard.set(userDetails.user.email, forKey: "email")
+//                    UserDefaults.standard.set(userDetails.user.photoURL, forKey: "photo")
+//                    let storyboard = UIStoryboard(name: "Movies", bundle: nil)
+//                    guard let viewController = storyboard.instantiateViewController(withIdentifier: "movies") as? BollywoodViewController else { return }
+//                    self?.navigationController?.pushViewController(viewController, animated: true)
+//                }
+//            }
+//        }
     }
     
     @IBAction func signUpButtonPressed(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
-        guard let viewController = storyboard.instantiateViewController(withIdentifier: "signup") as? SignUpViewController else { return }
-        self.navigationController?.pushViewController(viewController, animated: false)
+//        let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
+//        guard let viewController = storyboard.instantiateViewController(withIdentifier: "signup") as? SignUpViewController else { return }
+//        self.navigationController?.pushViewController(viewController, animated: false)
     }
     
     @IBAction func showPasswordButtonPressed(_ sender: Any) {

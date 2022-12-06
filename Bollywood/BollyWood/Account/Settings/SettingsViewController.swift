@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import FirebaseAuth
 
 class SettingsViewController: UIViewController {
 
@@ -22,21 +21,21 @@ class SettingsViewController: UIViewController {
     }
     
     func logout() {
-        let firebaseAuth = Auth.auth()
-        do {
-            try firebaseAuth.signOut()
-        } catch let signOutError as NSError {
-            print("Error signing out %@", signOutError)
-        }
-        UserDefaults.standard.removeObject(forKey: "uid")
-        UserDefaults.standard.removeObject(forKey: "email")
-        UserDefaults.standard.removeObject(forKey: "signedInWithFirebase")
+//        let firebaseAuth = Auth.auth()
+//        do {
+//            try firebaseAuth.signOut()
+//        } catch let signOutError as NSError {
+//            print("Error signing out %@", signOutError)
+//        }
+//        UserDefaults.standard.removeObject(forKey: "uid")
+//        UserDefaults.standard.removeObject(forKey: "email")
+//        UserDefaults.standard.removeObject(forKey: "signedInWithFirebase")
     }
     
     func returnToMovies() {
-        let storyboard = UIStoryboard(name: "Movies", bundle: nil)
-       guard let viewController = storyboard.instantiateViewController(withIdentifier: "movies") as? BollywoodViewController else { return }
-        self.navigationController?.pushViewController(viewController, animated: true)
+//        let storyboard = UIStoryboard(name: "Movies", bundle: nil)
+//       guard let viewController = storyboard.instantiateViewController(withIdentifier: "movies") as? BollywoodViewController else { return }
+//        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     //MARK: - Actions
