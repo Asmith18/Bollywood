@@ -20,7 +20,7 @@ class BollywoodViewController: UIViewController {
         super.viewDidLoad()
         viewModel = BollywoodViewModel(delegate: self)
         fetchAndReload()
-        SignInAlert()
+//        SignInAlert()
         topCollectionView?.dataSource = self
         topCollectionView?.delegate = self
         topCollectionView?.collectionViewLayout = UICollectionViewFlowLayout()
@@ -53,23 +53,23 @@ class BollywoodViewController: UIViewController {
     
     //MARK: - Actions
     @IBAction func profileButtonPressed(_ sender: Any) {
-        if UserDefaults.standard.string(forKey: "email") != nil {
-            let storyboard = UIStoryboard(name: "Account", bundle: nil)
-            guard let viewController = storyboard.instantiateViewController(withIdentifier: "account") as? AccountViewController else { return }
-            self.navigationController?.pushViewController(viewController, animated: false)
-        } else {
-            let alertController = UIAlertController(title: "Not Signed in", message: "Please sign in to acccess this page.", preferredStyle: .alert)
-            let confirmAction = UIAlertAction(title: "Sign in", style: .destructive) { (action: UIAlertAction) in
-                let storyboard = UIStoryboard(name: "SignIn", bundle: nil)
-                guard let viewController = storyboard.instantiateViewController(withIdentifier: "signin") as? SignInViewController else { return }
-                self.navigationController?.pushViewController(viewController, animated: false)
-            }
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-            alertController.addAction(confirmAction)
-            alertController.addAction(cancelAction)
-            
-            present(alertController, animated: true, completion: nil)
-        }
+//        if UserDefaults.standard.string(forKey: "email") != nil {
+//            let storyboard = UIStoryboard(name: "Account", bundle: nil)
+//            guard let viewController = storyboard.instantiateViewController(withIdentifier: "account") as? AccountViewController else { return }
+//            self.navigationController?.pushViewController(viewController, animated: false)
+//        } else {
+//            let alertController = UIAlertController(title: "Not Signed in", message: "Please sign in to acccess this page.", preferredStyle: .alert)
+//            let confirmAction = UIAlertAction(title: "Sign in", style: .destructive) { (action: UIAlertAction) in
+//                let storyboard = UIStoryboard(name: "SignIn", bundle: nil)
+//                guard let viewController = storyboard.instantiateViewController(withIdentifier: "signin") as? SignInViewController else { return }
+//                self.navigationController?.pushViewController(viewController, animated: false)
+//            }
+//            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+//            alertController.addAction(confirmAction)
+//            alertController.addAction(cancelAction)
+//
+//            present(alertController, animated: true, completion: nil)
+//        }
     }
     
     @IBAction func searchButtonPressed(_ sender: Any) {
@@ -80,21 +80,21 @@ class BollywoodViewController: UIViewController {
     }
     
     func SignInAlert() {
-        if UserDefaults.standard.string(forKey: "email") != nil {
-            viewModel.fetchPopular()
-        } else {
-            let alertController = UIAlertController(title: "Not Signed In.", message: "Sign In or Continue as a Guest.", preferredStyle: .alert)
-            let accountAction = UIAlertAction(title: "Sign In", style: .default) { accountAction in
-                let storyboard = UIStoryboard(name: "SignIn", bundle: nil)
-                guard let viewController = storyboard.instantiateViewController(withIdentifier: "signin") as? SignInViewController else { return }
-                self.navigationController?.pushViewController(viewController, animated: true)
-            }
-            let guestAction = UIAlertAction(title: "Continue as Guest", style: .default, handler: nil)
-            alertController.addAction(accountAction)
-            alertController.addAction(guestAction)
-            self.present(alertController, animated: true, completion: nil)
-            viewModel.fetchPopular()
-        }
+//        if UserDefaults.standard.string(forKey: "email") != nil {
+//            viewModel.fetchPopular()
+//        } else {
+//            let alertController = UIAlertController(title: "Not Signed In.", message: "Sign In or Continue as a Guest.", preferredStyle: .alert)
+//            let accountAction = UIAlertAction(title: "Sign In", style: .default) { accountAction in
+//                let storyboard = UIStoryboard(name: "SignIn", bundle: nil)
+//                guard let viewController = storyboard.instantiateViewController(withIdentifier: "signin") as? SignInViewController else { return }
+//                self.navigationController?.pushViewController(viewController, animated: true)
+//            }
+//            let guestAction = UIAlertAction(title: "Continue as Guest", style: .default, handler: nil)
+//            alertController.addAction(accountAction)
+//            alertController.addAction(guestAction)
+//            self.present(alertController, animated: true, completion: nil)
+//            viewModel.fetchPopular()
+//        }
     }
 }
 

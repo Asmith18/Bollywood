@@ -51,23 +51,23 @@ class TVShowViewController: UIViewController {
     
     //MARK: - Actions
     @IBAction func accountButtonPressed(_ sender: Any) {
-        if UserDefaults.standard.string(forKey: "email") != nil {
-            let storyboard = UIStoryboard(name: "Account", bundle: nil)
-            guard let viewController = storyboard.instantiateViewController(withIdentifier: "account") as? AccountViewController else { return }
-            self.navigationController?.pushViewController(viewController, animated: false)
-        } else {
-            let alertController = UIAlertController(title: "Not Signed in", message: "Please sign in to acccess this page.", preferredStyle: .alert)
-            let confirmAction = UIAlertAction(title: "Sign in", style: .destructive) { (action: UIAlertAction) in
-                let storyboard = UIStoryboard(name: "SignIn", bundle: nil)
-                guard let viewController = storyboard.instantiateViewController(withIdentifier: "signin") as? SignInViewController else { return }
-                self.navigationController?.pushViewController(viewController, animated: false)
-            }
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-            alertController.addAction(confirmAction)
-            alertController.addAction(cancelAction)
-            
-            present(alertController, animated: true, completion: nil)
-        }
+//        if UserDefaults.standard.string(forKey: "email") != nil {
+//            let storyboard = UIStoryboard(name: "Account", bundle: nil)
+//            guard let viewController = storyboard.instantiateViewController(withIdentifier: "account") as? AccountViewController else { return }
+//            self.navigationController?.pushViewController(viewController, animated: false)
+//        } else {
+//            let alertController = UIAlertController(title: "Not Signed in", message: "Please sign in to acccess this page.", preferredStyle: .alert)
+//            let confirmAction = UIAlertAction(title: "Sign in", style: .destructive) { (action: UIAlertAction) in
+//                let storyboard = UIStoryboard(name: "SignIn", bundle: nil)
+//                guard let viewController = storyboard.instantiateViewController(withIdentifier: "signin") as? SignInViewController else { return }
+//                self.navigationController?.pushViewController(viewController, animated: false)
+//            }
+//            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+//            alertController.addAction(confirmAction)
+//            alertController.addAction(cancelAction)
+//            
+//            present(alertController, animated: true, completion: nil)
+//        }
     }
     
     @IBAction func searchButtonPressed(_ sender: Any) {

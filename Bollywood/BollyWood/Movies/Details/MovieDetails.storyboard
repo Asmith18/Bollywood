@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sSK-1H-cC9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sSK-1H-cC9">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -386,19 +386,11 @@
                             <constraint firstAttribute="trailing" secondItem="Uvd-1a-JqA" secondAttribute="trailing" id="wph-pj-zry"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Movie" id="8XY-Ol-AKD">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="heart" catalog="system" style="plain" id="Cto-uI-6I9">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="favoriteButtonPressed:" destination="vHf-d0-gkM" id="b7t-Oy-NkY"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Movie" id="8XY-Ol-AKD"/>
                     <size key="freeformSize" width="415" height="2000"/>
                     <connections>
                         <outlet property="actorCollectionView" destination="K7Z-HI-iLx" id="j8l-LI-DQR"/>
                         <outlet property="crewCollectionView" destination="gZ0-iZ-oH1" id="SD6-ho-IcI"/>
-                        <outlet property="favoriteButton" destination="Cto-uI-6I9" id="E6T-ru-lMY"/>
                         <outlet property="genreCollectionView" destination="Mrt-Ow-Ubo" id="xBh-3T-dXt"/>
                         <outlet property="movieDateTextLabel" destination="Cvg-9d-8wm" id="w0V-yh-uAC"/>
                         <outlet property="movieDescriptionTextField" destination="ld9-5E-tW2" id="Ljy-hR-SWb"/>
@@ -414,7 +406,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="heart" catalog="system" width="128" height="107"/>
         <image name="profile" width="416" height="416"/>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

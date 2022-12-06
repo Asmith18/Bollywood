@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pe4-Qw-iqV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pe4-Qw-iqV">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -443,19 +443,11 @@
                             <constraint firstAttribute="trailing" secondItem="evZ-xC-KTT" secondAttribute="trailing" id="xt2-IC-WGU"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="TV Show" id="dWV-LB-M60">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="heart" catalog="system" style="plain" id="d3H-sH-WPF">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="favoriteButtonTapped:" destination="33T-RQ-8RC" id="OfH-NJ-If7"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="TV Show" id="dWV-LB-M60"/>
                     <size key="freeformSize" width="414" height="2500"/>
                     <connections>
                         <outlet property="actorCollectionView" destination="TjV-nt-wW6" id="cFt-e4-CQL"/>
                         <outlet property="crewCollectionView" destination="eI9-9l-Hvy" id="OtW-TL-xM3"/>
-                        <outlet property="favoriteButton" destination="d3H-sH-WPF" id="Zz6-Py-q4L"/>
                         <outlet property="genreCollectionView" destination="KPF-pQ-FrB" id="1Gx-47-cj6"/>
                         <outlet property="providerCollectionView" destination="xZU-bF-iVd" id="H6X-K6-afs"/>
                         <outlet property="showDateTextLabel" destination="L64-AN-Hbf" id="XOu-dK-rNJ"/>
@@ -472,7 +464,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="heart" catalog="system" width="128" height="107"/>
         <image name="netflix" width="100" height="100"/>
         <image name="profile" width="416" height="416"/>
         <systemColor name="systemRedColor">
