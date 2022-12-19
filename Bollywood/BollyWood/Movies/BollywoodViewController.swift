@@ -19,10 +19,10 @@ class BollywoodViewController: UIViewController {
         super.viewDidLoad()
         viewModel = BollywoodViewModel(delegate: self)
         fetchAndReload()
-//        SignInAlert()
         topCollectionView?.dataSource = self
         topCollectionView?.delegate = self
         topCollectionView?.collectionViewLayout = UICollectionViewFlowLayout()
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -36,6 +36,7 @@ class BollywoodViewController: UIViewController {
         searchbarView.delegate = self
         searchbarView.isHidden = true
         navigationItem.titleView = searchbarView
+        topCollectionView.keyboardDismissMode = .onDrag
     }
     
     func fetchAndReload() {
@@ -48,6 +49,7 @@ class BollywoodViewController: UIViewController {
         self.searchbarView.isHidden = true
         fetchAndReload()
         self.navigationItem.title = "Most Popular"
+        
     }
     
     //MARK: - Actions
@@ -115,6 +117,8 @@ extension BollywoodViewController: UICollectionViewDataSource, UICollectionViewD
         viewController.viewModel = DetailsViewModel(delegate: viewController)
         viewController.viewModel.movie = viewModel.results[indexPath.row]
         self.navigationController?.pushViewController(viewController, animated: false)
+        
+
     }
 }
 
@@ -135,7 +139,12 @@ extension BollywoodViewController: BollywoodViewModelDelegate {
 
 extension BollywoodViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 185, height: 285)
+        
+        let height = view.frame.size.height
+            let width = view.frame.size.width
+            // in case you you want the cell to be 40% of your controllers view
+        return CGSize(width: width * 0.4, height: height * 0.3)
+//        return CGSize(width: 185, height: 285)
     }
 }
 
@@ -144,3 +153,5 @@ extension BollywoodViewController: UISearchBarDelegate {
         viewModel.searchMovie(searchTerm: searchText)
     }
 }
+
+

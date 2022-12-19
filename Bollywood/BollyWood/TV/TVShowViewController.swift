@@ -35,6 +35,7 @@ class TVShowViewController: UIViewController {
         searchBarView.delegate = self
         navigationItem.titleView = searchBarView
         searchBarView.isHidden = true
+        collectionView.keyboardDismissMode = .onDrag
     }
     
     func fetchAndReload() {
@@ -117,7 +118,10 @@ extension TVShowViewController: TVShowsViewModelDelegate {
 extension TVShowViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: 185, height: 285)
+        let height = view.frame.size.height
+            let width = view.frame.size.width
+            // in case you you want the cell to be 40% of your controllers view
+            return CGSize(width: width * 0.4, height: height * 0.3)
     }
 }
 

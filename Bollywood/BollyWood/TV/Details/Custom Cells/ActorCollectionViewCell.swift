@@ -19,8 +19,19 @@ class ActorCollectionViewCell: UICollectionViewCell {
     }
     
     func setup(with cast: TVCast) {
-        actorName.text = cast.name
-        fetchImage(cast: cast)
+        
+        if cast.name != nil {
+            actorName.text = cast.name
+        } else {
+            actorName.text = ""
+        }
+        
+        if cast.profile_path != nil {
+            fetchImage(cast: cast)
+        } else {
+            actorImgaeView.image = UIImage(named: "noImage")
+        }
+        
         makeRounded()
     }
     

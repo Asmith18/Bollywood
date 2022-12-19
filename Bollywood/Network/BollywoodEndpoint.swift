@@ -31,7 +31,7 @@ enum BollywoodEndpoint {
         case .popularMovie:
             return "movie/popular"
         case .popularTv:
-            return "tv/popular"
+            return "tv/top_rated"
         case .tvProvider:
             return "watch/providers"
         case .tvCredits:
@@ -77,7 +77,9 @@ enum BollywoodEndpoint {
             guard var components = URLComponents(url: baseURL, resolvingAgainstBaseURL: true) else {
                 return nil
             }
-                    components.queryItems = [apiQuery]
+            let languageQuery = URLQueryItem(name: "language", value: "en")
+            let regionQuery = URLQueryItem(name: "en", value: "US")
+                    components.queryItems = [apiQuery, languageQuery, regionQuery]
             return components.url
             
         case .tvProvider(let id):

@@ -9,13 +9,14 @@ import UIKit
 
 class TopCollectionViewCell: UICollectionViewCell {
     
+    
+    @IBOutlet weak var topMovieImageView: UIImageView!
+    @IBOutlet weak var topTitleTextLabel: UILabel!
+    
     override func prepareForReuse() {
         topMovieImageView.image = nil
         topTitleTextLabel.text = nil
     }
-    
-    @IBOutlet weak var topMovieImageView: UIImageView!
-    @IBOutlet weak var topTitleTextLabel: UILabel!
     
     func setup(with movie: Movies) {
         topTitleTextLabel.text = movie.title
