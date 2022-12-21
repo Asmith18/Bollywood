@@ -22,13 +22,13 @@ class TVShowsViewModel {
         self.delegate = delegate
     }
     
-    func fetchPopular() {
-        service.fetchcharacterList(for: .popularTv) { [weak self] result in
+    func fetchPopular(page: Int) {
+        service.fetchcharacterList(for: .popularTv(page)) { [weak self] result in
             switch result {
             case .failure(let error):
                 print(error)
             case .success(let tvData):
-                self?.results = tvData.results
+                self?.results.append(contentsOf: tvData.results)
                 self?.delegate?.tvListHasData()
             }
         }

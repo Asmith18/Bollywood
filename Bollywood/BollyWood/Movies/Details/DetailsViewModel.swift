@@ -66,16 +66,16 @@ class DetailsViewModel {
     }
     
     func getMovieDetails() {
-        guard let movieId = movie?.id else { return }
-        genreService.fetchcharacterList(for: .movieGenre(movieId)) { [weak self] result in
-            switch result  {
-            case .failure(let error):
-                print(error)
-            case .success(let details):
-                self?.genres = details.genres
-                self?.delegate?.genresHasData()
-            }
-        }
+//        guard let movieId = movie?.id else { return }
+//        genreService.fetchcharacterList(for: .movieGenre(movieId)) { [weak self] result in
+//            switch result  {
+//            case .failure(let error):
+//                print(error)
+//            case .success(let details):
+//                self?.genres = details.genres
+//                self?.delegate?.genresHasData()
+//            }
+//        }
     }
 }
 

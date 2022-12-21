@@ -10,6 +10,7 @@ import UIKit
 class BollywoodViewController: UIViewController {
     
     var viewModel: BollywoodViewModel!
+    var currentPage = 1
     
     //MARK: - Outlets
     @IBOutlet weak var topCollectionView: UICollectionView!
@@ -18,11 +19,10 @@ class BollywoodViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = BollywoodViewModel(delegate: self)
-        fetchAndReload()
+        viewModel.fetchPopular(page: 1)
         topCollectionView?.dataSource = self
         topCollectionView?.delegate = self
         topCollectionView?.collectionViewLayout = UICollectionViewFlowLayout()
-        
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -39,38 +39,11 @@ class BollywoodViewController: UIViewController {
         topCollectionView.keyboardDismissMode = .onDrag
     }
     
-    func fetchAndReload() {
-        viewModel.fetchPopular()
-        self.topCollectionView.reloadData()
-    }
-    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = nil
         self.searchbarView.isHidden = true
-        fetchAndReload()
         self.navigationItem.title = "Most Popular"
         
-    }
-    
-    //MARK: - Actions
-    @IBAction func profileButtonPressed(_ sender: Any) {
-//        if UserDefaults.standard.string(forKey: "email") != nil {
-//            let storyboard = UIStoryboard(name: "Account", bundle: nil)
-//            guard let viewController = storyboard.instantiateViewController(withIdentifier: "account") as? AccountViewController else { return }
-//            self.navigationController?.pushViewController(viewController, animated: false)
-//        } else {
-//            let alertController = UIAlertController(title: "Not Signed in", message: "Please sign in to acccess this page.", preferredStyle: .alert)
-//            let confirmAction = UIAlertAction(title: "Sign in", style: .destructive) { (action: UIAlertAction) in
-//                let storyboard = UIStoryboard(name: "SignIn", bundle: nil)
-//                guard let viewController = storyboard.instantiateViewController(withIdentifier: "signin") as? SignInViewController else { return }
-//                self.navigationController?.pushViewController(viewController, animated: false)
-//            }
-//            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-//            alertController.addAction(confirmAction)
-//            alertController.addAction(cancelAction)
-//
-//            present(alertController, animated: true, completion: nil)
-//        }
     }
     
     @IBAction func searchButtonPressed(_ sender: Any) {
@@ -78,24 +51,6 @@ class BollywoodViewController: UIViewController {
             searchbarView.isHidden = false
             self.navigationItem.title = "Search"
         }
-    }
-    
-    func SignInAlert() {
-//        if UserDefaults.standard.string(forKey: "email") != nil {
-//            viewModel.fetchPopular()
-//        } else {
-//            let alertController = UIAlertController(title: "Not Signed In.", message: "Sign In or Continue as a Guest.", preferredStyle: .alert)
-//            let accountAction = UIAlertAction(title: "Sign In", style: .default) { accountAction in
-//                let storyboard = UIStoryboard(name: "SignIn", bundle: nil)
-//                guard let viewController = storyboard.instantiateViewController(withIdentifier: "signin") as? SignInViewController else { return }
-//                self.navigationController?.pushViewController(viewController, animated: true)
-//            }
-//            let guestAction = UIAlertAction(title: "Continue as Guest", style: .default, handler: nil)
-//            alertController.addAction(accountAction)
-//            alertController.addAction(guestAction)
-//            self.present(alertController, animated: true, completion: nil)
-//            viewModel.fetchPopular()
-//        }
     }
 }
 
@@ -117,8 +72,13 @@ extension BollywoodViewController: UICollectionViewDataSource, UICollectionViewD
         viewController.viewModel = DetailsViewModel(delegate: viewController)
         viewController.viewModel.movie = viewModel.results[indexPath.row]
         self.navigationController?.pushViewController(viewController, animated: false)
-        
-
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if viewModel.results.count - 1 == indexPath.row {
+            currentPage += 1
+            viewModel.fetchPopular(page: currentPage)
+        }
     }
 }
 
@@ -142,9 +102,7 @@ extension BollywoodViewController: UICollectionViewDelegateFlowLayout {
         
         let height = view.frame.size.height
             let width = view.frame.size.width
-            // in case you you want the cell to be 40% of your controllers view
         return CGSize(width: width * 0.4, height: height * 0.3)
-//        return CGSize(width: 185, height: 285)
     }
 }
 

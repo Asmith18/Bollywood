@@ -11,8 +11,8 @@ enum BollywoodEndpoint {
     
     case moviePath(String)
     case tvPath(String)
-    case popularMovie
-    case popularTv
+    case popularMovie(Int)
+    case popularTv(Int)
     case tvProvider(Int)
     case tvCredits(Int)
     case movieCredits(Int)
@@ -64,22 +64,26 @@ enum BollywoodEndpoint {
                     components.queryItems = [apiQuery, searchQueryItem]
             return components.url
             
-        case .popularMovie:
+        case .popularMovie(let page):
             baseURL.appendPathComponent(path)
             guard var components = URLComponents(url: baseURL, resolvingAgainstBaseURL: true) else {
                 return nil
             }
-                    components.queryItems = [apiQuery]
+        
+            let languageQuery = URLQueryItem(name: "language", value: "en-US")
+            let pageQuery = URLQueryItem(name: "page", value: "\(page)")
+                    components.queryItems = [apiQuery, languageQuery ,pageQuery]
             return components.url
             
-        case .popularTv:
+        case .popularTv(let page):
             baseURL.appendPathComponent(path)
             guard var components = URLComponents(url: baseURL, resolvingAgainstBaseURL: true) else {
                 return nil
             }
-            let languageQuery = URLQueryItem(name: "language", value: "en")
-            let regionQuery = URLQueryItem(name: "en", value: "US")
-                    components.queryItems = [apiQuery, languageQuery, regionQuery]
+            
+            let languageQuery = URLQueryItem(name: "language", value: "en-US")
+            let pageQuery = URLQueryItem(name: "page", value: "\(page)")
+                    components.queryItems = [apiQuery, languageQuery ,pageQuery]
             return components.url
             
         case .tvProvider(let id):

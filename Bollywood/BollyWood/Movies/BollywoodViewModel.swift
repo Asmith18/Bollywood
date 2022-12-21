@@ -22,13 +22,13 @@ class BollywoodViewModel {
         self.delegate = delegate
     }
     
-    func fetchPopular() {
-        service.fetchcharacterList(for: .popularMovie) { [weak self] result in
+    func fetchPopular(page: Int) {
+        service.fetchcharacterList(for: .popularMovie(page)) { [weak self] result in
             switch result {
             case .failure(let error):
                 print(error)
             case .success(let movieData):
-                self?.results = movieData.results
+                self?.results.append(contentsOf: movieData.results)
                 self?.delegate?.movieListHasData()
             }
         }

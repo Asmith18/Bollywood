@@ -109,9 +109,9 @@ class DetailViewController: UIViewController {
 extension DetailViewController: DetailsViewModelDelegate {
     
     func genresHasData() {
-        DispatchQueue.main.async {
-            self.genreCollectionView.reloadData()
-        }
+//        DispatchQueue.main.async {
+//            self.genreCollectionView.reloadData()
+//        }
     }
     
     func movieCrewHasData() {
