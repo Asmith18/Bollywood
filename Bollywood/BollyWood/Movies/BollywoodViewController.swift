@@ -68,7 +68,7 @@ extension BollywoodViewController: UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "MovieDetails", bundle: nil)
-        guard let viewController = storyboard.instantiateViewController(withIdentifier: "movieDetails") as? DetailViewController else { return }
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: "details") as? DetailViewController else { return }
         viewController.viewModel = DetailsViewModel(delegate: viewController)
         viewController.viewModel.movie = viewModel.results[indexPath.row]
         self.navigationController?.pushViewController(viewController, animated: false)

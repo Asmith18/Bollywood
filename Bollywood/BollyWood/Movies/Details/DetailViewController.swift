@@ -17,7 +17,6 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var movieDateTextLabel: UILabel!
     @IBOutlet weak var movieRatingTextLabel: UILabel!
     @IBOutlet weak var movieDescriptionTextField: UITextView!
-    @IBOutlet weak var favoriteButton: UIBarButtonItem!
     @IBOutlet weak var movieTrailerCollectionView: UICollectionView!
     @IBOutlet weak var actorCollectionView: UICollectionView!
     @IBOutlet weak var crewCollectionView: UICollectionView!

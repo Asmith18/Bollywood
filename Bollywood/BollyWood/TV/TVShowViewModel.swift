@@ -18,7 +18,7 @@ class TVShowsViewModel {
     weak var delegate: TVShowsViewModelDelegate?
     private let service = TvSearchService()
     
-    init(delegate:TVShowsViewModelDelegate) {
+    init(delegate: TVShowsViewModelDelegate) {
         self.delegate = delegate
     }
     

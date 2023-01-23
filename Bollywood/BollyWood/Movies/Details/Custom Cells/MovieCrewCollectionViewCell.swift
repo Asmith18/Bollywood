@@ -18,8 +18,19 @@ class MovieCrewCollectionViewCell: UICollectionViewCell {
     }
     
     func setup(with crew: MovieCrew) {
-        fetchImage(with: crew)
-        movieCrewnameTextLabel.text = crew.name
+        
+        if crew.name != nil {
+            movieCrewnameTextLabel.text = crew.name
+        } else {
+            movieCrewnameTextLabel.text = ""
+        }
+        
+        if crew.profile_path != nil {
+            fetchImage(with: crew)
+        } else {
+            movieCrewImageView.image = UIImage(named: "noImage")
+        }
+        
         makeRounded()
     }
     

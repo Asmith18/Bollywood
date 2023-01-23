@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         tabBarAppearance.tintColor = .white
         tabBarAppearance.barTintColor = .darkGray
+        
         return true
     }
 

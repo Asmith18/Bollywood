@@ -18,8 +18,19 @@ class MovieActorCollectionViewCell: UICollectionViewCell {
     }
     
     func setup(credits: MovieCast) {
-        fetchImage(with: credits)
-        movieActorNameTextLabel.text = credits.name
+        
+        if credits.name != nil {
+            movieActorNameTextLabel.text = credits.name
+        } else {
+            movieActorNameTextLabel.text = ""
+        }
+        
+        if credits.profile_path != nil {
+            fetchImage(with: credits)
+        } else {
+            movieActorImageView.image = UIImage(named: "noImage")
+        }
+        
         makeRounded()
     }
     
