@@ -16,10 +16,22 @@ class CrewCollectionViewCell: UICollectionViewCell {
         crewImageView.image = nil
         crewMemberName.text = nil
     }
+
     
     func setup(with crew: TVCrew) {
-        crewMemberName.text = crew.name
-        fetchImage(crew: crew)
+        
+        if crew.name != nil {
+            crewMemberName.text = crew.name
+        } else {
+            crewMemberName.text = ""
+        }
+        
+        if crew.profile_path != nil {
+            fetchImage(crew: crew)
+        } else {
+            crewImageView.image = UIImage(named: "noImage")
+        }
+        
         makeRounded()
     }
     

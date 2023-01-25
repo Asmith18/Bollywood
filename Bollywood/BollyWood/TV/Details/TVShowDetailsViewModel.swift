@@ -42,7 +42,7 @@ class TVShowDetailsViewModel {
         videoService.fetchcharacterList(for: .tvVideos(tvId)) { [weak self] result in
             switch result {
             case .success(let webView):
-                self?.results = webView.results
+                self?.results =  webView.results.filter({$0.type == "Trailer"})
                 self?.delegate?.vidCodeHasData()
             case .failure(let error):
                 print(error)

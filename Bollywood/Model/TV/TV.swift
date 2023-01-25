@@ -17,4 +17,5 @@ struct TVShows: Decodable {
     let vote_average: Double?
     let id: Int?
     let first_air_date: String?
+    let origin_country: [String]
 }

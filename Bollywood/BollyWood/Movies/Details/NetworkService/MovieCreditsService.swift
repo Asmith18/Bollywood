@@ -23,7 +23,7 @@ struct MovieCreditsService {
             switch result {
             case .success(let data):
                 do {
-                    let movie = try JSONDecoder().decode(MovieCredits.self, from: data)
+                    let movie = try JSONDecoder().decode(MovieCredits.self, from: data.filter({$0 == $0}))
                     completion(.success(movie))
                 } catch {
                     completion(.failure(.unableToDecode))

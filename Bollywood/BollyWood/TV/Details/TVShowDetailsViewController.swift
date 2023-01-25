@@ -18,7 +18,6 @@ class TVShowDetailsViewController: UIViewController {
     @IBOutlet weak var showDateTextLabel: UILabel!
     @IBOutlet weak var showRatingTextLabel: UILabel!
     @IBOutlet weak var showDescriptionTextView: UITextView!
-    @IBOutlet weak var favoriteButton: UIBarButtonItem!
     @IBOutlet weak var providerCollectionView: UICollectionView!
     @IBOutlet weak var trailerCollectionView: UICollectionView!
     @IBOutlet weak var actorCollectionView: UICollectionView!
@@ -63,6 +62,7 @@ class TVShowDetailsViewController: UIViewController {
         showDateTextLabel.text = viewModel.tvShow?.first_air_date
         showNameTextlabel.text = viewModel.tvShow?.name
         showRatingTextLabel.text = "\(viewModel.tvShow?.vote_average ?? 0) / 10"
+        providerCollectionView.layer.cornerRadius = 25
         showDescriptionTextView.layer.cornerRadius = 25
         if viewModel.tvShow?.overview != "" {
             showDescriptionTextView.text = viewModel.tvShow?.overview
@@ -83,31 +83,6 @@ class TVShowDetailsViewController: UIViewController {
                 print(error)
             }
         }
-    }
-    
-    @IBAction func favoriteButtonTapped(_ sender: Any) {
-//
-//        if UserDefaults.standard.string(forKey: "email") != nil {
-//            if isFavShow {
-//                favoriteButton.image = UIImage(systemName: "heart")
-//            } else {
-//                favoriteButton.image = UIImage(systemName: "heart.fill")
-//            }
-//            isFavShow = !isFavShow
-//            UserDefaults.standard.set(isFavShow, forKey: "isFavShow")
-//            UserDefaults.standard.synchronize()
-//        } else {
-//            let alertController = UIAlertController(title: "Not Signed In.", message: "Sign In to use this feature.", preferredStyle: .alert)
-//            let accountAction = UIAlertAction(title: "Sign In", style: .default) { accountAction in
-//                let storyboard = UIStoryboard(name: "SignIn", bundle: nil)
-//                guard let viewController = storyboard.instantiateViewController(withIdentifier: "signin") as? SignInViewController else { return }
-//                self.navigationController?.pushViewController(viewController, animated: true)
-//            }
-//            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-//            alertController.addAction(accountAction)
-//            alertController.addAction(cancelAction)
-//            self.present(alertController, animated: true, completion: nil)
-//        }
     }
 }
 
@@ -156,9 +131,13 @@ extension TVShowDetailsViewController: UICollectionViewDataSource, UICollectionV
         } else if collectionView == trailerCollectionView.self {
             return viewModel.results.count
         } else if collectionView == actorCollectionView.self {
-            return viewModel.tvCast.count
+                return viewModel.tvCast.count
         } else if collectionView == crewCollectionView.self {
-            return viewModel.tvCrew.count
+            if viewModel.tvCrew.isEmpty {
+                return 1
+            } else {
+                return viewModel.tvCrew.count
+            }
         } else {
             return viewModel.genres.count
         }
@@ -180,21 +159,25 @@ extension TVShowDetailsViewController: UICollectionViewDataSource, UICollectionV
             
             return cell
         } else if collectionView == actorCollectionView.self {
-            let cell = actorCollectionView.dequeueReusableCell(withReuseIdentifier: "Actor", for: indexPath) as! ActorCollectionViewCell
+            let cell = actorCollectionView.dequeueReusableCell(withReuseIdentifier: "actor", for: indexPath) as! ActorCollectionViewCell
             
             let result = viewModel.tvCast[indexPath.row]
             cell.setup(with: result)
             
             return cell
         } else if collectionView == crewCollectionView.self {
-            let cell = crewCollectionView.dequeueReusableCell(withReuseIdentifier: "Crew", for: indexPath) as! CrewCollectionViewCell
+            let cell = crewCollectionView.dequeueReusableCell(withReuseIdentifier: "crew", for: indexPath) as! CrewCollectionViewCell
             
-            let result = viewModel.tvCrew[indexPath.row]
-            cell.setup(with: result)
+            if viewModel.tvCrew.isEmpty {
+                cell.crewImageView.image = UIImage(named: "noImage")
+            } else {
+                let result = viewModel.tvCrew[indexPath.row]
+                cell.setup(with: result)
+            }
             
             return cell
         } else {
-            let cell = genreCollectionView.dequeueReusableCell(withReuseIdentifier: "Genre", for: indexPath) as! GenreCollectionViewCell
+            let cell = genreCollectionView.dequeueReusableCell(withReuseIdentifier: "genre", for: indexPath) as! GenreCollectionViewCell
             
             let result = viewModel.genres[indexPath.row]
             cell.setup(with: result)

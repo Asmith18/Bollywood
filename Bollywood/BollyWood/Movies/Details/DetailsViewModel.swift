@@ -44,7 +44,7 @@ class DetailsViewModel {
             case .failure(let error):
                 print(error)
             case .success(let webView):
-                self?.results = webView.results
+                self?.results = webView.results.filter({$0.type == "Trailer"})
                 self?.delegate?.vidCodeHasData()
             }
         }
@@ -66,16 +66,16 @@ class DetailsViewModel {
     }
     
     func getMovieDetails() {
-//        guard let movieId = movie?.id else { return }
-//        genreService.fetchcharacterList(for: .movieGenre(movieId)) { [weak self] result in
-//            switch result  {
-//            case .failure(let error):
-//                print(error)
-//            case .success(let details):
-//                self?.genres = details.genres
-//                self?.delegate?.genresHasData()
-//            }
-//        }
+        guard let movieId = movie?.id else { return }
+        genreService.fetchcharacterList(for: .movieGenre(movieId)) { [weak self] result in
+            switch result  {
+            case .failure(let error):
+                print(error)
+            case .success(let details):
+                self?.genres = details.genres
+                self?.delegate?.genresHasData()
+            }
+        }
     }
 }
 

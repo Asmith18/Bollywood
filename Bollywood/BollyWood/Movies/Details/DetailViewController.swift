@@ -21,6 +21,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var actorCollectionView: UICollectionView!
     @IBOutlet weak var crewCollectionView: UICollectionView!
     @IBOutlet weak var genreCollectionView: UICollectionView!
+    @IBOutlet weak var movieDescriptionView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,39 +79,14 @@ class DetailViewController: UIViewController {
             }
         }
     }
-    
-    @IBAction func favoriteButtonPressed(_ sender: Any) {
-//
-//        if UserDefaults.standard.string(forKey: "email") != nil {
-//            if isFavMovie {
-//                favoriteButton.image = UIImage(systemName: "heart")
-//            } else {
-//                favoriteButton.image = UIImage(systemName: "heart.fill")
-//                UserDefaults.standard.set(isFavMovie, forKey: "isFavMovie")
-//                UserDefaults.standard.synchronize()
-//                isFavMovie = !isFavMovie
-//            }
-//        } else {
-//            let alertController = UIAlertController(title: "Not Signed In.", message: "Sign In to use this feature.", preferredStyle: .alert)
-//            let accountAction = UIAlertAction(title: "Sign In", style: .default) { accountAction in
-//                let storyboard = UIStoryboard(name: "SignIn", bundle: nil)
-//                guard let viewController = storyboard.instantiateViewController(withIdentifier: "signin") as? SignInViewController else { return }
-//                self.navigationController?.pushViewController(viewController, animated: true)
-//            }
-//            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-//            alertController.addAction(accountAction)
-//            alertController.addAction(cancelAction)
-//            self.present(alertController, animated: true, completion: nil)
-//        }
-    }
 }
 
 extension DetailViewController: DetailsViewModelDelegate {
     
     func genresHasData() {
-//        DispatchQueue.main.async {
-//            self.genreCollectionView.reloadData()
-//        }
+        DispatchQueue.main.async {
+            self.genreCollectionView.reloadData()
+        }
     }
     
     func movieCrewHasData() {

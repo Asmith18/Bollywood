@@ -24,6 +24,7 @@ struct TvSearchService {
             case .success(let data):
                 do {
                     let tv =  try JSONDecoder().decode(TV.self, from: data)
+//                    let new = tv.filter({$0.origin_country.contains("US")})
                     completion(.success(tv))
                 } catch {
                     completion(.failure(.unableToDecode))

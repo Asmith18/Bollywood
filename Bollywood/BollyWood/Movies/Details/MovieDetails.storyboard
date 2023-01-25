@@ -106,22 +106,22 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ti1-fT-7qZ">
                                                 <rect key="frame" x="0.0" y="582" width="393" height="180"/>
                                                 <subviews>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="DYe-L0-n9Q">
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="DYe-L0-n9Q">
                                                         <rect key="frame" x="8" y="0.0" width="377" height="180"/>
-                                                        <color key="backgroundColor" red="0.13852727409999999" green="0.13852727409999999" blue="0.13852727409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     </textView>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.13852727409999999" green="0.13852727409999999" blue="0.13852727409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstItem="DYe-L0-n9Q" firstAttribute="leading" secondItem="Ti1-fT-7qZ" secondAttribute="leading" constant="8" id="1Kt-6q-5U8"/>
                                                     <constraint firstAttribute="height" constant="180" id="3cA-Xc-CgK"/>
-                                                    <constraint firstAttribute="bottom" secondItem="DYe-L0-n9Q" secondAttribute="bottom" id="SR2-sK-FW0"/>
-                                                    <constraint firstAttribute="trailing" secondItem="DYe-L0-n9Q" secondAttribute="trailing" constant="8" id="aG6-nu-V7B"/>
-                                                    <constraint firstItem="DYe-L0-n9Q" firstAttribute="top" secondItem="Ti1-fT-7qZ" secondAttribute="top" id="j9J-k8-erO"/>
+                                                    <constraint firstItem="DYe-L0-n9Q" firstAttribute="top" secondItem="Ti1-fT-7qZ" secondAttribute="top" id="C5e-f9-029"/>
+                                                    <constraint firstItem="DYe-L0-n9Q" firstAttribute="leading" secondItem="Ti1-fT-7qZ" secondAttribute="leading" constant="8" id="Fmx-hy-rQ9"/>
+                                                    <constraint firstAttribute="trailing" secondItem="DYe-L0-n9Q" secondAttribute="trailing" constant="8" id="iLu-at-DPl"/>
+                                                    <constraint firstAttribute="bottom" secondItem="DYe-L0-n9Q" secondAttribute="bottom" id="nE4-dc-LU1"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cY3-r5-FXl">

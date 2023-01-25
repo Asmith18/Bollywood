@@ -28,7 +28,7 @@ class TVShowsViewModel {
             case .failure(let error):
                 print(error)
             case .success(let tvData):
-                self?.results.append(contentsOf: tvData.results)
+                self?.results.append(contentsOf: tvData.results.filter({$0.origin_country.contains("US")}))
                 self?.delegate?.tvListHasData()
             }
         }

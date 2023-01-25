@@ -13,7 +13,6 @@ class ActorCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var actorName: UILabel!
     
     override func prepareForReuse() {
-        actorImgaeView.frame.size = CGSize(width: 100, height: 100)
         actorImgaeView.image = nil
         actorName.text = nil
     }

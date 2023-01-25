@@ -16,7 +16,13 @@ class TVShowPorviderCollectionViewCell: UICollectionViewCell {
     }
     
     func setup(with free: Flatrate) {
-        fetchImage(free: free)
+        
+        if free.logo_path != nil {
+            fetchImage(free: free)
+        } else {
+            showProviderImageView.image = UIImage(named: "noImage")
+        }
+        
         makeRounded()
     }
     

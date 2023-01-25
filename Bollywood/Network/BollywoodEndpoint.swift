@@ -31,7 +31,7 @@ enum BollywoodEndpoint {
         case .popularMovie:
             return "movie/popular"
         case .popularTv:
-            return "tv/top_rated"
+            return "tv/popular"
         case .tvProvider:
             return "watch/providers"
         case .tvCredits:
