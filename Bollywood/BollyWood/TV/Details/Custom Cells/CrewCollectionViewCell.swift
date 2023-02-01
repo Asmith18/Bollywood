@@ -9,7 +9,7 @@ import UIKit
 
 class CrewCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var crewImageView: UIImageView!
+    @IBOutlet weak var crewImageView: MovieImageCache!
     @IBOutlet weak var crewMemberName: UILabel!
     
     override func prepareForReuse() {
@@ -17,6 +17,10 @@ class CrewCollectionViewCell: UICollectionViewCell {
         crewMemberName.text = nil
     }
 
+    func makeRounded() {
+        crewImageView.layer.cornerRadius = crewImageView.frame.size.width / 2
+        crewImageView.clipsToBounds = true
+    }
     
     func setup(with crew: TVCrew) {
         
@@ -27,7 +31,7 @@ class CrewCollectionViewCell: UICollectionViewCell {
         }
         
         if crew.profile_path != nil {
-            fetchImage(crew: crew)
+            crewImageView.setImage(using: crew.profile_path)
         } else {
             crewImageView.image = UIImage(named: "noImage")
         }
@@ -35,23 +39,19 @@ class CrewCollectionViewCell: UICollectionViewCell {
         makeRounded()
     }
     
-    func makeRounded() {
-        crewImageView.layer.cornerRadius = crewImageView.frame.size.width / 2
-        crewImageView.clipsToBounds = true
-    }
     
     
-    func fetchImage(crew: TVCrew) {
-        guard let crewImage = crew.profile_path else { return }
-        BollywoodAPI.fetchImage(from: crewImage) { [weak self] result in
-            switch result {
-            case .success(let image):
-                DispatchQueue.main.async {
-                    self?.crewImageView.image = image
-                }
-            case.failure(let error):
-                print(error)
-            }
-        }
-    }
+//    func fetchImage(crew: TVCrew) {
+//        guard let crewImage = crew.profile_path else { return }
+//        BollywoodAPI.fetchImage(from: crewImage) { [weak self] result in
+//            switch result {
+//            case .success(let image):
+//                DispatchQueue.main.async {
+//                    self?.crewImageView.image = image
+//                }
+//            case.failure(let error):
+//                print(error)
+//            }
+//        }
+//    }
 }

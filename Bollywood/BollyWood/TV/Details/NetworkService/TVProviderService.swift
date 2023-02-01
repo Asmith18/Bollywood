@@ -7,24 +7,24 @@
 
 import Foundation
 
-struct TVProviderService {
+protocol TVProviderServicable {
+    func fetch(from endpoint: BollywoodEndpoint, completion: @escaping (Result<TVProviders, ResultError>) -> Void)
+}
 
-    private let apiService = BollywoodAPI()
-    func fetchcharacterList(for endPoint: BollywoodEndpoint, completion: @escaping (Result<TVProviders, ResultError>) -> Void) {
-
-        guard let finalURL = endPoint.fullURL else {
+struct TVProviderService: BollywoodAPI, TVProviderServicable {
+    
+    func fetch(from endpoint: BollywoodEndpoint, completion: @escaping (Result<TVProviders, ResultError>) -> Void) {
+        guard let url = endpoint.fullURL else {
             completion(.failure(.badURL))
             return
         }
-
-        let urlRequest = URLRequest(url: finalURL)
-
-        apiService.perform(urlRequest) { result in
+        perform(URLRequest(url: url)) { result in
             switch result {
             case .success(let data):
+                let decoder = JSONDecoder()
                 do {
-                    let tv =  try JSONDecoder().decode(TVProviders.self, from: data)
-                    completion(.success(tv))
+                    let tvProvider = try decoder.decode(TVProviders.self, from: data)
+                    completion(.success(tvProvider))
                 } catch {
                     completion(.failure(.unableToDecode))
                 }

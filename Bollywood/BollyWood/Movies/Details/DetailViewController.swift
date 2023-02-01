@@ -12,7 +12,7 @@ class DetailViewController: UIViewController {
     
     var viewModel: DetailsViewModel!
     
-    @IBOutlet weak var movieImageView: UIImageView!
+    @IBOutlet weak var movieImageView: MovieImageCache!
     @IBOutlet weak var movieNameTextLabel: UILabel!
     @IBOutlet weak var movieDateTextLabel: UILabel!
     @IBOutlet weak var movieRatingTextLabel: UILabel!
@@ -56,7 +56,7 @@ class DetailViewController: UIViewController {
     func updateViews() {
         movieDateTextLabel.text = viewModel.movie?.release_date
         movieRatingTextLabel.text = "\(viewModel.movie?.vote_average ?? 0) / 10"
-        fetchImage(for: viewModel)
+        movieImageView.setImage(using: viewModel.movie?.backdrop_path)
         movieNameTextLabel.text = viewModel.movie?.title
         movieDescriptionTextField.layer.cornerRadius = 25
         if viewModel.movie?.overview != "" {
@@ -65,21 +65,8 @@ class DetailViewController: UIViewController {
             movieDescriptionTextField.text = "No Description Found..."
         }
     }
-    
-    func fetchImage(for viewModel: DetailsViewModel) {
-        guard let tvImage = viewModel.movie?.backdrop_path else { return }
-        BollywoodAPI.fetchImage(from: tvImage) { result in
-            switch result {
-            case .success(let image):
-                DispatchQueue.main.async {
-                    self.movieImageView.image = image
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
 }
+
 
 extension DetailViewController: DetailsViewModelDelegate {
     

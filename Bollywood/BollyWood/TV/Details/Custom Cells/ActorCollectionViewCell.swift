@@ -9,12 +9,17 @@ import UIKit
 
 class ActorCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var actorImgaeView: UIImageView!
+    @IBOutlet weak var actorImgaeView: MovieImageCache!
     @IBOutlet weak var actorName: UILabel!
     
     override func prepareForReuse() {
         actorImgaeView.image = nil
         actorName.text = nil
+    }
+    
+    func makeRounded() {
+        actorImgaeView.layer.cornerRadius = actorImgaeView.frame.size.width / 2
+        actorImgaeView.clipsToBounds = true
     }
     
     func setup(with cast: TVCast) {
@@ -26,7 +31,7 @@ class ActorCollectionViewCell: UICollectionViewCell {
         }
         
         if cast.profile_path != nil {
-            fetchImage(cast: cast)
+            actorImgaeView.setImage(using: cast.profile_path)
         } else {
             actorImgaeView.image = UIImage(named: "noImage")
         }
@@ -34,23 +39,4 @@ class ActorCollectionViewCell: UICollectionViewCell {
         makeRounded()
     }
     
-    func makeRounded() {
-        actorImgaeView.layer.cornerRadius = actorImgaeView.frame.size.width / 2
-        actorImgaeView.clipsToBounds = true
-    }
-    
-    
-    func fetchImage(cast: TVCast) {
-        guard let castImage = cast.profile_path else { return }
-        BollywoodAPI.fetchImage(from: castImage) { [weak self] result in
-            switch result {
-            case .success(let image):
-                DispatchQueue.main.async {
-                    self?.actorImgaeView.image = image
-                }
-            case.failure(let error):
-                print(error)
-            }
-        }
-    }
 }

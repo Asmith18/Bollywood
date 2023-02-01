@@ -7,24 +7,23 @@
 
 import Foundation
 
-struct MovieSearchService {
+protocol MovieSearchServicable {
+    func fetch(from endpoint: BollywoodEndpoint, completion: @escaping (Result<Movie, ResultError>) -> Void)
+}
 
-    private let apiService = BollywoodAPI()
-    func fetchcharacterList(for endPoint: BollywoodEndpoint, completion: @escaping (Result<Movie, ResultError>) -> Void) {
-
-        guard let finalURL = endPoint.fullURL else {
+struct MovieSearchService: BollywoodAPI, MovieSearchServicable {
+    func fetch(from endpoint: BollywoodEndpoint, completion: @escaping (Result<Movie, ResultError>) -> Void) {
+        guard let url = endpoint.fullURL else {
             completion(.failure(.badURL))
             return
         }
-
-        let urlRequest = URLRequest(url: finalURL)
-
-        apiService.perform(urlRequest) { result in
+        perform(URLRequest(url: url)) { result in
             switch result {
             case .success(let data):
+                let decoder = JSONDecoder()
                 do {
-                    let movie = try JSONDecoder().decode(Movie.self, from: data)
-                    completion(.success(movie))
+                    let movieSearch = try decoder.decode(Movie.self, from: data)
+                    completion(.success(movieSearch))
                 } catch {
                     completion(.failure(.unableToDecode))
                 }

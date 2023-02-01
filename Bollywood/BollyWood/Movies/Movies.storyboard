@@ -38,7 +38,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="139" height="250"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0dY-Xz-6tG">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0dY-Xz-6tG" customClass="MovieImageCache" customModule="Bollywood" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="139" height="205"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="139" id="Al9-AJ-gKs"/>

@@ -13,7 +13,7 @@ class TVShowDetailsViewController: UIViewController {
     var viewModel: TVShowDetailsViewModel!
     
     //MARK: - Outlets
-    @IBOutlet weak var showImageView: UIImageView!
+    @IBOutlet weak var showImageView: MovieImageCache!
     @IBOutlet weak var showNameTextlabel: UILabel!
     @IBOutlet weak var showDateTextLabel: UILabel!
     @IBOutlet weak var showRatingTextLabel: UILabel!
@@ -58,7 +58,7 @@ class TVShowDetailsViewController: UIViewController {
     }
     
     func updateViews() {
-        fetchImage(for: viewModel)
+        showImageView.setImage(using: viewModel.tvShow?.backdrop_path)
         showDateTextLabel.text = viewModel.tvShow?.first_air_date
         showNameTextlabel.text = viewModel.tvShow?.name
         showRatingTextLabel.text = "\(viewModel.tvShow?.vote_average ?? 0) / 10"
@@ -68,20 +68,6 @@ class TVShowDetailsViewController: UIViewController {
             showDescriptionTextView.text = viewModel.tvShow?.overview
         } else {
             showDescriptionTextView.text = "No Description Found..."
-        }
-    }
-    
-    func fetchImage(for viewModel: TVShowDetailsViewModel) {
-        guard let tvImage = viewModel.tvShow?.backdrop_path else { return }
-        BollywoodAPI.fetchImage(from: tvImage) { result in
-            switch result {
-            case .success(let image):
-                DispatchQueue.main.async {
-                    self.showImageView.image = image
-                }
-            case .failure(let error):
-                print(error)
-            }
         }
     }
 }

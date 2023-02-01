@@ -18,13 +18,8 @@ protocol DetailsViewModelDelegate: DetailViewController {
 class DetailsViewModel {
     
     var movie: Movies?
-    var webView: WebView?
     var results: [WebViewResults] = []
-    var rent: [RentResults] = []
-    var buy: [BuyResults] = []
     var flatrate: FlatrateResults?
-    var favoriteArray = [String]()
-    var webViewResults: WebViewResults?
     var movieCast: [MovieCast] = []
     var movieCrew: [MovieCrew] = []
     var genres: [MovieGenres] = []
@@ -39,7 +34,7 @@ class DetailsViewModel {
     
     func fetchVidCode() {
         guard let movieId = movie?.id else { return }
-        videoService.fetchcharacterList(for: .movieVideos(movieId)) { [weak self] result in
+        videoService.fetch(from: .movieVideos(movieId)) { [weak self] result in
             switch result {
             case .failure(let error):
                 print(error)
@@ -52,7 +47,7 @@ class DetailsViewModel {
     
     func getMovieCredits() {
         guard let movieId = movie?.id else { return }
-        creditsService.fetchcharacterList(for: .movieCredits(movieId)) { [weak self] result in
+        creditsService.fetch(from: .movieCredits(movieId)) { [weak self] result in
             switch result {
             case.success(let cast):
                 self?.movieCast = cast.cast
@@ -67,7 +62,7 @@ class DetailsViewModel {
     
     func getMovieDetails() {
         guard let movieId = movie?.id else { return }
-        genreService.fetchcharacterList(for: .movieGenre(movieId)) { [weak self] result in
+        genreService.fetch(from: .movieGenre(movieId)) { [weak self] result in
             switch result  {
             case .failure(let error):
                 print(error)

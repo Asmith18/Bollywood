@@ -39,7 +39,7 @@ class TVShowDetailsViewModel {
     
     func fetchVidCode() {
         guard let tvId = tvShow?.id else { return }
-        videoService.fetchcharacterList(for: .tvVideos(tvId)) { [weak self] result in
+        videoService.fetch(from: .tvVideos(tvId)) { [weak self] result in
             switch result {
             case .success(let webView):
                 self?.results =  webView.results.filter({$0.type == "Trailer"})
@@ -52,7 +52,7 @@ class TVShowDetailsViewModel {
     
     func getTVProviders() {
         guard let tvProvider = tvShow?.id else { return }
-        providerService.fetchcharacterList(for: .tvProvider(tvProvider)) { [weak self] result in
+        providerService.fetch(from: .tvProvider(tvProvider)) { [weak self] result in
             switch result {
             case .failure(let error):
                 print(error)
@@ -65,7 +65,7 @@ class TVShowDetailsViewModel {
     
     func getTVCredits() {
         guard let tvId = tvShow?.id else { return }
-        creditsService.fetchcharacterList(for: .tvCredits(tvId)) { result in
+        creditsService.fetch(from: .tvCredits(tvId)) { result in
             switch result {
             case .failure(let error):
                 print(error)
@@ -80,7 +80,7 @@ class TVShowDetailsViewModel {
     
     func getTVDetails() {
         guard let tvId = tvShow?.id else { return }
-        genreService.fetchcharacterList(for: .tvGenre(tvId)) { [weak self] result in
+        genreService.fetch(from: .tvGenre(tvId)) { [weak self] result in
             switch result {
             case .success(let details):
                 self?.genres = details.genres

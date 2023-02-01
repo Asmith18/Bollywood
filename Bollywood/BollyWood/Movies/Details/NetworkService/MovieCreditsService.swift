@@ -7,24 +7,23 @@
 
 import Foundation
 
-struct MovieCreditsService {
+protocol MovieCreditsServicable {
+    func fetch(from endpoint: BollywoodEndpoint, completion: @escaping (Result<MovieCredits, ResultError>) -> Void)
+}
 
-    private let apiService = BollywoodAPI()
-    func fetchcharacterList(for endPoint: BollywoodEndpoint, completion: @escaping (Result<MovieCredits, ResultError>) -> Void) {
-
-        guard let finalURL = endPoint.fullURL else {
+struct MovieCreditsService: BollywoodAPI, MovieCreditsServicable {
+    func fetch(from endpoint: BollywoodEndpoint, completion: @escaping (Result<MovieCredits, ResultError>) -> Void) {
+        guard let url = endpoint.fullURL else {
             completion(.failure(.badURL))
             return
         }
-
-        let urlRequest = URLRequest(url: finalURL)
-
-        apiService.perform(urlRequest) { result in
+        perform(URLRequest(url: url)) { result in
             switch result {
             case .success(let data):
+                let decoder = JSONDecoder()
                 do {
-                    let movie = try JSONDecoder().decode(MovieCredits.self, from: data.filter({$0 == $0}))
-                    completion(.success(movie))
+                    let movieCredits = try decoder.decode(MovieCredits.self, from: data)
+                    completion(.success(movieCredits))
                 } catch {
                     completion(.failure(.unableToDecode))
                 }

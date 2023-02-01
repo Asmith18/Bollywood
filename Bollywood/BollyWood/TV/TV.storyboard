@@ -38,11 +38,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="139" height="250"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6KY-AH-XR3">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6KY-AH-XR3" customClass="MovieImageCache" customModule="Bollywood" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="139" height="205"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="139" id="2Cm-ug-x0R"/>
-                                                        <constraint firstAttribute="height" constant="205" id="9cI-Yd-6Fd"/>
+                                                        <constraint firstAttribute="height" constant="205" id="87f-PZ-r32"/>
+                                                        <constraint firstAttribute="width" constant="139" id="NU4-Yp-hhD"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5z-OY-j0Q">
@@ -53,16 +53,13 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="6KY-AH-XR3" firstAttribute="top" secondItem="s2b-0i-ZeF" secondAttribute="top" id="AEk-vF-X4s"/>
-                                                <constraint firstAttribute="bottom" secondItem="6KY-AH-XR3" secondAttribute="bottom" constant="45" id="E8T-Ej-eFZ"/>
-                                                <constraint firstAttribute="trailing" secondItem="D5z-OY-j0Q" secondAttribute="trailing" id="MAt-Nx-eXG"/>
-                                                <constraint firstItem="6KY-AH-XR3" firstAttribute="top" secondItem="s2b-0i-ZeF" secondAttribute="top" id="ULT-DI-0SA"/>
-                                                <constraint firstItem="D5z-OY-j0Q" firstAttribute="leading" secondItem="s2b-0i-ZeF" secondAttribute="leading" id="aOo-0Y-GlA"/>
-                                                <constraint firstAttribute="bottom" secondItem="D5z-OY-j0Q" secondAttribute="bottom" id="b5A-et-PpL"/>
-                                                <constraint firstItem="D5z-OY-j0Q" firstAttribute="top" secondItem="6KY-AH-XR3" secondAttribute="bottom" id="cGs-Id-RYg"/>
-                                                <constraint firstAttribute="trailing" secondItem="6KY-AH-XR3" secondAttribute="trailing" id="cqa-md-ovq"/>
-                                                <constraint firstAttribute="trailing" secondItem="6KY-AH-XR3" secondAttribute="trailing" id="onq-ma-LNz"/>
-                                                <constraint firstItem="6KY-AH-XR3" firstAttribute="leading" secondItem="s2b-0i-ZeF" secondAttribute="leading" id="rNt-Yd-I1z"/>
+                                                <constraint firstItem="6KY-AH-XR3" firstAttribute="leading" secondItem="s2b-0i-ZeF" secondAttribute="leading" id="9nt-Yh-P3b"/>
+                                                <constraint firstItem="6KY-AH-XR3" firstAttribute="top" secondItem="s2b-0i-ZeF" secondAttribute="top" id="CBR-Dn-onN"/>
+                                                <constraint firstAttribute="bottom" secondItem="D5z-OY-j0Q" secondAttribute="bottom" id="HRW-yT-Pvr"/>
+                                                <constraint firstAttribute="trailing" secondItem="6KY-AH-XR3" secondAttribute="trailing" id="MO1-t2-764"/>
+                                                <constraint firstItem="D5z-OY-j0Q" firstAttribute="leading" secondItem="s2b-0i-ZeF" secondAttribute="leading" id="XXa-4C-UlH"/>
+                                                <constraint firstAttribute="trailing" secondItem="D5z-OY-j0Q" secondAttribute="trailing" id="bHH-vd-mKj"/>
+                                                <constraint firstItem="D5z-OY-j0Q" firstAttribute="top" secondItem="6KY-AH-XR3" secondAttribute="bottom" id="r1Q-Sb-tvt"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="139" height="250"/>

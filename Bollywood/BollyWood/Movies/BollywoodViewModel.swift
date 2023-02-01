@@ -23,7 +23,7 @@ class BollywoodViewModel {
     }
     
     func fetchPopular(page: Int) {
-        service.fetchcharacterList(for: .popularMovie(page)) { [weak self] result in
+        service.fetch(from: .popularMovie(page)) { [weak self] result in
             switch result {
             case .failure(let error):
                 print(error)
@@ -35,7 +35,7 @@ class BollywoodViewModel {
     }
     
     func searchMovie(searchTerm: String) {
-        service.fetchcharacterList(for: .moviePath(searchTerm)) { [weak self] result in
+        service.fetch(from: .moviePath(searchTerm)) { [weak self] result in
             switch result {
             case .failure(let error):
                 print(error)

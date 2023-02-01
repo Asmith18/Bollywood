@@ -9,12 +9,17 @@ import UIKit
 
 class MovieActorCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var movieActorImageView: UIImageView!
+    @IBOutlet weak var movieActorImageView: MovieImageCache!
     @IBOutlet weak var movieActorNameTextLabel: UILabel!
     
     override func prepareForReuse() {
         movieActorImageView.image = nil
         movieActorNameTextLabel.text = nil
+    }
+    
+    func makeRounded() {
+        movieActorImageView.layer.cornerRadius = movieActorImageView.frame.size.width / 2
+        movieActorImageView.clipsToBounds = true
     }
     
     func setup(credits: MovieCast) {
@@ -26,31 +31,11 @@ class MovieActorCollectionViewCell: UICollectionViewCell {
         }
         
         if credits.profile_path != nil {
-            fetchImage(with: credits)
+            movieActorImageView.setImage(using: credits.profile_path)
         } else {
             movieActorImageView.image = UIImage(named: "noImage")
         }
         
         makeRounded()
-    }
-    
-    func makeRounded() {
-        movieActorImageView.layer.cornerRadius = movieActorImageView.frame.size.width / 2
-        movieActorImageView.clipsToBounds = true
-    }
-    
-    
-    func fetchImage(with credits: MovieCast) {
-        guard let castImage = credits.profile_path else { return }
-        BollywoodAPI.fetchImage(from: castImage) { [weak self] result in
-            switch result {
-            case .success(let image):
-                DispatchQueue.main.async {
-                    self?.movieActorImageView.image = image
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
     }
 }

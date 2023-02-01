@@ -23,7 +23,7 @@ class TVShowsViewModel {
     }
     
     func fetchPopular(page: Int) {
-        service.fetchcharacterList(for: .popularTv(page)) { [weak self] result in
+        service.fetch(from: .popularTv(page)) { [weak self] result in
             switch result {
             case .failure(let error):
                 print(error)
@@ -35,7 +35,7 @@ class TVShowsViewModel {
     }
     
     func searchTVShow(searchTerm: String) {
-        service.fetchcharacterList(for: .tvPath(searchTerm)) { [weak self] result in
+        service.fetch(from: .tvPath(searchTerm)) { [weak self] result in
             switch result {
             case .failure(let error):
                 print(error)
