@@ -113,19 +113,60 @@ extension TVShowDetailsViewController: TVShowDetailsViewModelDelegate {
 extension TVShowDetailsViewController: UICollectionViewDataSource, UICollectionViewDelegate, UINavigationControllerDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == providerCollectionView.self {
-            return viewModel.flatrate.count
-        } else if collectionView == trailerCollectionView.self {
-            return viewModel.results.count
-        } else if collectionView == actorCollectionView.self {
-                return viewModel.tvCast.count
-        } else if collectionView == crewCollectionView.self {
-            if viewModel.tvCrew.isEmpty {
-                return 1
+            if viewModel.flatrate.count == 0 {
+                let emptyLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height))
+                emptyLabel.text = "No Data"
+                emptyLabel.textAlignment = NSTextAlignment.center
+                self.providerCollectionView.backgroundView = emptyLabel
+                return 0
             } else {
+                self.providerCollectionView.backgroundView = nil
+                return viewModel.flatrate.count
+            }
+        } else if collectionView == trailerCollectionView.self {
+            if viewModel.results.count == 0 {
+                let emptyLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height))
+                emptyLabel.text = "No Data"
+                emptyLabel.textAlignment = NSTextAlignment.center
+                self.trailerCollectionView.backgroundView = emptyLabel
+                return 0
+            } else {
+                self.trailerCollectionView.backgroundView = nil
+                return viewModel.results.count
+            }
+        } else if collectionView == actorCollectionView.self {
+            if viewModel.tvCast.count == 0 {
+                let emptyLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height))
+                emptyLabel.text = "No Data"
+                emptyLabel.textAlignment = NSTextAlignment.center
+                self.actorCollectionView.backgroundView = emptyLabel
+                return 0
+            } else {
+                self.actorCollectionView.backgroundView = nil
+                return viewModel.tvCast.count
+            }
+        } else if collectionView == crewCollectionView.self {
+            if viewModel.tvCrew.count == 0 {
+                let emptyLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height))
+                emptyLabel.text = "No Data"
+                emptyLabel.textAlignment = NSTextAlignment.center
+                self.crewCollectionView.backgroundView = emptyLabel
+                return 0
+            } else {
+                self.crewCollectionView.backgroundView = nil
                 return viewModel.tvCrew.count
             }
         } else {
-            return viewModel.genres.count
+            if viewModel.genres.count == 0 {
+                let emptyLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height))
+                emptyLabel.text = "No Data"
+                emptyLabel.textAlignment = NSTextAlignment.center
+                self.genreCollectionView.backgroundView = emptyLabel
+                return 0
+            } else {
+                self.genreCollectionView.backgroundView = nil
+                return viewModel.genres.count
+            }
         }
     }
     
@@ -146,20 +187,16 @@ extension TVShowDetailsViewController: UICollectionViewDataSource, UICollectionV
             return cell
         } else if collectionView == actorCollectionView.self {
             let cell = actorCollectionView.dequeueReusableCell(withReuseIdentifier: "actor", for: indexPath) as! ActorCollectionViewCell
-            
-            let result = viewModel.tvCast[indexPath.row]
-            cell.setup(with: result)
+    
+                let result = viewModel.tvCast[indexPath.row]
+                cell.setup(with: result)
             
             return cell
         } else if collectionView == crewCollectionView.self {
             let cell = crewCollectionView.dequeueReusableCell(withReuseIdentifier: "crew", for: indexPath) as! CrewCollectionViewCell
             
-            if viewModel.tvCrew.isEmpty {
-                cell.crewImageView.image = UIImage(named: "noImage")
-            } else {
                 let result = viewModel.tvCrew[indexPath.row]
                 cell.setup(with: result)
-            }
             
             return cell
         } else {

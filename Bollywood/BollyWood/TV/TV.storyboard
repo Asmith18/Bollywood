@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2su-Dh-Xt7">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -9,43 +9,43 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--TV Shows-->
-        <scene sceneID="s0d-6b-0kx">
+        <!--Shows-->
+        <scene sceneID="aeq-AA-Su6">
             <objects>
-                <viewController storyboardIdentifier="TVShowViewController" id="Y6W-OH-hqX" customClass="TVShowViewController" customModule="Bollywood" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                <viewController storyboardIdentifier="TVShowViewController" id="2su-Dh-Xt7" customClass="TVShowViewController" customModule="Bollywood" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="uI6-Qz-4hI">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="TVShows" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bDc-uQ-8vJ">
-                                <rect key="frame" x="16" y="59" width="361" height="793"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="T6v-lO-I8s">
+                                <rect key="frame" x="16" y="59" width="361" height="749"/>
                                 <color key="backgroundColor" red="0.13807833350000001" green="0.13807833350000001" blue="0.13807833350000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="361" id="kLd-UX-AuR"/>
-                                    <constraint firstAttribute="height" constant="793" id="yLc-7f-E5e"/>
+                                    <constraint firstAttribute="height" constant="749" id="xSH-tW-cDS"/>
+                                    <constraint firstAttribute="width" constant="361" id="yHV-03-NJ2"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Odg-hX-pcf">
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XTU-0K-7nh">
                                     <size key="itemSize" width="139" height="250"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="tvCell" id="2gf-x8-hSV" customClass="TVCollectionViewCell" customModule="Bollywood">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="tvCell" id="OCU-5T-CsI" customClass="TVCollectionViewCell" customModule="Bollywood" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="139" height="250"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" id="s2b-0i-ZeF">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" id="UVX-Dv-1ud">
                                             <rect key="frame" x="0.0" y="0.0" width="139" height="250"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6KY-AH-XR3" customClass="MovieImageCache" customModule="Bollywood" customModuleProvider="target">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p3h-Wy-jjh" customClass="MovieImageCache" customModule="Bollywood" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="139" height="205"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="205" id="87f-PZ-r32"/>
-                                                        <constraint firstAttribute="width" constant="139" id="NU4-Yp-hhD"/>
+                                                        <constraint firstAttribute="width" constant="139" id="qB3-0f-k30"/>
+                                                        <constraint firstAttribute="height" constant="205" id="sMv-la-h0H"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5z-OY-j0Q">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cP1-Xy-7lT">
                                                     <rect key="frame" x="0.0" y="205" width="139" height="45"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -53,51 +53,59 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="6KY-AH-XR3" firstAttribute="leading" secondItem="s2b-0i-ZeF" secondAttribute="leading" id="9nt-Yh-P3b"/>
-                                                <constraint firstItem="6KY-AH-XR3" firstAttribute="top" secondItem="s2b-0i-ZeF" secondAttribute="top" id="CBR-Dn-onN"/>
-                                                <constraint firstAttribute="bottom" secondItem="D5z-OY-j0Q" secondAttribute="bottom" id="HRW-yT-Pvr"/>
-                                                <constraint firstAttribute="trailing" secondItem="6KY-AH-XR3" secondAttribute="trailing" id="MO1-t2-764"/>
-                                                <constraint firstItem="D5z-OY-j0Q" firstAttribute="leading" secondItem="s2b-0i-ZeF" secondAttribute="leading" id="XXa-4C-UlH"/>
-                                                <constraint firstAttribute="trailing" secondItem="D5z-OY-j0Q" secondAttribute="trailing" id="bHH-vd-mKj"/>
-                                                <constraint firstItem="D5z-OY-j0Q" firstAttribute="top" secondItem="6KY-AH-XR3" secondAttribute="bottom" id="r1Q-Sb-tvt"/>
+                                                <constraint firstItem="p3h-Wy-jjh" firstAttribute="top" secondItem="UVX-Dv-1ud" secondAttribute="top" id="1W7-jH-FQO"/>
+                                                <constraint firstItem="p3h-Wy-jjh" firstAttribute="top" secondItem="UVX-Dv-1ud" secondAttribute="top" id="4Jm-f1-lVA"/>
+                                                <constraint firstAttribute="bottom" secondItem="cP1-Xy-7lT" secondAttribute="bottom" id="8aA-Ms-zHd"/>
+                                                <constraint firstItem="cP1-Xy-7lT" firstAttribute="top" secondItem="p3h-Wy-jjh" secondAttribute="bottom" id="8mq-aB-IRk"/>
+                                                <constraint firstAttribute="bottom" secondItem="p3h-Wy-jjh" secondAttribute="bottom" constant="45" id="D8T-AR-xCf"/>
+                                                <constraint firstAttribute="trailing" secondItem="cP1-Xy-7lT" secondAttribute="trailing" id="KkH-Sg-Nll"/>
+                                                <constraint firstItem="cP1-Xy-7lT" firstAttribute="leading" secondItem="UVX-Dv-1ud" secondAttribute="leading" id="W4C-MP-wUa"/>
+                                                <constraint firstAttribute="trailing" secondItem="p3h-Wy-jjh" secondAttribute="trailing" id="thp-eX-LVr"/>
+                                                <constraint firstAttribute="trailing" secondItem="p3h-Wy-jjh" secondAttribute="trailing" id="zO2-Ot-efX"/>
+                                                <constraint firstItem="p3h-Wy-jjh" firstAttribute="leading" secondItem="UVX-Dv-1ud" secondAttribute="leading" id="zgm-Dk-4dc"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="139" height="250"/>
                                         <connections>
-                                            <outlet property="tvImageView" destination="6KY-AH-XR3" id="EPz-cs-4IB"/>
-                                            <outlet property="tvTextLabel" destination="D5z-OY-j0Q" id="qeW-Dj-2L6"/>
+                                            <outlet property="tvImageView" destination="p3h-Wy-jjh" id="VZk-LM-oHY"/>
+                                            <outlet property="tvTextLabel" destination="cP1-Xy-7lT" id="MgB-9s-5O6"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <viewLayoutGuide key="safeArea" id="7Xv-cs-7FK"/>
                         <color key="backgroundColor" red="0.13807833350000001" green="0.13807833350000001" blue="0.13807833350000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="bDc-uQ-8vJ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="9zm-Hf-CsI"/>
-                            <constraint firstAttribute="bottom" secondItem="bDc-uQ-8vJ" secondAttribute="bottom" id="AaS-h1-GME"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="bDc-uQ-8vJ" secondAttribute="trailing" constant="16" id="dBu-gZ-c6N"/>
-                            <constraint firstItem="bDc-uQ-8vJ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="wAB-od-qWF"/>
+                            <constraint firstItem="T6v-lO-I8s" firstAttribute="leading" secondItem="7Xv-cs-7FK" secondAttribute="leading" constant="16" id="1A5-kP-rfQ"/>
+                            <constraint firstAttribute="bottom" secondItem="T6v-lO-I8s" secondAttribute="bottom" id="KEg-Y4-33m"/>
+                            <constraint firstItem="T6v-lO-I8s" firstAttribute="top" secondItem="7Xv-cs-7FK" secondAttribute="top" id="gk2-68-PXC"/>
+                            <constraint firstItem="7Xv-cs-7FK" firstAttribute="trailing" secondItem="T6v-lO-I8s" secondAttribute="trailing" constant="16" id="wH6-76-jLJ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="TV Shows" id="Ohe-UT-IRG">
-                        <barButtonItem key="leftBarButtonItem" image="magnifyingglass" catalog="system" style="plain" id="CxU-5o-23l">
+                    <tabBarItem key="tabBarItem" title="Item" id="1Me-7G-Pbw">
+                        <color key="badgeColor" red="0.67258435490000001" green="0.1243264452" blue="0.19373077150000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
+                    <navigationItem key="navigationItem" title="Shows" id="Mwn-Qw-CjL">
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="search" id="D7p-o0-fZZ">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <action selector="searchButtonPressed:" destination="Y6W-OH-hqX" id="mRS-I6-rjk"/>
+                                <action selector="searchButtonPressed:" destination="2su-Dh-Xt7" id="Mrw-Nv-nlW"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="collectionView" destination="bDc-uQ-8vJ" id="wON-lJ-gzN"/>
-                        <outlet property="searchBarView" destination="vT1-In-eAX" id="CuA-Br-pl6"/>
+                        <outlet property="collectionView" destination="T6v-lO-I8s" id="1kk-6k-iTN"/>
+                        <outlet property="searchBarView" destination="sGg-EK-f5m" id="Ad0-XY-Fb7"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <searchBar contentMode="redraw" placeholder="Search TV Show" showsCancelButton="YES" id="vT1-In-eAX">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BdS-oH-ohM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <searchBar contentMode="redraw" placeholder="Search Movies" showsCancelButton="YES" id="sGg-EK-f5m">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="51"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="barTintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                    <textInputTraits key="textInputTraits"/>
                     <scopeButtonTitles>
                         <string>Title</string>
                         <string>Title</string>
@@ -109,10 +117,7 @@
                     </userDefinedRuntimeAttributes>
                 </searchBar>
             </objects>
-            <point key="canvasLocation" x="5634.3511450381675" y="150"/>
+            <point key="canvasLocation" x="6340" y="150"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
-    </resources>
 </document>

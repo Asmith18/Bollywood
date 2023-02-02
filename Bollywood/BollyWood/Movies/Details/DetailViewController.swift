@@ -30,6 +30,12 @@ class DetailViewController: UIViewController {
         fetchEndpoint()
     }
     
+    func formatDate(date: String) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.locale = .current
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true

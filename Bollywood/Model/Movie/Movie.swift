@@ -17,6 +17,7 @@ struct Movies: Decodable {
     let vote_average: Double?
     let id: Int?
     let release_date: String?
+    let original_language: String?
 }
 
 
