@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import WebKit
 
 class DetailViewController: UIViewController {
     
@@ -28,12 +27,16 @@ class DetailViewController: UIViewController {
         collectionViews()
         updateViews()
         fetchEndpoint()
+        formatDate()
     }
     
-    func formatDate(date: String) {
+    func formatDate() {
+        guard let movieDate = viewModel.movie?.release_date else { return }
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .short
-        dateFormatter.locale = .current
+        dateFormatter.dateFormat = "yyyy-mm-dd"
+        guard let newDate = dateFormatter.date(from: movieDate) else { return }
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        movieDateTextLabel.text = dateFormatter.string(from: newDate)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,7 +63,6 @@ class DetailViewController: UIViewController {
     }
     
     func updateViews() {
-        movieDateTextLabel.text = viewModel.movie?.release_date
         movieRatingTextLabel.text = "\(viewModel.movie?.vote_average ?? 0) / 10"
         movieImageView.setImage(using: viewModel.movie?.backdrop_path)
         movieNameTextLabel.text = viewModel.movie?.title

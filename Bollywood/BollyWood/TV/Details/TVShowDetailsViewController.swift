@@ -29,6 +29,7 @@ class TVShowDetailsViewController: UIViewController {
         setupCollectionView()
         updateViews()
         fetchEndpoint()
+        formatDate()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,6 +56,15 @@ class TVShowDetailsViewController: UIViewController {
         viewModel.getTVProviders()
         viewModel.getTVCredits()
         viewModel.getTVDetails()
+    }
+    
+    func formatDate() {
+        guard let tvDate = viewModel.tvShow?.first_air_date else { return }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-mm-dd"
+        guard let newDate = dateFormatter.date(from: tvDate) else { return }
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        showDateTextLabel.text = dateFormatter.string(from: newDate)
     }
     
     func updateViews() {
